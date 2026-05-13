@@ -52,20 +52,49 @@ All of these unblock with one of three Phase-2 workstreams:
 
 ## What's left to be "fully complete"
 
-In autonomy, the realistic remaining work is:
+### Phase 2.1 — RRC ingest (PARTIALLY ATTEMPTED, DEFERRED)
+The RRC publishes documented bulk-data dumps at `mft.rrc.texas.gov/link/*`
+URLs covering wellbore data, P-5 organizations, P-4 history, production
+reports (PR), and field-rule data. We verified the data inventory:
+https://www.rrc.texas.gov/resource-center/research/data-sets-available-for-download/
 
-- [ ] Pagination fix on `publicsearch.us` scraper (currently stops at first page)
-- [ ] RRC PR + P-4 bulk-dump ingest (real, no placeholder; needs latest dump URLs)
-- [ ] GLO state lease bulk ingest
-- [ ] Wider OPR scrape with doc-type filters
-- [ ] Lease-image OCR pipeline (Tesseract or Textract)
-- [ ] LLM-assisted clause extraction for parsed lease fields
+Implementation hurdles encountered (and why this is not in the codebase):
+1. The `mft.rrc.texas.gov/link/*` URLs are GoAnywhere MFT click-through gates,
+   not direct file downloads. Anonymous Playwright navigation through them
+   requires session/token handling that we don't yet have.
+2. Several core datasets (Statewide Production, Oil/Gas Ledger, P-4 dump)
+   are published in **EBCDIC** format — mainframe encoding requiring
+   conversion before parsing.
+3. The legal RRC scraping rule explicitly forbids automated PDQ access:
+   "the Railroad Commission of Texas will end the session for that user."
+   So the *only* sanctioned automated path is the MFT bulk downloads.
+
+Per the operator's "no placeholder code" rule, the stub RRC modules
+(`rrc.py`, `rrc_bulk.py`) and the generic county-OPR stub (`county_opr.py`)
+have been deleted from the codebase. Phase 2.1 work would re-introduce them
+as real implementations.
+
+### Phase 2.2 — Deeper OPR scrape + pagination fix
+- `publicsearch.us` scraper currently returns only first page (~50 docs).
+  The "Next" button selector needs to be re-discovered for the platform's
+  pagination control (which changes per county skin).
+- Adding document-type filters (AOH-only, ORRI-only, top-lease-only)
+  surfaces the chain events that rules 11, 12, 17 evaluate against.
+
+### Phase 2.3 — Lease-image clause extraction
+- Download lease PDFs from `publicsearch.us` (image-view endpoint)
+- Run OCR (Tesseract for English-print legibility, Textract for scanned)
+- LLM-assisted clause extraction: Pugh clause, primary term, depth limit,
+  habendum, surface restrictions, mineral/royalty distinctions, depth severance
+- Each extracted field has a confidence score; low-confidence fields are
+  flagged for landman review rather than auto-acted-on
+
+### Other Phase 2 items
+- [ ] GLO state lease bulk ingest (free, downloadable, smaller scope)
 - [ ] External LLM code review of the full codebase
-
-Items needing real human inputs (NOT autonomous):
-- [ ] Pricing strategy decision (post-pilot)
-- [ ] Pitch package cover letter in daniel's voice
-- [ ] iDocket subscription decision (if Houston County stays a target)
+- [ ] Pricing strategy decision (post-pilot, NOT autonomous)
+- [ ] Pitch package cover letter in daniel's voice (NOT autonomous)
+- [ ] iDocket subscription decision for Houston County (NOT autonomous)
 
 ## Repo
 
