@@ -195,6 +195,194 @@ def _build_payload(ctx: ProjectContext, findings: list[dict]) -> dict[str, Any]:
 
     unattributed = _unattributed_leases(county_fips)
 
+    # ── Per-tract dossiers ─────────────────────────────────────────
+    # Everything-on-one-page-per-tract view: legal description, leases on
+    # tract with parsed clauses, wells (best-effort county-match), operators,
+    # chain events, findings, recommended actions.
+    tract_dossiers: list[dict] = []
+    for t in ctx.tracts:
+        t_leases = ctx.leases_for_tract(t.id)
+        t_findings = [f for f in fview if f.get("tract_id") == t.id]
+        t_chain = _chain_entries_for_tract(ctx, t)
+        # Wells are county-scoped in load_project; surface every well in the
+        # county on the first tract only would be misleading. Best-effort:
+        # link wells whose lease_name contains a lessor surname from the tract.
+        t_well_apis: set[str] = set()
+        for w in ctx.wells:
+            lease_name = (w.lease_name or "").upper()
+            for le in t_leases:
+                lessor_lastname = ((le.lessor_text or "").split() or [""])[0].upper()
+                if lessor_lastname and len(lessor_lastname) >= 4 and lessor_lastname in lease_name:
+                    t_well_apis.add(w.api_no)
+                    break
+        t_wells = [w for w in ctx.wells if w.api_no in t_well_apis]
+
+        lease_summary = []
+        for le in t_leases:
+            lease_summary.append({
+                "instrument": le.opr_instrument_no or "—",
+                "recording_date": le.recording_date.isoformat() if le.recording_date else "—",
+                "lessor": le.lessor_text or "—",
+                "lessee": le.lessee_text or "—",
+                "primary_term_years": float(le.primary_term_years) if le.primary_term_years else None,
+                "primary_term_end": le.primary_term_end.isoformat() if le.primary_term_end else "—",
+                "royalty": (
+                    f"{float(le.royalty_fraction):.4f}".rstrip("0").rstrip(".")
+                    if le.royalty_fraction is not None else "—"
+                ),
+                "has_pugh": "Yes" if le.has_pugh_clause else ("No" if le.has_pugh_clause is False else "—"),
+                "depth_limit_ft": f"{float(le.depth_limit_ft):.0f}" if le.depth_limit_ft else "—",
+            })
+        well_summary = [{
+            "api_no": w.api_no,
+            "lease_name": (w.lease_name or "—"),
+            "well_no": w.well_no or "",
+            "status": w.status or "—",
+            "spud_date": w.spud_date.isoformat() if w.spud_date else "—",
+            "operator": (ctx.operators_by_p5[w.operator_p5].name
+                         if w.operator_p5 and w.operator_p5 in ctx.operators_by_p5 else "—"),
+        } for w in t_wells[:30]]
+        tract_dossiers.append({
+            "id": t.id,
+            "label": _clean_tract_label(t.label),
+            "abstract_no": t.abstract_no or "—",
+            "survey_name": t.survey_name or "—",
+            "gross_acres": (f"{float(t.gross_acres):g}" if t.gross_acres else "—"),
+            "lease_count": len(t_leases),
+            "well_count": len(t_wells),
+            "finding_count": len(t_findings),
+            "leases": lease_summary,
+            "wells": well_summary,
+            "chain": t_chain,
+            "findings": [{"severity": f["severity"], "title": f["title"],
+                          "rule_id": f["rule_id"], "effort": f["effort_display"]}
+                         for f in t_findings],
+        })
+
+    # ── Multi-county RRC scope ────────────────────────────────────
+    # The brother's territory at Monument spans Anderson + Houston counties.
+    # OPR/chain analysis is Anderson-only (Houston OPR requires a paid
+    # iDocket subscription). RRC wellbore + operator data is loaded for both
+    # so the Operator and Wells sections present a complete picture of his
+    # operator-side responsibilities.
+    project_counties = {t.county_fips for t in ctx.tracts}
+    rrc_counties = sorted(project_counties | {"48225"}) if project_counties else ["48001", "48225"]
+    rrc_county_names = []
+    for f in rrc_counties:
+        cn = COUNTIES.get(f)
+        rrc_county_names.append(cn.name if cn else f)
+
+    operator_view: list[dict] = []
+    with cursor() as cur:
+        cur.execute(
+            """
+            SELECT o.rrc_p5_number, o.name, o.status,
+                   count(DISTINCT w.api_no) AS well_count,
+                   count(DISTINCT w.api_no) FILTER (WHERE w.status ILIKE '%%active%%'
+                                                       OR w.status ILIKE '%%produc%%') AS active_count,
+                   max(w.spud_date) AS latest_spud,
+                   string_agg(DISTINCT c.name, ', ' ORDER BY c.name) AS counties
+              FROM operator o
+              JOIN well w ON w.operator_p5 = o.rrc_p5_number
+              JOIN county c ON c.fips = w.county_fips
+             WHERE w.county_fips = ANY(%s)
+             GROUP BY o.rrc_p5_number, o.name, o.status
+             ORDER BY well_count DESC
+             LIMIT 30
+            """,
+            (rrc_counties,),
+        )
+        for row in cur.fetchall():
+            operator_view.append({
+                "p5":            row["rrc_p5_number"],
+                "name":          row["name"] or "—",
+                "status":        row["status"] or "—",
+                "well_count":    int(row["well_count"] or 0),
+                "active_count":  int(row["active_count"] or 0),
+                "latest_spud":   row["latest_spud"].isoformat() if row.get("latest_spud") else "—",
+                "counties":      row.get("counties") or "—",
+            })
+
+    # Wells across all RRC-scope counties, top 50 by spud date
+    well_inventory: list[dict] = []
+    with cursor() as cur:
+        cur.execute(
+            """
+            SELECT w.api_no, w.county_fips, c.name AS county_name,
+                   w.lease_name, w.well_no, w.spud_date, w.status,
+                   o.name AS operator_name
+              FROM well w
+              JOIN county c ON c.fips = w.county_fips
+              LEFT JOIN operator o ON o.rrc_p5_number = w.operator_p5
+             WHERE w.county_fips = ANY(%s)
+             ORDER BY w.spud_date DESC NULLS LAST
+             LIMIT 50
+            """,
+            (rrc_counties,),
+        )
+        for row in cur.fetchall():
+            well_inventory.append({
+                "api_no":      row["api_no"],
+                "county":      row["county_name"],
+                "lease_name":  row["lease_name"] or "—",
+                "well_no":     row["well_no"] or "",
+                "operator":    row["operator_name"] or "—",
+                "spud_date":   row["spud_date"].isoformat() if row.get("spud_date") else "—",
+                "status":      row["status"] or "—",
+            })
+
+    # Per-county RRC summary for the Section VI/VII intro
+    rrc_county_summary: list[dict] = []
+    with cursor() as cur:
+        cur.execute(
+            """
+            SELECT c.fips, c.name,
+                   count(DISTINCT w.api_no) AS well_count,
+                   count(DISTINCT w.operator_p5) AS operator_count,
+                   count(DISTINCT w.api_no) FILTER (
+                     WHERE w.status ILIKE '%%active%%' OR w.status ILIKE '%%produc%%'
+                   ) AS active_count
+              FROM county c
+              LEFT JOIN well w ON w.county_fips = c.fips
+             WHERE c.fips = ANY(%s)
+             GROUP BY c.fips, c.name
+             ORDER BY well_count DESC
+            """,
+            (rrc_counties,),
+        )
+        for row in cur.fetchall():
+            rrc_county_summary.append({
+                "fips":           row["fips"],
+                "name":           row["name"],
+                "well_count":     int(row["well_count"] or 0),
+                "operator_count": int(row["operator_count"] or 0),
+                "active_count":   int(row["active_count"] or 0),
+            })
+
+    # ── Lease document thumbnails for the appendix ────────────────
+    lease_images: list[dict] = []
+    cache_root = PATHS.cache / "lease_images" / county_fips
+    if cache_root.exists():
+        for le in ctx.leases:
+            if not le.opr_instrument_no:
+                continue
+            safe_id = "".join(c if c.isalnum() or c in "._-" else "_" for c in le.opr_instrument_no)
+            page1 = cache_root / safe_id / "page_01.png"
+            if not page1.exists():
+                continue
+            # Copy to the project's reports dir so Typst can resolve relative
+            target = PATHS.reports / ctx.project_id / "_lease_thumbs"
+            target.mkdir(parents=True, exist_ok=True)
+            target_path = target / f"{safe_id}_p1.png"
+            if not target_path.exists():
+                target_path.write_bytes(page1.read_bytes())
+            lease_images.append({
+                "instrument": le.opr_instrument_no,
+                "parties": f"{(le.lessor_text or '—')[:48]} → {(le.lessee_text or '—')[:48]}",
+                "recording_date": le.recording_date.isoformat() if le.recording_date else "—",
+                "image_path": f"_lease_thumbs/{safe_id}_p1.png",
+            })
+
     return {
         "project": {
             "project_id": ctx.project_id,
@@ -220,6 +408,12 @@ def _build_payload(ctx: ProjectContext, findings: list[dict]) -> dict[str, Any]:
         "data_sources": _resolve_actual_data_sources(county_fips, county_name),
         "rules_total": _count_registered_rules(),
         "verified_release_count": int(verified_release_count or 0),
+        "tract_dossiers": tract_dossiers,
+        "operator_view": operator_view,
+        "well_inventory": well_inventory,
+        "lease_images": lease_images,
+        "rrc_counties": rrc_county_names,
+        "rrc_county_summary": rrc_county_summary,
         "facttrack_version": __version__,
         "generated_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
     }
