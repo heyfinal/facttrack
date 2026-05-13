@@ -20,6 +20,7 @@ def _ensure_pool() -> SimpleConnectionPool:
             minconn=1,
             maxconn=8,
             dsn=DB.dsn,
+            options="-csearch_path=facttrack,public",
         )
     return _POOL
 
@@ -30,6 +31,9 @@ def conn() -> Iterator[psycopg2.extensions.connection]:
     c = pool.getconn()
     try:
         c.autocommit = False
+        # Defensive: ensure search_path even if pool option was ignored
+        with c.cursor() as _cur:
+            _cur.execute("SET search_path TO facttrack, public")
         yield c
         c.commit()
     except Exception:

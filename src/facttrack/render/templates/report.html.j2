@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ project.label }} — FactTrack Report</title>
+<style>
+  @page { size: Letter; margin: 0.6in 0.55in 0.6in 0.55in; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    color: #1a1a1a;
+    line-height: 1.4;
+  }
+  h1 { font-size: 22pt; margin: 0 0 4pt 0; color: #0f3057; }
+  h2 { font-size: 14pt; margin: 18pt 0 8pt 0; color: #0f3057; border-bottom: 2pt solid #0f3057; padding-bottom: 2pt; }
+  h3 { font-size: 11pt; margin: 10pt 0 4pt 0; color: #0f3057; }
+  .subtitle { font-size: 10pt; color: #555; margin: 0 0 14pt 0; }
+  .meta-table { font-size: 9pt; margin: 8pt 0 16pt 0; }
+  .meta-table td { padding: 2pt 12pt 2pt 0; vertical-align: top; }
+  .meta-table td:first-child { color: #555; font-weight: 600; }
+  .badge { display: inline-block; padding: 2pt 8pt; border-radius: 3pt; font-weight: 700; font-size: 9pt; color: white; }
+  .badge.green { background: #2e7d32; }
+  .badge.yellow { background: #ed6c02; }
+  .badge.red { background: #c62828; }
+  .severity { padding: 1pt 6pt; border-radius: 2pt; font-weight: 700; font-size: 8pt; color: white; }
+  .sev-critical { background: #b71c1c; }
+  .sev-high { background: #e65100; }
+  .sev-medium { background: #f9a825; color: #222; }
+  .sev-low { background: #388e3c; }
+  .findings-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin: 6pt 0; }
+  .findings-table th { background: #0f3057; color: white; padding: 5pt 4pt; text-align: left; font-weight: 600; }
+  .findings-table td { padding: 5pt 4pt; border-bottom: 0.5pt solid #ddd; vertical-align: top; }
+  .findings-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .impact { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .summary-box {
+    background: #f4f6fa;
+    border-left: 4pt solid #0f3057;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    font-size: 10pt;
+  }
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 8pt;
+    margin-top: 14pt;
+    border-top: 0.5pt solid #ccc;
+    padding-top: 4pt;
+  }
+  .pagebreak { page-break-after: always; }
+  .cover { text-align: center; padding-top: 1.5in; }
+  .cover h1 { font-size: 36pt; }
+  .cover .brand { font-size: 12pt; color: #888; letter-spacing: 3pt; margin-bottom: 24pt; }
+  .cover .badge { font-size: 14pt; padding: 6pt 14pt; }
+  .narrative {
+    font-size: 10pt;
+    background: #fafbfd;
+    border: 0.5pt solid #d0d5e0;
+    padding: 10pt 14pt;
+    margin: 8pt 0;
+    line-height: 1.45;
+  }
+  .narrative em { color: #666; }
+  .tract-status { width: 100%; font-size: 9.5pt; border-collapse: collapse; margin: 6pt 0; }
+  .tract-status th { background: #f0f3f8; padding: 5pt 6pt; text-align: left; }
+  .tract-status td { padding: 5pt 6pt; border-bottom: 0.5pt solid #ddd; }
+  .lease-cal { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin: 6pt 0; }
+  .lease-cal th, .lease-cal td { padding: 4pt 6pt; border: 0.5pt solid #ddd; text-align: center; }
+  .lease-cal th { background: #f0f3f8; }
+  .lease-cal td.red { background: #ffcdd2; color: #b71c1c; font-weight: 600; }
+  .lease-cal td.yellow { background: #fff9c4; color: #6d4c00; font-weight: 600; }
+  .lease-cal td.green { background: #c8e6c9; color: #1b5e20; }
+  .small { font-size: 8pt; color: #666; }
+  table.simple { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  table.simple th { background: #f0f3f8; padding: 5pt; text-align: left; font-weight: 600; }
+  table.simple td { padding: 5pt; border-bottom: 0.5pt solid #ddd; }
+</style>
+</head>
+<body>
+
+<!-- ─── PAGE 1: COVER ─────────────────────────────────────────────── -->
+<div class="cover">
+  <div class="brand">F A C T T R A C K</div>
+  <h1>{{ project.label }}</h1>
+  <p class="subtitle">East Texas Landwork Report — generated {{ generated_at }}</p>
+  <table class="meta-table" style="margin: 32pt auto 24pt auto; text-align: left;">
+    <tr><td>Project ID</td><td>{{ project.project_id }}</td></tr>
+    <tr><td>County</td><td>{{ county_name }}, Texas (FIPS {{ county_fips }})</td></tr>
+    <tr><td>Tracts in scope</td><td>{{ project.tracts|length }}</td></tr>
+    <tr><td>Active leases reviewed</td><td>{{ project.leases|length }}</td></tr>
+    <tr><td>Wells reviewed</td><td>{{ project.wells|length }}</td></tr>
+    <tr><td>Public records pulled</td><td>{{ data_sources|length }} sources</td></tr>
+  </table>
+  <p style="margin: 14pt 0 4pt 0;">Project status</p>
+  <span class="badge {{ overall_badge_color }}">{{ overall_badge_text }}</span>
+  <p class="small" style="margin-top: 60pt; max-width: 5.5in; margin-left: auto; margin-right: auto;">
+    This report aggregates leasehold risk, curative priority, and project execution
+    findings from public records and operator filings. All data sourced from public records.
+    No proprietary or customer data is included in this analysis.
+  </p>
+</div>
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 2: LEASE RISK & CURATIVE PRIORITY (THE MONEY PAGE) ───── -->
+<h1 style="margin-top: 0;">Lease Risk &amp; Curative Priority</h1>
+<p class="subtitle">Ranked findings — top {{ findings|length }} of {{ findings|length }} items</p>
+
+<div class="summary-box">
+  <strong>{{ summary.headline }}</strong><br>
+  {{ summary.body }}
+</div>
+
+<table class="findings-table">
+  <thead>
+    <tr>
+      <th style="width: 30pt;">#</th>
+      <th style="width: 55pt;">Severity</th>
+      <th style="width: 90pt;">Type</th>
+      <th>Description</th>
+      <th style="width: 110pt;">$ Impact</th>
+      <th style="width: 90pt;">Assignee</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for f in findings %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td><span class="severity sev-{{ f.severity }}">{{ f.severity|upper }}</span></td>
+      <td>{{ f.rule_id }}</td>
+      <td>
+        <strong>{{ f.title }}</strong>
+        <div class="small">{{ f.description|truncate(280, true) }}</div>
+        <div class="small" style="margin-top: 3pt;"><em>{{ f.suggested_action|truncate(200, true) }}</em></div>
+      </td>
+      <td class="impact">{{ f.impact_display }}</td>
+      <td>{{ f.assignee_display }}</td>
+    </tr>
+  {% endfor %}
+  {% if findings|length == 0 %}
+    <tr><td colspan="6" style="text-align: center; padding: 20pt;">No curative items detected on this tract group.</td></tr>
+  {% endif %}
+  </tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 3: LEASE EXPIRATION CALENDAR ─────────────────────────── -->
+<h1 style="margin-top: 0;">Lease Expiration Calendar — Next 24 Months</h1>
+<p class="subtitle">Color-coded by risk level. Pugh-clause and continuous-development obligations flagged in-line.</p>
+
+<table class="lease-cal">
+  <thead>
+    <tr>
+      <th style="width: 140pt;">Lease (instrument / lessor)</th>
+      <th>Primary term end</th>
+      <th>Pugh / Retained acreage</th>
+      <th>Continuous prod</th>
+      <th>Risk</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in lease_calendar %}
+    <tr>
+      <td>
+        <strong>{{ row.instrument }}</strong><br>
+        <span class="small">{{ row.lessor }}</span>
+      </td>
+      <td>{{ row.term_end }}</td>
+      <td>{{ row.pugh_status }}</td>
+      <td>{{ row.continuous_prod }}</td>
+      <td class="{{ row.risk_color }}">{{ row.risk_label }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 4: TITLE CHAIN VISUALIZATION ─────────────────────────── -->
+<h1 style="margin-top: 0;">Title Chain — Annotated</h1>
+<p class="subtitle">Chronological chain runback with curative items inline.</p>
+
+{% for tract in project.tracts %}
+<h3>Tract: {{ tract.label }}</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entry in tract.chain_entries %}
+    <tr>
+      <td>{{ entry.date }}</td>
+      <td>{{ entry.kind }}</td>
+      <td>
+        <strong>{{ entry.instrument }}</strong>
+        <div class="small">{{ entry.parties }}</div>
+      </td>
+      <td>
+        {% if entry.curative %}
+          <span class="severity sev-{{ entry.curative_severity }}">!</span>
+        {% else %}
+          ✓
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endfor %}
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 5: TRACT MAP ──────────────────────────────────────────── -->
+<h1 style="margin-top: 0;">Tract Map</h1>
+<p class="subtitle">Wells colored by status. Lease boundaries (where indexed in public records). Curative-hot zones highlighted.</p>
+
+{% if map_image_path %}
+<div style="text-align: center; margin: 12pt 0;">
+  <img src="{{ map_image_path }}" style="max-width: 6.5in; max-height: 7in; border: 0.5pt solid #ccc;">
+</div>
+{% else %}
+<div class="summary-box">
+  <strong>Map rendering:</strong> interactive HTML map available at <code>{{ map_html_path }}</code>.
+  Static raster preview not embedded in this build.
+</div>
+{% endif %}
+
+<table class="simple">
+  <thead><tr><th>Well API</th><th>Lease</th><th>Operator</th><th>Status</th></tr></thead>
+  <tbody>
+    {% for w in project.wells %}
+    <tr>
+      <td>{{ w.api_no }}</td>
+      <td>{{ w.lease_name }} #{{ w.well_no }}</td>
+      <td>{{ w.operator_name }}</td>
+      <td>{{ w.status }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 6: ACQUISITIONS TRACT STATUS ─────────────────────────── -->
+<h1 style="margin-top: 0;">Acquisitions — Tract Status</h1>
+<p class="subtitle">Per-tract acquisition readiness; cleared / blocked / critical labels with NRI math.</p>
+
+<table class="tract-status">
+  <thead><tr><th>Tract</th><th>Status</th><th>Open curative</th><th>Critical items</th><th>NRI snapshot</th></tr></thead>
+  <tbody>
+    {% for row in acquisition_status %}
+    <tr>
+      <td>{{ row.label }}</td>
+      <td><span class="badge {{ row.badge_color }}">{{ row.badge_text }}</span></td>
+      <td>{{ row.open_count }}</td>
+      <td>{{ row.critical_count }}</td>
+      <td>{{ row.nri_summary }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h3 style="margin-top: 20pt;">Field narrative</h3>
+<div class="narrative">{{ acquisitions_narrative }}</div>
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 7: PROJECT MANAGEMENT BACKLOG ─────────────────────────── -->
+<h1 style="margin-top: 0;">Project Management — Curative Backlog</h1>
+<p class="subtitle">Findings restructured as task assignments with priority + deadlines.</p>
+
+<table class="findings-table">
+  <thead>
+    <tr>
+      <th style="width: 30pt;">#</th>
+      <th style="width: 90pt;">Priority</th>
+      <th>Task</th>
+      <th style="width: 80pt;">Assignee</th>
+      <th style="width: 75pt;">Deadline</th>
+      <th style="width: 60pt;">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for f in findings %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td><span class="severity sev-{{ f.severity }}">{{ f.severity|upper }}</span></td>
+      <td>
+        <strong>{{ f.title }}</strong>
+        <div class="small">{{ f.suggested_action|truncate(180, true) }}</div>
+      </td>
+      <td>{{ f.assignee_display }}</td>
+      <td>{{ f.deadline_display }}</td>
+      <td>{{ f.status|capitalize }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<!-- ─── APPENDIX ───────────────────────────────────────────────────── -->
+<div class="pagebreak"></div>
+<h1 style="margin-top: 0;">Appendix — Methodology &amp; Data Sources</h1>
+
+<h3>Public data sources</h3>
+<ul>
+  {% for source in data_sources %}
+  <li><strong>{{ source.name }}</strong> — {{ source.description }}. Last pulled: {{ source.pulled_at }}.</li>
+  {% endfor %}
+</ul>
+
+<h3>Curative detection rules</h3>
+<p>This report runs {{ rules_total }} detection rules against the tract group. Each finding includes a
+confidence score (0.0–1.0) reflecting data-quality limitations of public records. Findings below 0.5
+confidence are flagged for manual review before action.</p>
+
+<h3>Disclosures</h3>
+<p>All data sourced from public records. No proprietary or customer data is used in this analysis.
+Dollar-impact estimates use a configurable internal price deck; actual values depend on operator
+filings, division-order math, and current market conditions. This report is a curative-prioritization
+tool — not a substitute for a licensed Texas attorney's title opinion.</p>
+
+<div class="footer">
+  FactTrack v{{ facttrack_version }} — {{ generated_at }} — Project {{ project.project_id }}
+</div>
+
+</body>
+</html>
