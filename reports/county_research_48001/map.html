@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_e9814d002d3763dc14f68cbc76fc3aa1 {
+                #map_37f7c0f8a2058919586454bf9f12b67a {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -50,18 +50,21 @@
             </script>
 
         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_e9814d002d3763dc14f68cbc76fc3aa1" ></div>
+            <div class="folium-map" id="map_37f7c0f8a2058919586454bf9f12b67a" ></div>
         
 </body>
 <script>
     
     
-            var map_e9814d002d3763dc14f68cbc76fc3aa1 = L.map(
-                "map_e9814d002d3763dc14f68cbc76fc3aa1",
+            var map_37f7c0f8a2058919586454bf9f12b67a = L.map(
+                "map_37f7c0f8a2058919586454bf9f12b67a",
                 {
                     center: [31.55, -95.55],
                     crs: L.CRS.EPSG3857,
@@ -73,13 +76,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_e9814d002d3763dc14f68cbc76fc3aa1);
+            L.control.scale().addTo(map_37f7c0f8a2058919586454bf9f12b67a);
 
             
 
         
     
-            var tile_layer_babdd2e04d6bf0ab6326e65f3f77edd5 = L.tileLayer(
+            var tile_layer_7f7bd535ac61f98226fc2c79bb219951 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -96,25 +99,35 @@
             );
         
     
-            tile_layer_babdd2e04d6bf0ab6326e65f3f77edd5.addTo(map_e9814d002d3763dc14f68cbc76fc3aa1);
+            tile_layer_7f7bd535ac61f98226fc2c79bb219951.addTo(map_37f7c0f8a2058919586454bf9f12b67a);
         
     
-            var layer_control_188d2fafd41142328cec2ece961788bf_layers = {
+            var marker_cluster_a91de0ecdfe5b473d3e96bea7b6b26f7 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_a91de0ecdfe5b473d3e96bea7b6b26f7.addTo(map_37f7c0f8a2058919586454bf9f12b67a);
+        
+    
+            var layer_control_f30db01931725c6a7ebef0654d98dbb7_layers = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_babdd2e04d6bf0ab6326e65f3f77edd5,
+                    "openstreetmap" : tile_layer_7f7bd535ac61f98226fc2c79bb219951,
                 },
                 overlays :  {
+                    "Wells" : marker_cluster_a91de0ecdfe5b473d3e96bea7b6b26f7,
                 },
             };
-            let layer_control_188d2fafd41142328cec2ece961788bf = L.control.layers(
-                layer_control_188d2fafd41142328cec2ece961788bf_layers.base_layers,
-                layer_control_188d2fafd41142328cec2ece961788bf_layers.overlays,
+            let layer_control_f30db01931725c6a7ebef0654d98dbb7 = L.control.layers(
+                layer_control_f30db01931725c6a7ebef0654d98dbb7_layers.base_layers,
+                layer_control_f30db01931725c6a7ebef0654d98dbb7_layers.overlays,
                 {
   "position": "topright",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_e9814d002d3763dc14f68cbc76fc3aa1);
+            ).addTo(map_37f7c0f8a2058919586454bf9f12b67a);
 
         
 </script>

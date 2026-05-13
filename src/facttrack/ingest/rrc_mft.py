@@ -160,7 +160,7 @@ def download_mft_dataset(
             context = browser.new_context(
                 user_agent=HTTP.user_agent,
                 accept_downloads=True,
-                viewport={"width": 1400, "height": 900},
+                viewport={"width": 1920, "height": 4000},  # tall + wide so GoDrive table fits
             )
             page = context.new_page()
             page.set_default_timeout(timeout_ms)
@@ -180,20 +180,58 @@ def download_mft_dataset(
             checkbox = target_row.locator("input[type='checkbox']").first
             if checkbox.count() == 0:
                 raise RuntimeError("target row has no checkbox")
-            checkbox.check()
-            page.wait_for_timeout(1500)  # let JSF update form state
+            # GoDrive's JSF binding fires on native click; row checkboxes
+            # commonly sit in a sticky column off-screen, so we explicitly
+            # scroll the row into view and then click via JS (force is not
+            # enough — Playwright's actionability check still bounces on
+            # off-viewport elements).
+            target_row.scroll_into_view_if_needed(timeout=10_000)
+            page.wait_for_timeout(500)
+            checkbox.evaluate("el => { el.scrollIntoView({block: 'center'}); el.click(); }")
+            page.wait_for_timeout(2500)  # let JSF AJAX update the toolbar
 
-            # Identify the Download button by its accessible name.
-            log.info("locating Download button")
-            download_btn = page.get_by_role("button", name="Download")
-            if download_btn.count() == 0:
-                download_btn = page.locator("button:has-text('Download')")
-            if download_btn.count() == 0:
-                raise RuntimeError("Download button not found on page")
-            log.info("Download button found; clicking + awaiting download event")
-
+            # Strategy 1: click by JSF id pattern (Download buttons share suffix).
+            # The button id we saw in Chrome MCP was `j_id_3f:j_id_3f` but JSF
+            # regenerates these per session, so we match by the `:j_id_*` pattern
+            # AND the visible "Download" label.
+            log.info("locating Download button via multiple strategies")
+            clicked = False
             with page.expect_download(timeout=timeout_ms) as dl_info:
-                download_btn.first.click()
+                # Strategy A: visible text + visible state filter
+                for sel in (
+                    "button:visible:has-text('Download')",
+                    "button[id*='j_id'][type='submit']:has-text('Download')",
+                    "input[type='submit'][value='Download']",
+                ):
+                    try:
+                        btn = page.locator(sel).first
+                        if btn.count() > 0:
+                            btn.click(force=True, timeout=5_000)
+                            clicked = True
+                            log.info("clicked Download via selector: %s", sel)
+                            break
+                    except Exception as e:
+                        log.info("selector %s failed (%s); trying next", sel, e)
+                # Strategy B: JS-driven JSF form submit if click didn't fire
+                if not clicked:
+                    log.info("falling back to JSF form submission via JavaScript")
+                    submitted = page.evaluate("""
+                        () => {
+                            const btn = Array.from(document.querySelectorAll('button, input[type="submit"]'))
+                                .find(el => (el.innerText || el.value || '').trim() === 'Download');
+                            if (!btn) return 'no-button-found';
+                            // JSF buttons inside a <form> — find the enclosing form
+                            let form = btn.closest('form');
+                            if (!form) return 'no-form';
+                            // Click via JS dispatch
+                            btn.click();
+                            return 'js-clicked';
+                        }
+                    """)
+                    log.info("JS click result: %s", submitted)
+                    clicked = submitted == 'js-clicked'
+                if not clicked:
+                    raise RuntimeError("could not initiate Download via any strategy")
             download: Download = dl_info.value
             suggested = download.suggested_filename or f"{spec['expected_filename_prefix']}.csv"
             target_path = cache_dir / suggested
