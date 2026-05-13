@@ -20,22 +20,14 @@ _TEMPLATES = Path(__file__).parent / "templates"
 
 
 def _env() -> Environment:
-    return Environment(
+    env = Environment(
         loader=FileSystemLoader(str(_TEMPLATES)),
         autoescape=select_autoescape(["html", "j2"]),
         trim_blocks=True,
         lstrip_blocks=True,
     )
-
-
-def _impact_display(low: Any, high: Any) -> str:
-    if low is None and high is None:
-        return "—"
-    if low is None:
-        return f"≤ ${float(high):,.0f}"
-    if high is None:
-        return f"≥ ${float(low):,.0f}"
-    return f"${float(low):,.0f}–${float(high):,.0f}"
+    env.filters["format_thousands"] = lambda n: f"{int(n):,}" if n is not None else "—"
+    return env
 
 
 _ASSIGNEE_LABELS = {
@@ -48,6 +40,25 @@ _ASSIGNEE_LABELS = {
 
 def _assignee_display(level: Any) -> str:
     return _ASSIGNEE_LABELS.get(level or "", "—")
+
+
+# Curative-effort estimates calibrated to East-Texas operator pricing 2026.
+# Replaces wide $-impact bands (which read as inflated to working landmen) with
+# the labor + recording shape a Director of Land actually scopes against.
+_EFFORT_BY_RULE = {
+    "r01_unrecorded_p4_assignment":     "2–4 hr jr · ~$250 rec.",
+    "r02_probate_gap":                  "4–8 hr jr · district-clerk search · ~$300 rec.",
+    "r04_depth_severance_mismatch":     "Title-opinion review · ~$2,500 atty",
+    "r05_primary_term_no_continuous_prod": "Verify recorded release · 1–2 hr jr",
+    "r06_pugh_release_missed":          "4–6 hr sr · ~$200 rec.",
+    "r12_top_lease_conflict":           "Title-opinion review · ~$2,500 atty",
+    "r16_mineral_royalty_ambiguity":    "Stipulation of interest · 6–12 hr sr",
+    "r17_orri_cloud":                   "Notice of termination · 2–4 hr jr",
+}
+
+
+def _effort_display(rule_id: str) -> str:
+    return _EFFORT_BY_RULE.get(rule_id, "Refer to senior landman")
 
 
 def _badge_for_findings(findings: list[dict], has_clause_data: bool) -> tuple[str, str]:
@@ -128,6 +139,13 @@ def _count_registered_rules() -> int:
 
 
 def _lease_calendar(ctx: ProjectContext) -> list[dict]:
+    """Build the lease maintenance calendar.
+
+    Pre-1980 expired leases are not shown as "EXPIRED N days ago" — a working
+    landman reads that on a 67-year-old lease and instantly distrusts the
+    report. They are shown as "Historical" with a hint to verify the release
+    is on file before treating the absence-of-release as a chain defect.
+    """
     today = date.today()
     rows: list[dict] = []
     for lease in ctx.leases:
@@ -135,71 +153,129 @@ def _lease_calendar(ctx: ProjectContext) -> list[dict]:
         if term_end is None:
             continue
         delta_days = (term_end - today).days
-        if delta_days < 0:
-            risk = "red"
-            risk_label = f"EXPIRED {abs(delta_days)} days ago"
+        years_past = -delta_days / 365.25 if delta_days < 0 else 0
+
+        if delta_days < 0 and years_past > 5:
+            # Pre-modern lease — almost certainly released, just possibly not
+            # captured in our scrape. Don't scream EXPIRED at the reader.
+            risk_pill = "outline-grey"
+            risk_label = f"Historical ({term_end.year})"
+            risk_note = "Verify recorded release before action"
+        elif delta_days < 0:
+            risk_pill = "critical"
+            risk_label = "Term expired"
+            risk_note = f"{abs(delta_days)} d past term end"
         elif delta_days < 180:
-            risk = "yellow"
-            risk_label = f"Expires in {delta_days} days"
+            risk_pill = "high"
+            risk_label = "Expires < 6 mo"
+            risk_note = f"{delta_days} d remaining"
+        elif delta_days < 540:
+            risk_pill = "medium"
+            risk_label = "Expires < 18 mo"
+            risk_note = f"~{delta_days // 30} mo remaining"
         else:
-            risk = "green"
-            risk_label = f"Active ({delta_days // 30} mo remaining)"
+            risk_pill = "low"
+            risk_label = "Active"
+            risk_note = f"~{delta_days // 30} mo remaining"
 
         pugh_status = "—"
         if lease.has_pugh_clause:
-            pugh_status = "Pugh + retained acreage"
+            pugh_status = "Pugh + retained"
         elif lease.has_retained_acreage:
-            pugh_status = "Retained acreage only"
+            pugh_status = "Retained acreage"
 
-        cont = "—"
-        if lease.has_continuous_dev:
-            cont = "Required"
+        parties = f"{(lease.lessor_text or '—')[:42]} → {(lease.lessee_text or '—')[:42]}"
+        royalty = (
+            f"{float(lease.royalty_fraction):.4f}".rstrip("0").rstrip(".")
+            if lease.royalty_fraction is not None else "—"
+        )
         rows.append({
             "instrument": lease.opr_instrument_no or f"lease #{lease.id}",
-            "lessor": (lease.lessor_text or "")[:60],
+            "parties": parties,
+            "recording_date": lease.recording_date.isoformat() if lease.recording_date else "—",
             "term_end": term_end.isoformat() if term_end else "—",
+            "royalty_display": royalty,
             "pugh_status": pugh_status,
-            "continuous_prod": cont,
-            "risk_color": risk,
+            "risk_pill": risk_pill,
             "risk_label": risk_label,
+            "risk_note": risk_note,
+            "_sort_key": (
+                {"critical": 0, "high": 1, "medium": 2, "low": 3, "outline-grey": 4}.get(risk_pill, 5),
+                term_end,
+            ),
         })
-    return sorted(rows, key=lambda r: r["risk_color"] == "green")
+    rows.sort(key=lambda r: r["_sort_key"])
+    for r in rows:
+        r.pop("_sort_key", None)
+    return rows
 
 
 def _chain_entries_for_tract(ctx: ProjectContext, tract) -> list[dict]:
-    """Build a chronological chain for a tract.
+    """Build a chronological chain for ONE tract.
 
-    Joins leases (by tract_id) PLUS every county chain_event whose date overlaps
-    the tract's lease window — most chain events from the OPR scrape aren't yet
-    linked to a specific lease (references_lease_id is null when ingested as
-    standalone OPR rows), so we fall back to including all county events
-    chronologically so the page reflects what's actually in the data.
+    Only includes (a) leases whose tract_id == this tract, and (b) chain events
+    explicitly linked to one of those leases via references_lease_id. Showing
+    every county-wide chain event under every tract — the prior behavior —
+    produces a page that visibly repeats the same 9 unrelated instruments under
+    each of 13 tract headings, which reads as auto-generated noise to any
+    landman with chain-of-title experience.
     """
     entries: list[dict] = []
     tract_leases = ctx.leases_for_tract(tract.id)
+    tract_lease_ids = {le.id for le in tract_leases}
     for lease in tract_leases:
         entries.append({
             "date": lease.recording_date.isoformat() if lease.recording_date else "—",
             "kind": "Lease",
             "instrument": lease.opr_instrument_no or "—",
-            "parties": f"{(lease.lessor_text or '?')[:60]} → {(lease.lessee_text or '?')[:60]}",
-            "curative": False,
+            "parties": f"{(lease.lessor_text or '—')[:48]} → {(lease.lessee_text or '—')[:48]}",
         })
-    # Include all county chain events (most are not lease-linked yet — show them
-    # in chronological context rather than hiding the data).
-    county_fips = tract.county_fips
     for ev in ctx.chain_events:
-        if ev.county_fips != county_fips:
+        if ev.references_lease_id not in tract_lease_ids:
             continue
         entries.append({
             "date": ev.recording_date.isoformat() if ev.recording_date else "—",
             "kind": ev.event_type.replace("_", " ").title(),
             "instrument": ev.opr_instrument_no or "—",
-            "parties": f"{(ev.grantor_text or '?')[:60]} → {(ev.grantee_text or '?')[:60]}",
-            "curative": ev.event_type in ("top_lease", "orri_creation"),
-            "curative_severity": "high" if ev.event_type == "top_lease" else "medium",
+            "parties": f"{(ev.grantor_text or '—')[:48]} → {(ev.grantee_text or '—')[:48]}",
         })
     return sorted(entries, key=lambda e: e["date"] or "")
+
+
+def _clause_coverage_pct(ctx: ProjectContext) -> int:
+    if not ctx.leases:
+        return 0
+    parsed = sum(
+        1 for le in ctx.leases
+        if any([le.primary_term_years, le.royalty_fraction,
+                le.has_pugh_clause, le.depth_limit_ft])
+    )
+    return round(100 * parsed / len(ctx.leases))
+
+
+def _examination_period(ctx: ProjectContext) -> str:
+    dates = [le.recording_date for le in ctx.leases if le.recording_date]
+    dates += [ev.recording_date for ev in ctx.chain_events if ev.recording_date]
+    if not dates:
+        return "—"
+    return f"{min(dates).isoformat()} – {max(dates).isoformat()}"
+
+
+def _rrc_pulled_at() -> str:
+    """When was the RRC wellbore data last refreshed?"""
+    try:
+        with cursor() as cur:
+            cur.execute(
+                """
+                SELECT MAX(finished_at) AS t FROM ingestion_run
+                 WHERE source LIKE 'rrc_mft:%%' AND rows_upserted > 0
+                """
+            )
+            row = cur.fetchone()
+            t = row.get("t") if row else None
+            return t.date().isoformat() if t else "not yet pulled"
+    except Exception:
+        return "not yet pulled"
 
 
 def _build_render_payload(
@@ -208,12 +284,13 @@ def _build_render_payload(
     map_html_path: str | None,
     map_image_path: str | None,
 ) -> dict[str, Any]:
-    # Per-finding display formatting
+    # Per-finding display formatting. Dollar bands replaced with curative-effort
+    # estimates — landmen scope work in labor + recording, not exposure bands.
     fview: list[dict] = []
     for f in findings:
         fview.append({
             **f,
-            "impact_display": _impact_display(f.get("dollar_impact_low"), f.get("dollar_impact_high")),
+            "effort_display": _effort_display(f.get("rule_id", "")),
             "assignee_display": _assignee_display(f.get("assignee_level")),
             "deadline_display": (
                 f["deadline"].isoformat() if isinstance(f.get("deadline"), (date, datetime)) else "—"
@@ -256,21 +333,32 @@ def _build_render_payload(
             "nri_summary": nri_summary,
         })
 
-    # Headline / summary
+    # Lead paragraph — written as a landman would, not as marketing copy.
     summary_findings_count = len(fview)
     summary_critical = sum(1 for f in fview if f["severity"] == "critical")
-    summary_dollar_high = sum(float(f.get("dollar_impact_high") or 0) for f in fview)
+    summary_high = sum(1 for f in fview if f["severity"] == "high")
     if summary_findings_count == 0:
         headline = "No curative items detected"
-        body = "Public records on this tract group reconcile cleanly. Recommend periodic re-scan."
-    else:
-        headline = (
-            f"{summary_findings_count} curative items identified "
-            f"({summary_critical} critical) — est. ${summary_dollar_high:,.0f} max exposure"
-        )
         body = (
-            f"Top-ranked items below should be addressed before commitment on this tract group. "
-            f"Estimated landman hours saved via this report: {min(summary_findings_count * 1.5, 25):.0f}–{summary_findings_count * 2 + 5}."
+            "The examined records reconcile cleanly against the registered rule set. "
+            "Periodic re-examination is recommended as the rule registry continues to evolve. "
+            "Records expressly excluded from this examination are listed in Section V."
+        )
+    else:
+        sev_pieces = []
+        if summary_critical:
+            sev_pieces.append(f"{summary_critical} critical")
+        if summary_high:
+            sev_pieces.append(f"{summary_high} high")
+        sev_descr = ", ".join(sev_pieces) if sev_pieces else "all medium / low"
+        headline = f"{summary_findings_count} curative items"
+        body = (
+            f"{summary_findings_count} curative items identified across "
+            f"{len(ctx.tracts)} tracts ({sev_descr}). Each finding cites the specific instrument "
+            f"and the chain-of-title rationale; curative-effort estimates assume current "
+            f"East-Texas operator pricing. Findings flagged as historical should be confirmed "
+            f"against the recorded-release index before action — see Section V for the records "
+            f"expressly excluded from this examination."
         )
 
     # Tracts with chain entries
@@ -319,13 +407,10 @@ def _build_render_payload(
         "overall_badge_text": overall_text,
         "lease_calendar": _lease_calendar(ctx),
         "acquisition_status": acq_rows,
-        "acquisitions_narrative": (
-            "Tract scope evaluated against the rule set listed in the appendix. "
-            "Critical and high-severity findings should clear before any commitment "
-            "instrument is recorded. Medium-severity findings can run in parallel."
-        ),
+        "clause_coverage_pct": _clause_coverage_pct(ctx),
+        "examination_period": _examination_period(ctx),
+        "rrc_pulled_at": _rrc_pulled_at(),
         "data_sources": data_sources,
-        # Reflect actual registry size, not aspirational count.
         "rules_total": _count_registered_rules(),
         "facttrack_version": __version__,
         "generated_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
