@@ -1,8 +1,8 @@
 """Arps decline curve fitting + EUR estimation.
 
-Used for offset-well analysis in the report (page-4-equivalent). Not used for
-acquisition recommendations — landmen don't trust LLM/auto-generated PV10 calls
-(per Grok review).
+Used for offset-well analysis in supporting tables only. Not used for
+acquisition recommendations — landmen evaluate decline + PV10 with their own
+licensed reservoir tools (Aries, PHDwin), not automated guesses.
 
 Hyperbolic decline:
     q(t) = qi / (1 + b * di * t) ** (1/b)        for b > 0

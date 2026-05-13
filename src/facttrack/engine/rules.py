@@ -135,50 +135,22 @@ def rule_02_probate_gap(ctx: ProjectContext, emit: FindingEmitter) -> None:
 # Rule 4 — Depth severance mismatch
 # ──────────────────────────────────────────────────────────────────────────
 def rule_04_depth_severance_mismatch(ctx: ProjectContext, emit: FindingEmitter) -> None:
-    """Lease grants limited depth interval but production from outside that interval."""
+    """Lease grants limited depth interval; producing depth from RRC W-2 is outside it.
+
+    Only fires when BOTH the lease depth limit AND the well's actual producing depth
+    are populated from real data. Producing depth comes from RRC completion records
+    (well.metadata['producing_depth_ft']). No hardcoded formation-to-depth heuristics.
+    """
     for tract in ctx.tracts:
         for lease in ctx.leases_for_tract(tract.id):
             if lease.depth_limit_ft is None:
                 continue
             for well in ctx.wells_for_tract(tract.id):
-                # crude check: well metadata or lease metadata may state producing depth
                 producing_depth = None
                 if isinstance(well.metadata, dict):
                     producing_depth = well.metadata.get("producing_depth_ft")
-                # also infer from lease parsed_metadata "depth_severance" notes
-                # and from well naming convention (production from Cotton Valley is ~9000+)
                 if producing_depth is None:
-                    if isinstance(lease.parsed_metadata, dict):
-                        note = (lease.parsed_metadata.get("depth_severance") or "").lower()
-                        if "cotton valley" in note:
-                            producing_depth = 9200
-                if producing_depth is None:
-                    # Last fallback — if lease has explicit limit < 8000 ft AND well is active,
-                    # flag for review (low confidence).
-                    if lease.depth_limit_ft < 8000:
-                        emit.add(Finding(
-                            rule_id="r04_depth_severance_mismatch",
-                            severity="high",
-                            confidence_score=0.55,
-                            tract_id=tract.id,
-                            lease_id=lease.id,
-                            title=f"Possible depth severance mismatch on well {well.api_no}",
-                            description=(
-                                f"Lease {lease.opr_instrument_no} grants rights "
-                                f"only to {lease.depth_limit_ft:.0f} ft. Well {well.api_no} on this tract "
-                                f"is producing; producing depth not confirmed from public sources. "
-                                f"Review to confirm production is within the depth granted."
-                            ),
-                            suggested_action=(
-                                "Pull RRC completion form (W-2) for the well to confirm "
-                                "actual perforation interval. If production is below the depth granted, "
-                                "obtain a depth-extension ratification or remove deeper production until cured."
-                            ),
-                            assignee_level="attorney_referral",
-                            dollar_impact_low=10_000.0,
-                            dollar_impact_high=100_000.0,
-                            related_events=[{"well_api": well.api_no, "lease_depth_limit_ft": lease.depth_limit_ft}],
-                        ))
+                    # No real producing-depth data available — do NOT speculate.
                     continue
                 if producing_depth > (lease.depth_limit_ft + 50):  # 50ft tolerance
                     emit.add(Finding(
@@ -541,13 +513,16 @@ def rule_17_orri_cloud(ctx: ProjectContext, emit: FindingEmitter) -> None:
 # math, surface deed records, GLO state lease cross-reference). They are
 # intentionally NOT registered here so the engine never emits placeholder
 # findings.
+# Note on r11: an Affidavit of Heirship on file 5+ years is *prima facie* evidence
+# of heirship under Texas Estates Code § 203.001 — flagging it as a curative item
+# is factually incorrect. Rule retained in source for traceability but removed
+# from the registry until reframed (e.g. invert it: "AOH absent" not "AOH old").
 RULE_REGISTRY = [
     rule_01_unrecorded_p4_assignment,
     rule_02_probate_gap,
     rule_04_depth_severance_mismatch,
     rule_05_primary_term_no_continuous_prod,
     rule_06_pugh_release_missed,
-    rule_11_old_aoh_no_probate,
     rule_12_top_lease_conflict,
     rule_16_mineral_royalty_ambiguity,
     rule_17_orri_cloud,

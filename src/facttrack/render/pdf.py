@@ -50,12 +50,81 @@ def _assignee_display(level: Any) -> str:
     return _ASSIGNEE_LABELS.get(level or "", "—")
 
 
-def _badge_for_findings(findings: list[dict]) -> tuple[str, str]:
+def _badge_for_findings(findings: list[dict], has_clause_data: bool) -> tuple[str, str]:
+    """Status badge for the project.
+
+    Critical: any critical finding.
+    Blocked: any high finding.
+    Insufficient data: no clause-level data parsed yet (the default until OCR + clause
+    extraction lands) — we DO NOT claim "Acquisition-ready" off an index scrape.
+    Clear: only when we have clause data AND no findings.
+    """
     if any(f["severity"] == "critical" for f in findings):
         return "red", "CRITICAL — curative required"
     if any(f["severity"] == "high" for f in findings):
         return "yellow", "BLOCKED pending curative"
-    return "green", "Acquisition-ready"
+    if not has_clause_data:
+        return "yellow", "Insufficient data — clause extraction required"
+    return "green", "No findings against current rule set"
+
+
+def _has_clause_data(ctx) -> bool:
+    """True iff at least one lease has parsed clause-level data populated."""
+    for lease in ctx.leases:
+        if any([
+            lease.primary_term_end is not None,
+            lease.royalty_fraction is not None,
+            lease.has_pugh_clause is not None,
+            lease.depth_limit_ft is not None,
+        ]):
+            return True
+    return False
+
+
+def _resolve_actual_data_sources(county_fips: str, county_name: str) -> list[dict]:
+    """List ONLY the public sources we actually populated rows from in this run.
+
+    Inspects ingestion_run + the populated tables to avoid claiming sources
+    we didn't actually pull. Uses the latest non-empty source per dataset.
+    """
+    sources: list[dict] = []
+    with cursor() as cur:
+        cur.execute(
+            """
+            SELECT source, MAX(finished_at) AS last_pulled, SUM(rows_upserted) AS rows
+            FROM ingestion_run
+            WHERE finished_at IS NOT NULL
+            GROUP BY source
+            HAVING SUM(rows_upserted) > 0
+            """,
+        )
+        rows = cur.fetchall()
+    label_map = {
+        f"publicsearch.us:{county_fips}": (
+            f"{county_name} County OPR (publicsearch.us)",
+            "Lease, assignment, release, AOH, probate index entries",
+        ),
+    }
+    for row in rows:
+        src = row["source"]
+        label, desc = label_map.get(src, (src, "ingest run"))
+        sources.append({
+            "name": label,
+            "description": desc + f" — {row['rows']} rows ingested",
+            "pulled_at": row["last_pulled"].date().isoformat() if row.get("last_pulled") else "unknown",
+        })
+    if not sources:
+        sources.append({
+            "name": "No public sources ingested in this run",
+            "description": "Run an ingest module before rendering",
+            "pulled_at": "n/a",
+        })
+    return sources
+
+
+def _count_registered_rules() -> int:
+    from facttrack.engine.rules import RULE_REGISTRY
+    return len(RULE_REGISTRY)
 
 
 def _lease_calendar(ctx: ProjectContext) -> list[dict]:
@@ -98,8 +167,17 @@ def _lease_calendar(ctx: ProjectContext) -> list[dict]:
 
 
 def _chain_entries_for_tract(ctx: ProjectContext, tract) -> list[dict]:
+    """Build a chronological chain for a tract.
+
+    Joins leases (by tract_id) PLUS every county chain_event whose date overlaps
+    the tract's lease window — most chain events from the OPR scrape aren't yet
+    linked to a specific lease (references_lease_id is null when ingested as
+    standalone OPR rows), so we fall back to including all county events
+    chronologically so the page reflects what's actually in the data.
+    """
     entries: list[dict] = []
-    for lease in ctx.leases_for_tract(tract.id):
+    tract_leases = ctx.leases_for_tract(tract.id)
+    for lease in tract_leases:
         entries.append({
             "date": lease.recording_date.isoformat() if lease.recording_date else "—",
             "kind": "Lease",
@@ -107,15 +185,20 @@ def _chain_entries_for_tract(ctx: ProjectContext, tract) -> list[dict]:
             "parties": f"{(lease.lessor_text or '?')[:60]} → {(lease.lessee_text or '?')[:60]}",
             "curative": False,
         })
-        for ev in ctx.chain_events_for_lease(lease.id):
-            entries.append({
-                "date": ev.recording_date.isoformat() if ev.recording_date else "—",
-                "kind": ev.event_type.replace("_", " ").title(),
-                "instrument": ev.opr_instrument_no or "—",
-                "parties": f"{(ev.grantor_text or '?')[:60]} → {(ev.grantee_text or '?')[:60]}",
-                "curative": ev.event_type in ("top_lease", "orri_creation"),
-                "curative_severity": "high" if ev.event_type == "top_lease" else "medium",
-            })
+    # Include all county chain events (most are not lease-linked yet — show them
+    # in chronological context rather than hiding the data).
+    county_fips = tract.county_fips
+    for ev in ctx.chain_events:
+        if ev.county_fips != county_fips:
+            continue
+        entries.append({
+            "date": ev.recording_date.isoformat() if ev.recording_date else "—",
+            "kind": ev.event_type.replace("_", " ").title(),
+            "instrument": ev.opr_instrument_no or "—",
+            "parties": f"{(ev.grantor_text or '?')[:60]} → {(ev.grantee_text or '?')[:60]}",
+            "curative": ev.event_type in ("top_lease", "orri_creation"),
+            "curative_severity": "high" if ev.event_type == "top_lease" else "medium",
+        })
     return sorted(entries, key=lambda e: e["date"] or "")
 
 
@@ -137,9 +220,10 @@ def _build_render_payload(
             ),
         })
 
-    overall_color, overall_text = _badge_for_findings(fview)
+    overall_color, overall_text = _badge_for_findings(fview, _has_clause_data(ctx))
 
-    # Acquisition status per tract
+    # Acquisition status per tract — NEVER claim "Ready" without parsed clause data.
+    has_clauses = _has_clause_data(ctx)
     acq_rows: list[dict] = []
     for tract in ctx.tracts:
         tract_findings = [f for f in fview if f.get("tract_id") == tract.id]
@@ -149,6 +233,9 @@ def _build_render_payload(
             color, text = "red", "Critical"
         elif high > 0:
             color, text = "yellow", "Blocked"
+        elif not has_clauses:
+            # Honest: index-only scrape can't conclude "ready". Flag it.
+            color, text = "yellow", "Insufficient data"
         else:
             color, text = "green", "Ready"
         nri_summary = "—"
@@ -213,12 +300,8 @@ def _build_render_payload(
     county_fips = next(iter(counties), "—") if counties else "—"
     county_name = COUNTIES.get(county_fips).name if county_fips in COUNTIES else "Unknown"
 
-    data_sources = [
-        {"name": "TX Railroad Commission", "description": "PR, P-4, P-5, W-1 queries + monthly bulk dumps", "pulled_at": date.today().isoformat()},
-        {"name": f"{county_name} County OPR (Tyler Tech iDox)", "description": "Lease, assignment, release, AOH, probate records", "pulled_at": date.today().isoformat()},
-        {"name": "TX General Land Office", "description": "State mineral lease records", "pulled_at": date.today().isoformat()},
-        {"name": "TX Comptroller", "description": "Oil & gas tax records", "pulled_at": date.today().isoformat()},
-    ]
+    # Truthful appendix: only sources we actually pulled FROM in this run.
+    data_sources = _resolve_actual_data_sources(county_fips, county_name)
 
     return {
         "project": {
@@ -242,7 +325,8 @@ def _build_render_payload(
             "instrument is recorded. Medium-severity findings can run in parallel."
         ),
         "data_sources": data_sources,
-        "rules_total": 17,
+        # Reflect actual registry size, not aspirational count.
+        "rules_total": _count_registered_rules(),
         "facttrack_version": __version__,
         "generated_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC"),
         "map_html_path": map_html_path,

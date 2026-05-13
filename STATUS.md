@@ -47,7 +47,7 @@ All of these unblock with one of three Phase-2 workstreams:
 ## What I'd flag to daniel BEFORE the pitch
 
 1. The pitch artifact today shows the ingest pipeline + canonical schema + report scaffold on real Anderson data. The OWNER-facing impression is: "you scraped 14 real leases and parsed them — but where are the findings?"
-2. To make Monument's owner say "how do we get this on every project file," the demo needs findings. That requires at minimum Phase 2 workstream (1) — RRC ingest — which adds ~3–5 days of build time.
+2. To get a "how do we put this on every project file" reaction from a shop owner, the demo needs at least one rule firing on real data. That requires Phase-2 workstream (3) — document-fetch + clause extraction — which is the actual product, not an add-on.
 3. Alternative: pitch FactTrack as a **canonical-record-aggregation** tool first (replace landman manual data entry), with curative detection as the upsell tier. That makes today's demo defensible at $300–$500/mo as a data-aggregation play.
 
 ## What's left to be "fully complete"

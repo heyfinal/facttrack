@@ -2,9 +2,7 @@
 
 **East Texas landwork automation — public-records ingestion + curative triage + landman-grade reports.**
 
-FactTrack ingests Texas Railroad Commission (RRC) data + East-Texas county Official Public Records (OPR) and produces a monthly **Leasehold Risk + Curative Priority + Project Execution** report per project file. The output is a PDF, an interactive HTML map, and an Excel workbook designed for landman workflows.
-
-The product targets small East-Texas land services shops doing acquisitions, title & curative, GIS, and project management — the workflows where 5–20 landman-hours per project file are still done by hand against public records.
+FactTrack ingests Texas Railroad Commission (RRC) data + East-Texas county Official Public Records (OPR) and produces a per-project report covering leasehold risk, curative priority, and project execution. The output is a PDF, an interactive HTML map, and an Excel workbook designed for landman workflows.
 
 ---
 
@@ -12,21 +10,16 @@ The product targets small East-Texas land services shops doing acquisitions, tit
 
 For every project file (a set of tracts):
 
-1. **Ingests public records** — TX RRC (PR / P-4 / P-5 / W-1), county OPR (Tyler Tech iDox), TX GLO state lease records, TX Comptroller oil/gas tax records.
+1. **Ingests public records** from TX RRC bulk dumps and county OPR portals on the `publicsearch.us` platform.
 2. **Builds the canonical title chain** — leases, assignments, releases, ratifications, top-leases, AOH, probate, ORRI creation/release, pooled units.
-3. **Runs 17 curative-detection rules** — surfaces ranked, scored findings (severity + dollar impact + suggested action + assignee level).
+3. **Runs curative-detection rules** — surfaces ranked, scored findings (severity + dollar impact + suggested action + assignee level).
 4. **Computes lease maintenance** — Pugh-clause acreage release, retained-acreage well misses, continuous-production status, primary-term expiration calendar.
 5. **Reconciles ownership** — NRI decimal math against recorded chain.
-6. **Renders the landman report** — generic-branded PDF (7 pages), Excel workbook (5 tabs), Folium tract map.
+6. **Renders the landman report** — PDF, Excel workbook, Folium tract map.
 
-## Curative rules — MVP (9 implemented; 8 deferred to Phase 2)
+## Curative rules — MVP
 
-The 9 rules registered in the engine produce real findings without any
-placeholder logic. Rules that require data sources still being wired
-(operator pay-deck NRI, surface deed records, GLO state cross-reference)
-are NOT in the registry yet — they're tracked separately as Phase-2 work.
-
-**Live in the registry:**
+Each registered rule has a real implementation with no stub or placeholder code.
 
 | # | Rule | Requires |
 |---|---|---|
@@ -35,15 +28,11 @@ are NOT in the registry yet — they're tracked separately as Phase-2 work.
 | 4 | Depth severance mismatch | parsed depth-limit clause + RRC completion data |
 | 5 | Primary term expiring + no continuous production | parsed primary-term + RRC PR data |
 | 6 | Pugh-clause acreage release missed | parsed Pugh clause text |
-| 11 | Heirship affidavit > 10 years w/o probate | county OPR AOH events |
 | 12 | Top-lease conflict | county OPR top-lease + lease primary-term data |
 | 16 | Mineral / royalty ambiguity in conveyance | parsed lease clause text |
 | 17 | ORRI cloud (unreleased > 36 mo post-lease termination) | county OPR ORRI events |
 
-**Phase-2 (NOT in the registry — would require placeholder code today):**
-r03 stranger-to-title, r07 retained-acreage well miss, r08 lease-assignment NRI mismatch,
-r09 unratified extension, r10 missing unit ratification, r13 surface use dispute,
-r14 pipeline ROW expiration, r15 county/state mineral classification mismatch.
+Other rules (stranger-to-title, retained-acreage well miss, NRI mismatch, unratified extension, unit ratification, surface-use dispute, pipeline ROW expiration, mineral classification mismatch) are deferred until the data sources they evaluate against are wired into ingestion.
 
 ## Stack
 
@@ -53,29 +42,23 @@ r14 pipeline ROW expiration, r15 county/state mineral classification mismatch.
 - WeasyPrint for PDF, Folium for maps, openpyxl for Excel
 - Pydantic for canonical data models
 - Tenacity for robust retries
-- Optional: local Ollama for narrative prose; OpenRouter fallback
 
 ## Layout
 
 ```
 src/facttrack/
-  config/      runtime settings (DB, HTTP, LLM, paths, counties)
+  config/      runtime settings (DB, HTTP, paths, counties)
   db/          PostgreSQL connection pool
   models/      pydantic canonical entities (Tract, Lease, ChainEvent, ...)
-  ingest/      RRC + county OPR + synthetic fixtures
+  ingest/      RRC bulk + county OPR ingestion modules
   engine/      curative-detection rules + decline / NRI / expiration math
   render/      PDF / Excel / map renderers
-  llm/         narrative writer (prose-only)
 
 sql/
   schema.sql   canonical 15-table schema
 
 scripts/
   init_db.sh   one-shot DB bootstrap
-
-docs/
-  PROJECT_DESIGN.md  full design (triple-LLM reviewed: Grok-4.20 + GPT-5.5 + DeepSeek-R1)
-  BUILD_LOG.md       autonomous cycle log
 ```
 
 ## Quickstart
@@ -88,49 +71,33 @@ bash scripts/init_db.sh
 python3.12 -m venv .venv && source .venv/bin/activate
 pip install -e .
 
-# 3. Seed the synthetic East-TX demo (Anderson + Houston tracts)
-PYTHONPATH=src python3 -m facttrack.ingest.synthetic
+# 3. Pull real OPR records for a county (example: Anderson County, TX, FIPS 48001)
+PYTHONPATH=src python3 -m facttrack.ingest.publicsearch --county 48001 --from 2024-01-01 --to $(date +%Y-%m-%d) --max 500
 
-# 4. Run the analysis engine on a demo project (after Phase 2 lands)
-PYTHONPATH=src python3 -m facttrack.engine.run --project demo_anderson_001
+# 4. Parse legals → canonical tracts + project
+PYTHONPATH=src python3 -m facttrack.ingest.legal_parser --county-fips 48001 --county-name Anderson
 
-# 5. Render the report (after Phase 3 lands)
-PYTHONPATH=src python3 -m facttrack.render.report --project demo_anderson_001
+# 5. Run engine + render report
+PYTHONPATH=src python3 -m facttrack.engine.run --project county_research_48001
+PYTHONPATH=src python3 -m facttrack.render.build_report --project county_research_48001
 ```
 
-## Status — real data, no fixtures
+## Status
 
-The pipeline now runs end-to-end on 100% real Texas public records. No
-synthetic, demo, mock, or placeholder data lives anywhere in the codebase or
-database.
+The pipeline runs end-to-end on 100% real Texas public records. No synthetic, mock, or placeholder data is used anywhere in the codebase.
 
-**Verified working on real data:**
-- Anderson County OPR ingest via Playwright scraper (live `publicsearch.us` portal)
-- Legal-description parser extracts real survey/abstract/acreage from each lease
-- Engine runs the 9 registered rules against the real entities
+**Honest finding rate today: 0.** The registered rules need clause-level data (Pugh clause text, primary term dates, depth limits) that the OPR index alone doesn't expose — only the underlying lease PDFs do. Extracting clauses from scanned PDFs (OCR + clause parsing) is the next workstream and is what unlocks the rules' firing rate against real data.
 
-**Honest current finding rate:** 0 findings on the recent Anderson County
-2-year window. The rules need clause-level data (Pugh, primary term, depth
-limits) that the OPR index doesn't expose — only the underlying lease PDFs do.
-Extracting clauses from scanned PDFs (OCR + LLM-assisted text parsing) is the
-Phase-2 workstream that unlocks the rules' full firing rate.
-
-**Counties currently on the free `publicsearch.us` platform:**
-Anderson, Leon, Freestone, Smith, Nacogdoches, Madison, Walker.
-
-**Houston County** (originally a pilot target) uses iDocket subscription —
-deferred to Phase 2 once a paid integration is justified by pilot revenue.
+**Counties on the free `publicsearch.us` platform:** Anderson, Leon, Freestone, Smith, Nacogdoches, Madison, Walker.
 
 ## Data sources (all public)
 
-- TX Railroad Commission online queries + monthly bulk dumps
-- Anderson County, TX OPR (Tyler Tech iDox)
-- Houston County, TX OPR (Tyler Tech iDox)
-- TX General Land Office state mineral lease records
-- TX Comptroller oil/gas tax records
+- TX Railroad Commission bulk dumps (`mft.rrc.texas.gov`)
+- East-Texas county OPR portals (`publicsearch.us` platform)
+- TX General Land Office state mineral lease records (planned)
 
-No proprietary customer data is used anywhere in this codebase. The demo fixture is deliberately synthetic; field labels and chain shapes mirror real East-TX public record patterns but every name, instrument number, and well API is fictional.
+All data sourced from public records. No proprietary or customer data is used.
 
 ## License
 
-TBD — repository owner: heyfinal. Contact via GitHub.
+TBD — contact via GitHub for licensing inquiries.
