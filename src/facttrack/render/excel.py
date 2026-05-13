@@ -92,7 +92,7 @@ def render_xlsx(project_id: str) -> Path:
     # ── Curative ─────────────────────────────────────────────────────
     cur_ws = wb.create_sheet("Curative")
     headers = ["#", "Severity", "Rule", "Title", "Description", "Suggested Action",
-               "Assignee", "$ Low", "$ High", "Confidence", "Deadline", "Status"]
+               "Assignee", "Curative effort", "Confidence", "Deadline", "Status"]
     _header_row(cur_ws, headers)
     cur_ws.freeze_panes = "A2"
     cur_ws.auto_filter.ref = f"A1:{get_column_letter(len(headers))}1"
@@ -101,19 +101,19 @@ def render_xlsx(project_id: str) -> Path:
         cur.execute(
             """
             SELECT rule_id, severity, confidence_score, title, description, suggested_action,
-                   assignee_level, dollar_impact_low, dollar_impact_high, deadline, status
+                   assignee_level, deadline, status
             FROM curative_item
             WHERE project_id = %s
             ORDER BY
               CASE severity WHEN 'critical' THEN 4 WHEN 'high' THEN 3
                             WHEN 'medium' THEN 2 WHEN 'low' THEN 1 ELSE 0 END DESC,
-              confidence_score DESC,
-              dollar_impact_high DESC NULLS LAST
+              confidence_score DESC
             """,
             (project_id,),
         )
         rows = cur.fetchall()
 
+    from facttrack.render.pdf import _effort_display
     for idx, r in enumerate(rows, 1):
         row_idx = idx + 1
         cur_ws.cell(row=row_idx, column=1, value=idx).alignment = Alignment(horizontal="center")
@@ -126,18 +126,15 @@ def render_xlsx(project_id: str) -> Path:
         cur_ws.cell(row=row_idx, column=5, value=r["description"]).alignment = _BODY_WRAP
         cur_ws.cell(row=row_idx, column=6, value=r["suggested_action"]).alignment = _BODY_WRAP
         cur_ws.cell(row=row_idx, column=7, value=_fmt(r["assignee_level"])).alignment = _BODY_WRAP
-        cur_ws.cell(row=row_idx, column=8, value=float(r["dollar_impact_low"]) if r["dollar_impact_low"] is not None else None)
-        cur_ws.cell(row=row_idx, column=8).number_format = '"$"#,##0'
-        cur_ws.cell(row=row_idx, column=9, value=float(r["dollar_impact_high"]) if r["dollar_impact_high"] is not None else None)
-        cur_ws.cell(row=row_idx, column=9).number_format = '"$"#,##0'
-        cur_ws.cell(row=row_idx, column=10, value=float(r["confidence_score"]))
-        cur_ws.cell(row=row_idx, column=10).number_format = "0.00"
-        cur_ws.cell(row=row_idx, column=11, value=_fmt(r["deadline"]))
-        cur_ws.cell(row=row_idx, column=12, value=r["status"])
+        cur_ws.cell(row=row_idx, column=8, value=_effort_display(r["rule_id"])).alignment = _BODY_WRAP
+        cur_ws.cell(row=row_idx, column=9, value=float(r["confidence_score"]))
+        cur_ws.cell(row=row_idx, column=9).number_format = "0.00"
+        cur_ws.cell(row=row_idx, column=10, value=_fmt(r["deadline"]))
+        cur_ws.cell(row=row_idx, column=11, value=r["status"])
 
         cur_ws.row_dimensions[row_idx].height = 60
 
-    _autosize(cur_ws, [5, 11, 28, 40, 70, 70, 16, 12, 12, 11, 12, 10])
+    _autosize(cur_ws, [5, 11, 28, 40, 70, 70, 16, 30, 11, 12, 10])
 
     # ── Leases ───────────────────────────────────────────────────────
     le_ws = wb.create_sheet("Leases")

@@ -80,8 +80,6 @@ def rule_01_unrecorded_p4_assignment(ctx: ProjectContext, emit: FindingEmitter) 
                         f"by {curr_name} is exposed to stranger-to-title attack."
                     ),
                     assignee_level="junior_landman",
-                    dollar_impact_low=2_500.0,
-                    dollar_impact_high=15_000.0,
                     related_events=[{"well_api": well.api_no, "from_p5": prev["operator_p5"], "to_p5": curr["operator_p5"], "effective": str(change_date)}],
                 ))
 
@@ -90,19 +88,64 @@ def rule_01_unrecorded_p4_assignment(ctx: ProjectContext, emit: FindingEmitter) 
 # Rule 2 — Probate gap (deceased lessor without AOH or probate)
 # ──────────────────────────────────────────────────────────────────────────
 def rule_02_probate_gap(ctx: ProjectContext, emit: FindingEmitter) -> None:
-    """A lease party is marked deceased but no AOH or probate is recorded."""
-    aoh_or_probate_subjects: set[str] = set()
+    """A lease party is marked deceased but no AOH or probate is recorded.
+
+    Implements Texas Estates Code §203.001: an AOH on file in deed records
+    for ≥5 years is prima facie evidence of heirship — those cases are
+    self-curing and we do not flag them. AOHs younger than 5 years are
+    surfaced as medium-severity (heirship recital exists but has not yet
+    matured to prima facie status).
+    """
+    today = date.today()
+    # name → (event_type, recording_date) for the best evidence available
+    aoh_or_probate: dict[str, tuple[str, date | None]] = {}
     for ev in ctx.chain_events:
-        if ev.event_type in ("aoh", "probate", "rop"):
-            if ev.grantor_text:
-                aoh_or_probate_subjects.add(_normalize_name(ev.grantor_text))
+        if ev.event_type in ("aoh", "probate", "rop") and ev.grantor_text:
+            key = _normalize_name(ev.grantor_text)
+            existing = aoh_or_probate.get(key)
+            # Prefer earliest record so §203.001's 5-yr clock measures correctly
+            if existing is None or (ev.recording_date and (existing[1] is None or ev.recording_date < existing[1])):
+                aoh_or_probate[key] = (ev.event_type, ev.recording_date)
 
     for lease in ctx.leases:
         for party in lease.parties:
             if party.role != "lessor" or not party.is_deceased:
                 continue
-            if _normalize_name(party.name) in aoh_or_probate_subjects:
+            key = _normalize_name(party.name)
+            evidence = aoh_or_probate.get(key)
+
+            if evidence is not None:
+                ev_type, ev_date = evidence
+                # Probate / RoP is binding regardless of age; AOH needs §203.001 maturity
+                if ev_type in ("probate", "rop"):
+                    continue
+                if ev_date and (today - ev_date).days >= 5 * 365:
+                    continue
+                # AOH on file but younger than 5 yr — flag as medium, not critical
+                emit.add(Finding(
+                    rule_id="r02_probate_gap",
+                    severity="medium",
+                    confidence_score=0.7,
+                    tract_id=lease.tract_id,
+                    lease_id=lease.id,
+                    title=f"AOH on file but pre-§203.001 — {party.name} (lease {lease.opr_instrument_no})",
+                    description=(
+                        f"An Affidavit of Heirship for {party.name} is recorded "
+                        f"({ev_date}), but has been on file less than 5 years. Under "
+                        f"Texas Estates Code §203.001 it is not yet prima facie evidence "
+                        f"of heirship. Confirm heirship recital with a current landman or "
+                        f"defer commitment until §203.001 maturity."
+                    ),
+                    suggested_action=(
+                        "Calendar the §203.001 maturity date. If commitment is required "
+                        "sooner, supplement with a current AOH executed by a disinterested "
+                        "affiant or obtain a determination of heirship from the probate court."
+                    ),
+                    assignee_level="junior_landman",
+                    related_events=[{"aoh_recording_date": str(ev_date)}],
+                ))
                 continue
+
             emit.add(Finding(
                 rule_id="r02_probate_gap",
                 severity="critical",
@@ -125,8 +168,6 @@ def rule_02_probate_gap(ctx: ProjectContext, emit: FindingEmitter) -> None:
                     f"this is filed any conveyance from purported heirs is exposed."
                 ),
                 assignee_level="senior_landman",
-                dollar_impact_low=15_000.0,
-                dollar_impact_high=200_000.0,
                 related_events=[{"lessor": party.name, "fraction": party.fraction_signed}],
             ))
 
@@ -173,8 +214,6 @@ def rule_04_depth_severance_mismatch(ctx: ProjectContext, emit: FindingEmitter) 
                             "deeper rights ownership."
                         ),
                         assignee_level="attorney_referral",
-                        dollar_impact_low=25_000.0,
-                        dollar_impact_high=500_000.0,
                         related_events=[
                             {"well_api": well.api_no, "producing_depth_ft": producing_depth,
                              "lease_depth_limit_ft": lease.depth_limit_ft}
@@ -197,6 +236,26 @@ def rule_05_primary_term_no_continuous_prod(ctx: ProjectContext, emit: FindingEm
             in_window = lease.primary_term_end <= horizon
             past_term = lease.primary_term_end < today
             if not in_window:
+                continue
+            # Grantor-side release verifier may have already proved the lessee
+            # filed a release of this lease. If so, the lease died honestly —
+            # no curative item.
+            existing_release = next(
+                (
+                    ev for ev in ctx.chain_events_for_lease(lease.id)
+                    if ev.event_type == "release"
+                    and ev.recording_date is not None
+                    and ev.recording_date < today
+                ),
+                None,
+            )
+            if existing_release is not None:
+                log.info(
+                    "r05 demoted for lease %s — release %s recorded %s",
+                    lease.opr_instrument_no,
+                    existing_release.opr_instrument_no,
+                    existing_release.recording_date,
+                )
                 continue
             # Look at the most recent 6 months of production on any well in this tract
             recent_threshold = today - timedelta(days=180)
@@ -233,8 +292,6 @@ def rule_05_primary_term_no_continuous_prod(ctx: ProjectContext, emit: FindingEm
                     ),
                     assignee_level="senior_landman",
                     deadline=today + timedelta(days=30),
-                    dollar_impact_low=20_000.0,
-                    dollar_impact_high=300_000.0,
                     related_events=[{"primary_term_end": str(lease.primary_term_end)}],
                 ))
             elif not past_term and in_window:
@@ -256,8 +313,6 @@ def rule_05_primary_term_no_continuous_prod(ctx: ProjectContext, emit: FindingEm
                     ),
                     assignee_level="senior_landman",
                     deadline=lease.primary_term_end,
-                    dollar_impact_low=5_000.0,
-                    dollar_impact_high=50_000.0,
                 ))
 
 
@@ -312,8 +367,6 @@ def rule_06_pugh_release_missed(ctx: ProjectContext, emit: FindingEmitter) -> No
                     "the release, request a title opinion regarding lease validity on the held acreage."
                 ),
                 assignee_level="senior_landman",
-                dollar_impact_low=10_000.0,
-                dollar_impact_high=150_000.0,
                 related_events=[{
                     "primary_term_end": str(lease.primary_term_end),
                     "pooled_acres": pooled, "total_acres": total,
@@ -353,8 +406,6 @@ def rule_11_old_aoh_no_probate(ctx: ProjectContext, emit: FindingEmitter) -> Non
                 "as the sole heirship evidence in the file for any underwriter review."
             ),
             assignee_level="junior_landman",
-            dollar_impact_low=500.0,
-            dollar_impact_high=5_000.0,
         ))
 
 
@@ -403,8 +454,6 @@ def rule_12_top_lease_conflict(ctx: ProjectContext, emit: FindingEmitter) -> Non
                 "the prior lease to clear the top-lease's priority. Title opinion recommended."
             ),
             assignee_level="senior_landman",
-            dollar_impact_low=5_000.0,
-            dollar_impact_high=100_000.0,
             related_events=[{
                 "top_lease_instrument": ev.opr_instrument_no,
                 "underlying_lease_instrument": underlying.opr_instrument_no,
@@ -442,8 +491,6 @@ def rule_16_mineral_royalty_ambiguity(ctx: ProjectContext, emit: FindingEmitter)
                 "of the original instrument may be acceptable subject to attorney review."
             ),
             assignee_level="attorney_referral",
-            dollar_impact_low=2_000.0,
-            dollar_impact_high=50_000.0,
         ))
 
 
@@ -502,8 +549,6 @@ def rule_17_orri_cloud(ctx: ProjectContext, emit: FindingEmitter) -> None:
                         f"acreage for new leases."
                     ),
                     assignee_level="junior_landman",
-                    dollar_impact_low=1_500.0,
-                    dollar_impact_high=20_000.0,
                 ))
 
 

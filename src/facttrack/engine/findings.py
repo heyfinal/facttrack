@@ -104,13 +104,9 @@ def persist_findings(project_id: str, findings: list[Finding]) -> int:
 
 
 def rank_findings(findings: list[Finding]) -> list[Finding]:
-    """Order by severity (desc) then confidence (desc) then dollar_impact_high (desc)."""
+    """Order by severity (desc) then confidence (desc) then rule_id (stable)."""
     return sorted(
         findings,
-        key=lambda f: (
-            severity_rank(f.severity),
-            f.confidence_score,
-            f.dollar_impact_high or 0.0,
-        ),
+        key=lambda f: (severity_rank(f.severity), f.confidence_score),
         reverse=True,
     )

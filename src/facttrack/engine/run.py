@@ -26,12 +26,10 @@ def main(argv: list[str] | None = None) -> int:
     findings = run_all_rules(ctx)
     findings = rank_findings(findings)
     print(f"\n=== {len(findings)} findings on project {args.project} ===")
+    from facttrack.render.pdf import _effort_display
     for f in findings:
-        impact = (
-            f" [${f.dollar_impact_low:,.0f}-${f.dollar_impact_high:,.0f}]"
-            if f.dollar_impact_low and f.dollar_impact_high else ""
-        )
-        print(f"  [{f.severity.upper():<8}] {f.rule_id:<35} confidence={f.confidence_score:.2f}{impact}")
+        effort = _effort_display(f.rule_id)
+        print(f"  [{f.severity.upper():<8}] {f.rule_id:<35} confidence={f.confidence_score:.2f}  curative: {effort}")
         print(f"           {f.title}")
 
     if not args.dry_run:

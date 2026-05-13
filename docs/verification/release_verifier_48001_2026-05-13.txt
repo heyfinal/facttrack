@@ -1,0 +1,85 @@
+=== release_verifier: county_fips=48001 slug=anderson ===
+leases to check: 14
+
+--- lease id=1 inst=1957-57563178 lessor='DAVENPORT ALMARINE PEARL' lessee='SHELL OIL COMPANY' recorded=1957-10-28 ---
+  query='DAVENPORT SHELL'  rows=7
+    candidate (RELEASE OF OIL AND GAS LEASE): SHELL OIL COMPANY DAVENPORT ALMARINE P RELEASE OF OIL AND GAS LEASE 11/26/1968 1968-6829460 DR/755/394 ANDERSON COUNTY SCHOOL LAND SVY A-68 TR 1 SEE VOL 740 PG 36 TR 2 SEE VOL 737 
+  query='DAVENPORT'  rows=50
+  → RELEASE found: inst=1968-6829460 recorded=1968-11-26 type='RELEASE OF OIL AND GAS LEASE'
+
+--- lease id=2 inst=1957-57563211 lessor='REED JIM' lessee='GORDON TOM' recorded=1957-11-06 ---
+  query='REED GORDON'  rows=39
+  query='REED'  rows=50
+  → NO release found
+
+--- lease id=18 inst=1957-57564020 lessor='HAMMER HELEN RICHARDSON' lessee='BILBO REDDING DRILLING COMPANY INC' recorded=1957-11-18 ---
+  query='HAMMER BILBO'  rows=1
+  query='HAMMER'  rows=50
+  → NO release found
+
+--- lease id=7 inst=1957-57564019 lessor='SABINE ROYALTY CORPORATION' lessee='HERSCHBACH E FRED' recorded=1957-11-19 ---
+  query='SABINE HERSCHBACH'  rows=6
+  query='SABINE'  rows=50
+  → NO release found
+
+--- lease id=16 inst=1957-57564024 lessor='MIDWEST OIL CORPORATION' lessee='DUNAGAN OTIS T' recorded=1957-11-21 ---
+  query='MIDWEST DUNAGAN'  rows=3
+  query='MIDWEST'  rows=50
+  → NO release found
+
+--- lease id=21 inst=1957-57564056 lessor='WOOLVERTON P R' lessee='SHELL OIL COMPANY' recorded=1957-11-22 ---
+  query='WOOLVERTON SHELL'  rows=20
+    candidate (RELEASE OF OIL AND GAS LEASE): SHELL OIL COMPANY WOOLVERTON P R RELEASE OF OIL AND GAS LEASE 10/17/1969 1969-6934610 DR/766/134 ANDERSON COUNTY SCHOOL SVY A-68 SEE 740/27 740/317 741/171 ET AL N/A
+  query='WOOLVERTON'  rows=50
+  → RELEASE found: inst=1969-6934610 recorded=1969-10-17 type='RELEASE OF OIL AND GAS LEASE'
+
+--- lease id=6 inst=1957-57564039 lessor='BIGGERSTAFF JOHN M' lessee='BRYANT W H' recorded=1957-11-25 ---
+  query='BIGGERSTAFF BRYANT'  rows=1
+  query='BIGGERSTAFF'  rows=50
+  → NO release found
+
+--- lease id=19 inst=1957-57564085 lessor='CHIVERS GARFIELD' lessee='SHELL OIL COMPANY' recorded=1957-12-10 ---
+  query='CHIVERS SHELL'  rows=24
+    candidate (RELEASE OF OIL AND GAS LEASE): SHELL OIL COMPANY CHIVERS GARFIELD RELEASE OF OIL AND GAS LEASE 1/2/1969 1969-6929994 DR/756/494 ANDERSON COUNTY SCHOOL LAND SVY A-68 TR 1 SEE VOL 737 PG 612 TR 2 SEE VOL 738 PG 21
+  query='CHIVERS'  rows=50
+  → RELEASE found: inst=1969-6929994 recorded=1969-01-02 type='RELEASE OF OIL AND GAS LEASE'
+
+--- lease id=5 inst=1957-57564088 lessor='ANICKER MILDRED K' lessee='SHELL OIL COMPANY' recorded=1957-12-10 ---
+  query='ANICKER SHELL'  rows=6
+    candidate (RELEASE OF OIL AND GAS LEASE): SHELL OIL COMPANY ANICKER MILDRED K RELEASE OF OIL AND GAS LEASE 10/17/1969 1969-6934610 DR/766/134 ANDERSON COUNTY SCHOOL SVY A-68 SEE 740/27 740/317 741/171 ET AL N/A
+  query='ANICKER'  rows=0
+  → RELEASE found: inst=1969-6934610 recorded=1969-10-17 type='RELEASE OF OIL AND GAS LEASE'
+
+--- lease id=20 inst=1958-58564114 lessor='LIVELY ELIZABETH' lessee='GRAHAM HUNT' recorded=1958-01-02 ---
+  query='LIVELY GRAHAM'  rows=9
+    candidate (RELEASE): GRAHAM E D LIVELY LUM RELEASE 11/12/1959 1959-59600055 DR/600/94 NO LEGAL N/A
+  query='LIVELY'  rows=50
+  → RELEASE found: inst=1959-59600055 recorded=1959-11-12 type='RELEASE'
+
+--- lease id=15 inst=1958-58564116 lessor='CAMP JOE' lessee='GRAHAM HUNT' recorded=1958-01-02 ---
+  query='CAMP GRAHAM'  rows=23
+    candidate (RELEASE OF OIL AND GAS LEASE): GRAHAM HUNT CAMP BARBARA RELEASE OF OIL AND GAS LEASE 12/21/1959 1959-59599169 DR/599/619 WILLIAM FROST SVY A-25 36 ACS N/A
+  query='CAMP'  rows=50
+  → RELEASE found: inst=1959-59599169 recorded=1959-12-21 type='RELEASE OF OIL AND GAS LEASE'
+
+--- lease id=3 inst=1958-58563225 lessor='HANKS C W ESTATE OF' lessee='PENNYBACKER PAUL J' recorded=1958-01-24 ---
+  query='HANKS PENNYBACKER'  rows=21
+  query='HANKS'  rows=50
+  → NO release found
+
+--- lease id=17 inst=1958-58563236 lessor='BARTON MARY L' lessee='BRADSHAW RAY E' recorded=1958-01-30 ---
+  query='BARTON BRADSHAW'  rows=3
+  query='BARTON'  rows=50
+  → NO release found
+
+--- lease id=4 inst=1960-6006030339 lessor='CAGE J W' lessee='TIDEWATER OIL COMPANY' recorded=1960-03-24 ---
+  query='CAGE TIDEWATER'  rows=1
+  query='CAGE'  rows=50
+  → NO release found
+
+=== summary ===
+{
+  "leases_checked": 14,
+  "releases_found": 6,
+  "leases_unreleased": 8
+}

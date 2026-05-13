@@ -299,22 +299,28 @@ def _build_render_payload(
 
     overall_color, overall_text = _badge_for_findings(fview, _has_clause_data(ctx))
 
-    # Acquisition status per tract — NEVER claim "Ready" without parsed clause data.
-    has_clauses = _has_clause_data(ctx)
+    # Acquisition status per tract — never claim "Ready" without clause data
+    # ON THAT SPECIFIC TRACT (prior version used project-wide check, which
+    # marked tracts as Ready even when their own lease had no extracted
+    # clauses just because a sibling tract did).
     acq_rows: list[dict] = []
     for tract in ctx.tracts:
+        tract_leases = ctx.leases_for_tract(tract.id)
+        has_tract_clauses = any(
+            le.primary_term_end or le.royalty_fraction or le.has_pugh_clause
+            or le.depth_limit_ft for le in tract_leases
+        )
         tract_findings = [f for f in fview if f.get("tract_id") == tract.id]
         crit = sum(1 for f in tract_findings if f["severity"] == "critical")
         high = sum(1 for f in tract_findings if f["severity"] == "high")
         if crit > 0:
-            color, text = "red", "Critical"
+            color, text = "solid-red", "Critical"
         elif high > 0:
-            color, text = "yellow", "Blocked"
-        elif not has_clauses:
-            # Honest: index-only scrape can't conclude "ready". Flag it.
-            color, text = "yellow", "Insufficient data"
+            color, text = "solid-amber", "Blocked"
+        elif not has_tract_clauses:
+            color, text = "outline-grey", "Insufficient data"
         else:
-            color, text = "green", "Ready"
+            color, text = "solid-green", "Ready"
         nri_summary = "—"
         if ctx.leases_for_tract(tract.id):
             royalties = [
