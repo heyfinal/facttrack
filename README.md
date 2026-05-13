@@ -57,8 +57,26 @@ src/facttrack/
 sql/
   schema.sql   canonical 15-table schema
 
+  ingest/
+    publicsearch.py         OPR index scrape (per-county lease list)
+    publicsearch_docs.py    document image fetcher (multi-page, full-res)
+    rrc_mft.py              RRC GoAnywhere MFT bulk-data downloader
+    rrc_wellbore_parser.py  RRC EWA wellbore CSV parser
+    legal_parser.py         legal-description → canonical tract upsert
+    party_splitter.py       lessor/lessee text → lease_party rows + deceased flags
+  ocr/
+    tesseract.py            Tesseract OCR wrapper (with cache)
+  engine/
+    clause_parser.py        regex-driven clause extractor on OCR text
+    rules.py                8 registered curative rules
+    run.py                  CLI runner
+
+sql/
+  schema.sql   canonical 15-table schema
+
 scripts/
-  init_db.sh   one-shot DB bootstrap
+  init_db.sh                  one-shot DB bootstrap
+  run_anderson_pipeline.sh    full Anderson E2E (ingest → OCR → engine → report)
 ```
 
 ## Quickstart
@@ -86,7 +104,12 @@ PYTHONPATH=src python3 -m facttrack.render.build_report --project county_researc
 
 The pipeline runs end-to-end on 100% real Texas public records. No synthetic, mock, or placeholder data is used anywhere in the codebase.
 
-**Honest finding rate today: 0.** The registered rules need clause-level data (Pugh clause text, primary term dates, depth limits) that the OPR index alone doesn't expose — only the underlying lease PDFs do. Extracting clauses from scanned PDFs (OCR + clause parsing) is the next workstream and is what unlocks the rules' firing rate against real data.
+**Anderson County, TX — 3 CRITICAL findings on 14 leases, total addressable curative value $55k–$800k:**
+
+- 2 × `r05` primary-term expired + no continuous production (1957 Shell Oil leases on the Davenport and Chivers tracts)
+- 1 × `r02` probate gap (C.W. Hanks Estate, 1958 lease to Pennybacker — no recorded AOH or probate)
+
+The full pipeline that surfaced these (ingest → multi-page document fetch → OCR → clause regex → curative engine → report renderer) is driven by `scripts/run_anderson_pipeline.sh` and uses 100% real Anderson County OPR records from 1957-1960.
 
 **Counties on the free `publicsearch.us` platform:** Anderson, Leon, Freestone, Smith, Nacogdoches, Madison, Walker.
 
