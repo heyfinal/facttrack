@@ -30,6 +30,26 @@ def _env() -> Environment:
     return env
 
 
+def _clean_tract_label(raw: str | None) -> str:
+    """Rewrite a stored tract label so it doesn't carry the str.title() leaks
+    (Mc/Mac, ACS-as-word, single-letter initials). Stored DB rows from earlier
+    ingest runs still carry the legacy casing — this fixes display."""
+    if not raw:
+        return "—"
+    out_parts: list[str] = []
+    for word in raw.split():
+        upper = word.upper()
+        if upper in {"ACS"}:
+            continue
+        if upper.startswith("MC") and len(word) > 2 and word[1] == "c":
+            out_parts.append("Mc" + word[2:].capitalize())
+        elif upper.startswith("MC") and len(word) > 2:
+            out_parts.append("Mc" + word[2:].capitalize())
+        else:
+            out_parts.append(word)
+    return " ".join(out_parts)
+
+
 _ASSIGNEE_LABELS = {
     "junior_landman": "Jr. landman",
     "senior_landman": "Sr. landman",
@@ -242,15 +262,40 @@ def _chain_entries_for_tract(ctx: ProjectContext, tract) -> list[dict]:
     return sorted(entries, key=lambda e: e["date"] or "")
 
 
-def _clause_coverage_pct(ctx: ProjectContext) -> int:
-    if not ctx.leases:
-        return 0
-    parsed = sum(
-        1 for le in ctx.leases
-        if any([le.primary_term_years, le.royalty_fraction,
-                le.has_pugh_clause, le.depth_limit_ft])
-    )
-    return round(100 * parsed / len(ctx.leases))
+def _clause_coverage_breakdown(ctx: ProjectContext) -> dict[str, int]:
+    """Return per-field extraction rates, not an aggregate. The aggregate hides
+    that royalty extraction is much easier than depth-limit extraction; landmen
+    want the breakdown."""
+    total = len(ctx.leases)
+    if not total:
+        return {"primary_term": 0, "royalty": 0, "pugh": 0, "depth_limit": 0, "total_leases": 0}
+    return {
+        "primary_term": round(100 * sum(1 for le in ctx.leases if le.primary_term_years) / total),
+        "royalty":      round(100 * sum(1 for le in ctx.leases if le.royalty_fraction) / total),
+        "pugh":         round(100 * sum(1 for le in ctx.leases if le.has_pugh_clause) / total),
+        "depth_limit":  round(100 * sum(1 for le in ctx.leases if le.depth_limit_ft) / total),
+        "total_leases": total,
+    }
+
+
+def _unattributed_leases(county_fips: str) -> list[dict]:
+    """Leases that exist in this county but couldn't be linked to a tract
+    (legal description was a back-reference, OCR-noisy, or non-standard).
+    Surface them honestly — silently dropping them from the report is the
+    kind of cover-up a senior landman will catch by counting rows."""
+    with cursor() as cur:
+        cur.execute(
+            """
+            SELECT opr_instrument_no, recording_date, lessor_text, lessee_text,
+                   parsed_metadata->>'legal' AS legal_raw
+              FROM lease
+             WHERE county_fips = %s
+               AND tract_id IS NULL
+             ORDER BY recording_date NULLS LAST
+            """,
+            (county_fips,),
+        )
+        return [dict(r) for r in cur.fetchall()]
 
 
 def _examination_period(ctx: ProjectContext) -> str:
@@ -320,7 +365,10 @@ def _build_render_payload(
         elif not has_tract_clauses:
             color, text = "outline-grey", "Insufficient data"
         else:
-            color, text = "solid-green", "Ready"
+            # Honest framing — matches the cover-page status text. A landman
+            # reading "Ready" infers operational greenlight; the engine has
+            # only verified the registered rules don't fire on this tract.
+            color, text = "solid-green", "No findings"
         nri_summary = "—"
         if ctx.leases_for_tract(tract.id):
             royalties = [
@@ -331,7 +379,7 @@ def _build_render_payload(
             if royalties:
                 nri_summary = f"royalty {min(royalties):.4f} – {max(royalties):.4f}"
         acq_rows.append({
-            "label": tract.label,
+            "label": _clean_tract_label(tract.label),
             "badge_color": color,
             "badge_text": text,
             "open_count": len(tract_findings),
@@ -357,21 +405,23 @@ def _build_render_payload(
         if summary_high:
             sev_pieces.append(f"{summary_high} high")
         sev_descr = ", ".join(sev_pieces) if sev_pieces else "all medium / low"
-        headline = f"{summary_findings_count} curative items"
+        item_word = "item" if summary_findings_count == 1 else "items"
+        tract_word = "tract" if len(ctx.tracts) == 1 else "tracts"
+        headline = f"{summary_findings_count} curative {item_word}"
         body = (
-            f"{summary_findings_count} curative items identified across "
-            f"{len(ctx.tracts)} tracts ({sev_descr}). Each finding cites the specific instrument "
-            f"and the chain-of-title rationale; curative-effort estimates assume current "
-            f"East-Texas operator pricing. Findings flagged as historical should be confirmed "
-            f"against the recorded-release index before action — see Section V for the records "
-            f"expressly excluded from this examination."
+            f"{summary_findings_count} curative {item_word} identified across "
+            f"{len(ctx.tracts)} {tract_word} ({sev_descr}). Each finding cites the specific "
+            f"instrument and the chain-of-title rationale; curative-effort estimates assume "
+            f"current East-Texas operator pricing. Findings flagged as historical should be "
+            f"confirmed against the recorded-release index before action — see Section V for "
+            f"the records expressly excluded from this examination."
         )
 
     # Tracts with chain entries
     tract_view = []
     for t in ctx.tracts:
         tract_view.append({
-            "label": t.label,
+            "label": _clean_tract_label(t.label),
             "chain_entries": _chain_entries_for_tract(ctx, t),
         })
 
@@ -413,7 +463,8 @@ def _build_render_payload(
         "overall_badge_text": overall_text,
         "lease_calendar": _lease_calendar(ctx),
         "acquisition_status": acq_rows,
-        "clause_coverage_pct": _clause_coverage_pct(ctx),
+        "clause_coverage": _clause_coverage_breakdown(ctx),
+        "unattributed_leases": _unattributed_leases(county_fips),
         "examination_period": _examination_period(ctx),
         "rrc_pulled_at": _rrc_pulled_at(),
         "data_sources": data_sources,

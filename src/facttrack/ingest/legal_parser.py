@@ -43,12 +43,41 @@ class ParsedTract:
     acres: float | None
 
     def label(self, county_name: str) -> str:
-        parts = [self.survey_name.title() + " Survey"]
+        parts = [_title_case_survey(self.survey_name) + " Survey"]
         if self.abstract_no:
             parts.append(self.abstract_no)
         if self.acres:
             parts.append(f"{self.acres:g} ac")
         return f"{county_name} Co — " + " · ".join(parts)
+
+
+# Words that should drop out of survey names entirely (acreage tokens that
+# leaked through the regex when a legal description was unusually formatted).
+_SURVEY_DROP_TOKENS = {"ACS", "AC"}
+
+
+def _title_case_survey(s: str) -> str:
+    """Title-case a survey name without mangling Mc/Mac prefixes or single
+    capital-letter initials. East-Texas surveys often carry names like
+    'McKinzie', 'McKinney and Williams', or 'D Stilts' — Python's str.title()
+    breaks all of these."""
+    cleaned_words: list[str] = []
+    for word in s.split():
+        upper = word.upper()
+        if upper in _SURVEY_DROP_TOKENS:
+            continue
+        if len(word) == 1:
+            cleaned_words.append(word.upper())
+            continue
+        if upper.startswith("MC") and len(word) > 2:
+            cleaned_words.append("Mc" + word[2:].capitalize())
+        elif upper.startswith("MAC") and len(word) > 3 and word[3].isalpha():
+            cleaned_words.append("Mac" + word[3:].capitalize())
+        elif upper in {"AND", "OF", "THE"}:
+            cleaned_words.append(word.lower())
+        else:
+            cleaned_words.append(word.capitalize())
+    return " ".join(cleaned_words)
 
 
 def parse_legal(legal: str) -> list[ParsedTract]:

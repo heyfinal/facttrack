@@ -226,13 +226,13 @@ def _upsert_release_event(match: ReleaseMatch, county_fips: str) -> None:
                 parsed_metadata, confidence_score
             )
             VALUES (%s, %s, %s, 'release', %s, %s, %s, %s, %s::jsonb, %s)
-            ON CONFLICT (county_fips, opr_instrument_no, event_type) DO UPDATE
-              SET recording_date      = EXCLUDED.recording_date,
-                  grantor_text        = EXCLUDED.grantor_text,
-                  grantee_text        = EXCLUDED.grantee_text,
-                  references_lease_id = EXCLUDED.references_lease_id,
-                  raw_text            = EXCLUDED.raw_text,
-                  parsed_metadata     = EXCLUDED.parsed_metadata
+            ON CONFLICT (county_fips, opr_instrument_no, event_type, references_lease_id)
+              DO UPDATE
+              SET recording_date  = EXCLUDED.recording_date,
+                  grantor_text    = EXCLUDED.grantor_text,
+                  grantee_text    = EXCLUDED.grantee_text,
+                  raw_text        = EXCLUDED.raw_text,
+                  parsed_metadata = EXCLUDED.parsed_metadata
             """,
             (
                 county_fips, match.instrument_no, match.recording_date,

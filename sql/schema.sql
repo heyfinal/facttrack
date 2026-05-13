@@ -176,7 +176,11 @@ CREATE TABLE IF NOT EXISTS chain_event (
     raw_text            TEXT,
     parsed_metadata     JSONB NOT NULL DEFAULT '{}'::jsonb,
     confidence_score    NUMERIC(3,2),
-    UNIQUE (county_fips, opr_instrument_no, event_type)
+    -- A single recorded instrument (e.g. a blanket release of oil-and-gas-lease)
+    -- can cite multiple underlying leases. The unique constraint includes
+    -- references_lease_id so the verifier can record one chain_event row per
+    -- (instrument × lease) pair rather than overwriting each other.
+    UNIQUE (county_fips, opr_instrument_no, event_type, references_lease_id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_chain_event_lease ON chain_event(references_lease_id);

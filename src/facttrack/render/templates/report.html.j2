@@ -290,7 +290,16 @@
         <dt>Project</dt>           <dd class="tnum">{{ project.project_id }}</dd>
         <dt>County</dt>            <dd>{{ county_name }}, Texas <span class="small tnum">(FIPS {{ county_fips }})</span></dd>
         <dt>Tracts in scope</dt>   <dd class="tnum">{{ project.tracts|length }}</dd>
-        <dt>Leases examined</dt>   <dd class="tnum">{{ project.leases|length }}</dd>
+        <dt>Leases examined</dt>
+        <dd class="tnum">
+          {{ project.leases|length + unattributed_leases|length }}
+          {% if unattributed_leases|length > 0 %}
+            <span class="small" style="color:#6a7280;">
+              ({{ project.leases|length }} attributed to tracts,
+              {{ unattributed_leases|length }} unattributed)
+            </span>
+          {% endif %}
+        </dd>
         <dt>Wells indexed</dt>     <dd class="tnum">{{ project.wells|length|format_thousands }}</dd>
         <dt>Examination period</dt><dd class="tnum">{{ examination_period }}</dd>
       </dl>
@@ -328,6 +337,11 @@
       <strong>No curative items detected.</strong> Public records reconcile cleanly against the registered rule set. A periodic re-scan is recommended; the rule registry continues to evolve.
     </div>
   {% else %}
+  <div class="callout">
+    <strong>Audit trail.</strong> Every finding below is supported by a search transcript filed under <code>docs/verification/</code> in this project's repository. Verification queries can be reproduced instrument-by-instrument against publicsearch.us.
+  </div>
+  {% endif %}
+  {% if findings|length > 0 %}
   <table class="findings">
     <thead>
       <tr>
@@ -368,7 +382,7 @@
 
   {% if lease_calendar|length == 0 %}
   <div class="callout">
-    No leases in this project have a parsed primary-term end date. Clause-extraction coverage is currently {{ clause_coverage_pct }}% — leases without an extracted term are omitted from this calendar rather than displayed as unknown.
+    No leases in this project have a parsed primary-term end date. Clause-extraction coverage on this project: primary term {{ clause_coverage.primary_term }}%, royalty {{ clause_coverage.royalty }}%, Pugh {{ clause_coverage.pugh }}%, depth limit {{ clause_coverage.depth_limit }}%. Leases without an extracted term are omitted from this calendar rather than displayed as unknown.
   </div>
   {% else %}
   <table class="calendar">
@@ -410,6 +424,39 @@
   <p class="eyebrow">Section III</p>
   <h1>Chain of Title</h1>
   <p class="subtitle">Chronological chain for each tract in scope. Only instruments directly linked to the tract's leases are shown; broader county-wide index entries are catalogued in Section V (Methodology).</p>
+
+  {% if unattributed_leases|length > 0 %}
+  <div class="tract-block">
+    <div class="tract-label">Unattributed leases</div>
+    <div class="tract-meta">
+      {{ unattributed_leases|length }} lease{{ '' if unattributed_leases|length == 1 else 's' }}
+      whose legal description could not be mapped to a survey/abstract in this
+      run (back-references to prior recordings, non-standard format, or OCR-noisy
+      text). Surfacing them here so they are not silently dropped from the
+      examination.
+    </div>
+    <table class="simple">
+      <thead>
+        <tr>
+          <th style="width: 70pt;">Recorded</th>
+          <th style="width: 85pt;">Instrument</th>
+          <th style="width: 170pt;">Lessor → lessee</th>
+          <th>Legal description as recorded</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for le in unattributed_leases %}
+        <tr>
+          <td class="tnum">{{ le.recording_date|default('—', true) }}</td>
+          <td class="tnum">{{ le.opr_instrument_no|default('—', true) }}</td>
+          <td>{{ le.lessor_text|default('—', true) }} → {{ le.lessee_text|default('—', true) }}</td>
+          <td class="small"><code style="font-size:7.5pt;">{{ le.legal_raw|default('—', true) }}</code></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
 
   {% for tract in project.tracts %}
   <div class="tract-block">
@@ -505,13 +552,16 @@
       Tesseract OCR (PSM 6) over signed publicsearch.us page images;
       regex extraction of primary term, royalty fraction, Pugh-clause language,
       depth limit, continuous-development language, and deceased-lessor markers.
-      Coverage on examined leases: {{ clause_coverage_pct }}%.
+      Per-field extraction on the {{ clause_coverage.total_leases }} examined leases:
+      primary term {{ clause_coverage.primary_term }}%, royalty
+      {{ clause_coverage.royalty }}%, Pugh clause {{ clause_coverage.pugh }}%,
+      depth limit {{ clause_coverage.depth_limit }}%.
     </dd>
   </dl>
 
   <h3>Records expressly excluded from this examination</h3>
   <ul class="tight">
-    <li><strong>County District Clerk probate dockets.</strong> Probate is filed separately from deed records and is not indexed on publicsearch.us. Probate-gap findings (rule r02) should be confirmed against the relevant District Clerk's docket before recording any curative instrument.</li>
+    <li><strong>County Clerk probate dockets.</strong> Probate cases in the seven East-Texas counties currently supported by FactTrack are filed in the constitutional County Court and held by the County Clerk (the same office that runs the deed records); only contested cases transferred under Texas Estates Code §32.003 land with the District Clerk. The probate <em>case docket</em> — applications, wills offered for probate, letters testamentary, inventories — is not indexed on publicsearch.us. Documents that touch deed records (AOH, will-as-Muniment-of-Title, probate-deed-of-distribution) are indexed and are picked up by this examination.</li>
     <li><strong>County Appraisal District (CAD) records.</strong> Current mineral- and surface-owner identification has not been cross-referenced.</li>
     <li><strong>Texas RRC monthly production (PR) reports and W-2 completion records.</strong> Primary-term + continuous-production findings (rule r05) rely on absence of recorded release; an offsetting release elsewhere in the chain should be confirmed before treating the finding as actionable.</li>
     <li><strong>Texas General Land Office state-leased mineral records.</strong> Tracts with GLO interests are not currently surfaced.</li>
