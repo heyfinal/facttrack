@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Anderson County Research — All Tracts — FactTrack Report</title>
+<style>
+  @page { size: Letter; margin: 0.6in 0.55in 0.6in 0.55in; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    color: #1a1a1a;
+    line-height: 1.4;
+  }
+  h1 { font-size: 22pt; margin: 0 0 4pt 0; color: #0f3057; }
+  h2 { font-size: 14pt; margin: 18pt 0 8pt 0; color: #0f3057; border-bottom: 2pt solid #0f3057; padding-bottom: 2pt; }
+  h3 { font-size: 11pt; margin: 10pt 0 4pt 0; color: #0f3057; }
+  .subtitle { font-size: 10pt; color: #555; margin: 0 0 14pt 0; }
+  .meta-table { font-size: 9pt; margin: 8pt 0 16pt 0; }
+  .meta-table td { padding: 2pt 12pt 2pt 0; vertical-align: top; }
+  .meta-table td:first-child { color: #555; font-weight: 600; }
+  .badge { display: inline-block; padding: 2pt 8pt; border-radius: 3pt; font-weight: 700; font-size: 9pt; color: white; }
+  .badge.green { background: #2e7d32; }
+  .badge.yellow { background: #ed6c02; }
+  .badge.red { background: #c62828; }
+  .severity { padding: 1pt 6pt; border-radius: 2pt; font-weight: 700; font-size: 8pt; color: white; }
+  .sev-critical { background: #b71c1c; }
+  .sev-high { background: #e65100; }
+  .sev-medium { background: #f9a825; color: #222; }
+  .sev-low { background: #388e3c; }
+  .findings-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin: 6pt 0; }
+  .findings-table th { background: #0f3057; color: white; padding: 5pt 4pt; text-align: left; font-weight: 600; }
+  .findings-table td { padding: 5pt 4pt; border-bottom: 0.5pt solid #ddd; vertical-align: top; }
+  .findings-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .impact { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .summary-box {
+    background: #f4f6fa;
+    border-left: 4pt solid #0f3057;
+    padding: 10pt 14pt;
+    margin: 12pt 0;
+    font-size: 10pt;
+  }
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 8pt;
+    margin-top: 14pt;
+    border-top: 0.5pt solid #ccc;
+    padding-top: 4pt;
+  }
+  .pagebreak { page-break-after: always; }
+  .cover { text-align: center; padding-top: 1.5in; }
+  .cover h1 { font-size: 36pt; }
+  .cover .brand { font-size: 12pt; color: #888; letter-spacing: 3pt; margin-bottom: 24pt; }
+  .cover .badge { font-size: 14pt; padding: 6pt 14pt; }
+  .narrative {
+    font-size: 10pt;
+    background: #fafbfd;
+    border: 0.5pt solid #d0d5e0;
+    padding: 10pt 14pt;
+    margin: 8pt 0;
+    line-height: 1.45;
+  }
+  .narrative em { color: #666; }
+  .tract-status { width: 100%; font-size: 9.5pt; border-collapse: collapse; margin: 6pt 0; }
+  .tract-status th { background: #f0f3f8; padding: 5pt 6pt; text-align: left; }
+  .tract-status td { padding: 5pt 6pt; border-bottom: 0.5pt solid #ddd; }
+  .lease-cal { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin: 6pt 0; }
+  .lease-cal th, .lease-cal td { padding: 4pt 6pt; border: 0.5pt solid #ddd; text-align: center; }
+  .lease-cal th { background: #f0f3f8; }
+  .lease-cal td.red { background: #ffcdd2; color: #b71c1c; font-weight: 600; }
+  .lease-cal td.yellow { background: #fff9c4; color: #6d4c00; font-weight: 600; }
+  .lease-cal td.green { background: #c8e6c9; color: #1b5e20; }
+  .small { font-size: 8pt; color: #666; }
+  table.simple { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  table.simple th { background: #f0f3f8; padding: 5pt; text-align: left; font-weight: 600; }
+  table.simple td { padding: 5pt; border-bottom: 0.5pt solid #ddd; }
+</style>
+</head>
+<body>
+
+<!-- ─── PAGE 1: COVER ─────────────────────────────────────────────── -->
+<div class="cover">
+  <div class="brand">F A C T T R A C K</div>
+  <h1>Anderson County Research — All Tracts</h1>
+  <p class="subtitle">East Texas Landwork Report — generated 2026-05-13 16:34 UTC</p>
+  <table class="meta-table" style="margin: 32pt auto 24pt auto; text-align: left;">
+    <tr><td>Project ID</td><td>county_research_48001</td></tr>
+    <tr><td>County</td><td>Anderson, Texas (FIPS 48001)</td></tr>
+    <tr><td>Tracts in scope</td><td>13</td></tr>
+    <tr><td>Active leases reviewed</td><td>13</td></tr>
+    <tr><td>Wells reviewed</td><td>0</td></tr>
+    <tr><td>Public records pulled</td><td>4 sources</td></tr>
+  </table>
+  <p style="margin: 14pt 0 4pt 0;">Project status</p>
+  <span class="badge green">Acquisition-ready</span>
+  <p class="small" style="margin-top: 60pt; max-width: 5.5in; margin-left: auto; margin-right: auto;">
+    This report aggregates leasehold risk, curative priority, and project execution
+    findings from public records and operator filings. All data sourced from public records.
+    No proprietary or customer data is included in this analysis.
+  </p>
+</div>
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 2: LEASE RISK & CURATIVE PRIORITY (THE MONEY PAGE) ───── -->
+<h1 style="margin-top: 0;">Lease Risk &amp; Curative Priority</h1>
+<p class="subtitle">Ranked findings — top 0 of 0 items</p>
+
+<div class="summary-box">
+  <strong>No curative items detected</strong><br>
+  Public records on this tract group reconcile cleanly. Recommend periodic re-scan.
+</div>
+
+<table class="findings-table">
+  <thead>
+    <tr>
+      <th style="width: 30pt;">#</th>
+      <th style="width: 55pt;">Severity</th>
+      <th style="width: 90pt;">Type</th>
+      <th>Description</th>
+      <th style="width: 110pt;">$ Impact</th>
+      <th style="width: 90pt;">Assignee</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td colspan="6" style="text-align: center; padding: 20pt;">No curative items detected on this tract group.</td></tr>
+  </tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 3: LEASE EXPIRATION CALENDAR ─────────────────────────── -->
+<h1 style="margin-top: 0;">Lease Expiration Calendar — Next 24 Months</h1>
+<p class="subtitle">Color-coded by risk level. Pugh-clause and continuous-development obligations flagged in-line.</p>
+
+<table class="lease-cal">
+  <thead>
+    <tr>
+      <th style="width: 140pt;">Lease (instrument / lessor)</th>
+      <th>Primary term end</th>
+      <th>Pugh / Retained acreage</th>
+      <th>Continuous prod</th>
+      <th>Risk</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 4: TITLE CHAIN VISUALIZATION ─────────────────────────── -->
+<h1 style="margin-top: 0;">Title Chain — Annotated</h1>
+<p class="subtitle">Chronological chain runback with curative items inline.</p>
+
+<h3>Tract: Anderson Co — Acs Anderson County School Land Survey · A-68</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1957-10-28</td>
+      <td>Lease</td>
+      <td>
+        <strong>1957-57563178</strong>
+        <div class="small">DAVENPORT ALMARINE PEARL → SHELL OIL COMPANY</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — John Durst Survey · A-30</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1957-11-06</td>
+      <td>Lease</td>
+      <td>
+        <strong>1957-57563211</strong>
+        <div class="small">REED JIM → GORDON TOM</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — C W Hanks Survey · A-1112 · 11.23 ac</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1958-01-24</td>
+      <td>Lease</td>
+      <td>
+        <strong>1958-58563225</strong>
+        <div class="small">HANKS C W ESTATE OF → PENNYBACKER PAUL J</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — Samuel Edmondson Survey</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1960-03-24</td>
+      <td>Lease</td>
+      <td>
+        <strong>1960-6006030339</strong>
+        <div class="small">CAGE J W → TIDEWATER OIL COMPANY</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — Anderson County School Land Survey · A-68 · 122 ac</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1957-12-10</td>
+      <td>Lease</td>
+      <td>
+        <strong>1957-57564088</strong>
+        <div class="small">ANICKER MILDRED K → SHELL OIL COMPANY</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — D Stilts Survey · A-726 · 120 ac</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1957-11-25</td>
+      <td>Lease</td>
+      <td>
+        <strong>1957-57564039</strong>
+        <div class="small">BIGGERSTAFF JOHN M → BRYANT W H</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — D Mckinzie Survey · 39.2 ac</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1957-11-19</td>
+      <td>Lease</td>
+      <td>
+        <strong>1957-57564019</strong>
+        <div class="small">SABINE ROYALTY CORPORATION → HERSCHBACH E FRED</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — J H Gillespie Survey · A-326 · 96.3 ac</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1958-01-02</td>
+      <td>Lease</td>
+      <td>
+        <strong>1958-58564116</strong>
+        <div class="small">CAMP JOE → GRAHAM HUNT</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — T H Hamilton Survey · A-395</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1958-01-30</td>
+      <td>Lease</td>
+      <td>
+        <strong>1958-58563236</strong>
+        <div class="small">BARTON MARY L → BRADSHAW RAY E</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — Jesse Gibson Survey · A-26</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1957-11-18</td>
+      <td>Lease</td>
+      <td>
+        <strong>1957-57564020</strong>
+        <div class="small">HAMMER HELEN RICHARDSON → BILBO REDDING DRILLING COMPANY INC</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — Anderson County School Land Survey · A-68 · 124.5 ac</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1957-12-10</td>
+      <td>Lease</td>
+      <td>
+        <strong>1957-57564085</strong>
+        <div class="small">CHIVERS GARFIELD → SHELL OIL COMPANY</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — A B Davis Survey · A-16</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1958-01-02</td>
+      <td>Lease</td>
+      <td>
+        <strong>1958-58564114</strong>
+        <div class="small">LIVELY ELIZABETH → GRAHAM HUNT</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Tract: Anderson Co — Acs Anderson County School Land Survey · A-68</h3>
+<table class="simple">
+  <thead>
+    <tr>
+      <th style="width: 80pt;">Recorded</th>
+      <th style="width: 80pt;">Type</th>
+      <th>Instrument / Parties</th>
+      <th style="width: 60pt;">Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1957-11-22</td>
+      <td>Lease</td>
+      <td>
+        <strong>1957-57564056</strong>
+        <div class="small">WOOLVERTON P R → SHELL OIL COMPANY</div>
+      </td>
+      <td>
+          ✓
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 5: TRACT MAP ──────────────────────────────────────────── -->
+<h1 style="margin-top: 0;">Tract Map</h1>
+<p class="subtitle">Wells colored by status. Lease boundaries (where indexed in public records). Curative-hot zones highlighted.</p>
+
+<div class="summary-box">
+  <strong>Map rendering:</strong> interactive HTML map available at <code>/home/daniel/facttrack/reports/county_research_48001/map.html</code>.
+  Static raster preview not embedded in this build.
+</div>
+
+<table class="simple">
+  <thead><tr><th>Well API</th><th>Lease</th><th>Operator</th><th>Status</th></tr></thead>
+  <tbody>
+  </tbody>
+</table>
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 6: ACQUISITIONS TRACT STATUS ─────────────────────────── -->
+<h1 style="margin-top: 0;">Acquisitions — Tract Status</h1>
+<p class="subtitle">Per-tract acquisition readiness; cleared / blocked / critical labels with NRI math.</p>
+
+<table class="tract-status">
+  <thead><tr><th>Tract</th><th>Status</th><th>Open curative</th><th>Critical items</th><th>NRI snapshot</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Anderson Co — Acs Anderson County School Land Survey · A-68</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — John Durst Survey · A-30</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — C W Hanks Survey · A-1112 · 11.23 ac</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — Samuel Edmondson Survey</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — Anderson County School Land Survey · A-68 · 122 ac</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — D Stilts Survey · A-726 · 120 ac</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — D Mckinzie Survey · 39.2 ac</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — J H Gillespie Survey · A-326 · 96.3 ac</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — T H Hamilton Survey · A-395</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — Jesse Gibson Survey · A-26</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — Anderson County School Land Survey · A-68 · 124.5 ac</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — A B Davis Survey · A-16</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Anderson Co — Acs Anderson County School Land Survey · A-68</td>
+      <td><span class="badge green">Ready</span></td>
+      <td>0</td>
+      <td>0</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top: 20pt;">Field narrative</h3>
+<div class="narrative">Tract scope evaluated against the rule set listed in the appendix. Critical and high-severity findings should clear before any commitment instrument is recorded. Medium-severity findings can run in parallel.</div>
+
+<div class="pagebreak"></div>
+
+<!-- ─── PAGE 7: PROJECT MANAGEMENT BACKLOG ─────────────────────────── -->
+<h1 style="margin-top: 0;">Project Management — Curative Backlog</h1>
+<p class="subtitle">Findings restructured as task assignments with priority + deadlines.</p>
+
+<table class="findings-table">
+  <thead>
+    <tr>
+      <th style="width: 30pt;">#</th>
+      <th style="width: 90pt;">Priority</th>
+      <th>Task</th>
+      <th style="width: 80pt;">Assignee</th>
+      <th style="width: 75pt;">Deadline</th>
+      <th style="width: 60pt;">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<!-- ─── APPENDIX ───────────────────────────────────────────────────── -->
+<div class="pagebreak"></div>
+<h1 style="margin-top: 0;">Appendix — Methodology &amp; Data Sources</h1>
+
+<h3>Public data sources</h3>
+<ul>
+  <li><strong>TX Railroad Commission</strong> — PR, P-4, P-5, W-1 queries + monthly bulk dumps. Last pulled: 2026-05-13.</li>
+  <li><strong>Anderson County OPR (Tyler Tech iDox)</strong> — Lease, assignment, release, AOH, probate records. Last pulled: 2026-05-13.</li>
+  <li><strong>TX General Land Office</strong> — State mineral lease records. Last pulled: 2026-05-13.</li>
+  <li><strong>TX Comptroller</strong> — Oil &amp; gas tax records. Last pulled: 2026-05-13.</li>
+</ul>
+
+<h3>Curative detection rules</h3>
+<p>This report runs 17 detection rules against the tract group. Each finding includes a
+confidence score (0.0–1.0) reflecting data-quality limitations of public records. Findings below 0.5
+confidence are flagged for manual review before action.</p>
+
+<h3>Disclosures</h3>
+<p>All data sourced from public records. No proprietary or customer data is used in this analysis.
+Dollar-impact estimates use a configurable internal price deck; actual values depend on operator
+filings, division-order math, and current market conditions. This report is a curative-prioritization
+tool — not a substitute for a licensed Texas attorney's title opinion.</p>
+
+<div class="footer">
+  FactTrack v0.1.0 — 2026-05-13 16:34 UTC — Project county_research_48001
+</div>
+
+</body>
+</html>

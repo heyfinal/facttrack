@@ -535,45 +535,20 @@ def rule_17_orri_cloud(ctx: ProjectContext, emit: FindingEmitter) -> None:
                 ))
 
 
-# ──────────────────────────────────────────────────────────────────────────
-# Stub registrations for rules 3, 7, 8, 9, 10, 13, 14, 15
-# These are scaffolded but not yet firing on the synthetic demo data.
-# Each stub logs a "would-evaluate" message and returns no findings; they're
-# wired into the engine so the rule registry stays complete.
-# ──────────────────────────────────────────────────────────────────────────
-def _stub_rule_factory(rule_id: str, title: str):
-    def _stub(ctx: ProjectContext, emit: FindingEmitter) -> None:
-        log.debug("rule %s (%s) is a stub on this MVP demo; no findings emitted", rule_id, title)
-    _stub.__name__ = f"rule_{rule_id}_stub"
-    return _stub
-
-
-rule_03_stranger_to_title = _stub_rule_factory("r03", "Stranger to title")
-rule_07_retained_acreage_well_miss = _stub_rule_factory("r07", "Retained-acreage well miss")
-rule_08_nri_mismatch = _stub_rule_factory("r08", "Lease Assignment NRI Mismatch")
-rule_09_unratified_extension = _stub_rule_factory("r09", "Unratified extension")
-rule_10_missing_ratification = _stub_rule_factory("r10", "Missing lease ratification (unitized)")
-rule_13_surface_use_dispute = _stub_rule_factory("r13", "Surface use dispute")
-rule_14_pipeline_row_expiration = _stub_rule_factory("r14", "Pipeline ROW expiration")
-rule_15_mineral_classification_mismatch = _stub_rule_factory("r15", "County/state mineral classification mismatch")
-
-
+# Rule registry — only rules with real implementations are listed.
+# Rules with IDs r03, r07-r10, r13-r15 are planned for future releases when
+# the data sources needed to evaluate them are wired (full chain-assignment
+# math, surface deed records, GLO state lease cross-reference). They are
+# intentionally NOT registered here so the engine never emits placeholder
+# findings.
 RULE_REGISTRY = [
     rule_01_unrecorded_p4_assignment,
     rule_02_probate_gap,
-    rule_03_stranger_to_title,
     rule_04_depth_severance_mismatch,
     rule_05_primary_term_no_continuous_prod,
     rule_06_pugh_release_missed,
-    rule_07_retained_acreage_well_miss,
-    rule_08_nri_mismatch,
-    rule_09_unratified_extension,
-    rule_10_missing_ratification,
     rule_11_old_aoh_no_probate,
     rule_12_top_lease_conflict,
-    rule_13_surface_use_dispute,
-    rule_14_pipeline_row_expiration,
-    rule_15_mineral_classification_mismatch,
     rule_16_mineral_royalty_ambiguity,
     rule_17_orri_cloud,
 ]

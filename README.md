@@ -19,27 +19,31 @@ For every project file (a set of tracts):
 5. **Reconciles ownership** — NRI decimal math against recorded chain.
 6. **Renders the landman report** — generic-branded PDF (7 pages), Excel workbook (5 tabs), Folium tract map.
 
-## Curative rules (17, MVP)
+## Curative rules — MVP (9 implemented; 8 deferred to Phase 2)
 
-| # | Rule |
-|---|---|
-| 1 | Unrecorded RRC P-4 assignment |
-| 2 | Probate gap (lessor death w/o AOH) |
-| 3 | Stranger to title (RRC + county + GLO cross-check) |
-| 4 | Depth severance mismatch |
-| 5 | Primary term expiring + no continuous production |
-| 6 | Pugh-clause acreage release missed |
-| 7 | Retained-acreage well miss |
-| 8 | Lease Assignment NRI Mismatch |
-| 9 | Unratified extension |
-| 10 | Missing lease ratification (unitized) |
-| 11 | Heirship affidavit > 10 years w/o probate |
-| 12 | Top-lease conflict |
-| 13 | Surface use dispute |
-| 14 | Pipeline ROW expiration |
-| 15 | County/state mineral classification mismatch |
-| 16 | Mineral / royalty ambiguity in conveyance |
-| 17 | ORRI cloud (unreleased ORRI > 36mo post-lease-termination) |
+The 9 rules registered in the engine produce real findings without any
+placeholder logic. Rules that require data sources still being wired
+(operator pay-deck NRI, surface deed records, GLO state cross-reference)
+are NOT in the registry yet — they're tracked separately as Phase-2 work.
+
+**Live in the registry:**
+
+| # | Rule | Requires |
+|---|---|---|
+| 1 | Unrecorded RRC P-4 assignment | RRC P-4 history + county OPR chain |
+| 2 | Probate gap (deceased lessor w/o AOH) | parsed lease parties (deceased flag) |
+| 4 | Depth severance mismatch | parsed depth-limit clause + RRC completion data |
+| 5 | Primary term expiring + no continuous production | parsed primary-term + RRC PR data |
+| 6 | Pugh-clause acreage release missed | parsed Pugh clause text |
+| 11 | Heirship affidavit > 10 years w/o probate | county OPR AOH events |
+| 12 | Top-lease conflict | county OPR top-lease + lease primary-term data |
+| 16 | Mineral / royalty ambiguity in conveyance | parsed lease clause text |
+| 17 | ORRI cloud (unreleased > 36 mo post-lease termination) | county OPR ORRI events |
+
+**Phase-2 (NOT in the registry — would require placeholder code today):**
+r03 stranger-to-title, r07 retained-acreage well miss, r08 lease-assignment NRI mismatch,
+r09 unratified extension, r10 missing unit ratification, r13 surface use dispute,
+r14 pipeline ROW expiration, r15 county/state mineral classification mismatch.
 
 ## Stack
 
@@ -94,9 +98,28 @@ PYTHONPATH=src python3 -m facttrack.engine.run --project demo_anderson_001
 PYTHONPATH=src python3 -m facttrack.render.report --project demo_anderson_001
 ```
 
-## Status
+## Status — real data, no fixtures
 
-Currently in build (autonomous mode). See `BUILD_LOG.md` for per-cycle progress. The MVP demo runs on **synthetic-but-realistic** East-TX tract fixtures so the analysis engine and rendering pipeline can be developed and shown end-to-end without depending on the live county OPR scrapers (those come in as a Phase 2 add-on when paired with a pilot customer's NDA-covered project files).
+The pipeline now runs end-to-end on 100% real Texas public records. No
+synthetic, demo, mock, or placeholder data lives anywhere in the codebase or
+database.
+
+**Verified working on real data:**
+- Anderson County OPR ingest via Playwright scraper (live `publicsearch.us` portal)
+- Legal-description parser extracts real survey/abstract/acreage from each lease
+- Engine runs the 9 registered rules against the real entities
+
+**Honest current finding rate:** 0 findings on the recent Anderson County
+2-year window. The rules need clause-level data (Pugh, primary term, depth
+limits) that the OPR index doesn't expose — only the underlying lease PDFs do.
+Extracting clauses from scanned PDFs (OCR + LLM-assisted text parsing) is the
+Phase-2 workstream that unlocks the rules' full firing rate.
+
+**Counties currently on the free `publicsearch.us` platform:**
+Anderson, Leon, Freestone, Smith, Nacogdoches, Madison, Walker.
+
+**Houston County** (originally a pilot target) uses iDocket subscription —
+deferred to Phase 2 once a paid integration is justified by pilot revenue.
 
 ## Data sources (all public)
 
