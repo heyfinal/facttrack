@@ -9,17 +9,30 @@ from pathlib import Path
 from .excel import render_xlsx
 from .map import render_map
 from .pdf import RenderResult, render_pdf
+from .typst_pdf import render_typst_pdf
 
 
 def build(project_id: str) -> dict[str, Path]:
     map_path = render_map(project_id)
     xlsx_path = render_xlsx(project_id)
+    # WeasyPrint path produces report.html (for browser viewing) + a serviceable
+    # PDF fallback when typst isn't installed. Typst path overwrites the PDF
+    # with the magazine-grade version.
     pdf_result: RenderResult = render_pdf(project_id, map_html_path=map_path)
+    try:
+        typst_result = render_typst_pdf(project_id)
+        pdf_path = typst_result.pdf_path
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).warning(
+            "Typst PDF render failed (%s); keeping WeasyPrint fallback", e
+        )
+        pdf_path = pdf_result.pdf_path
     return {
         "map": map_path,
         "xlsx": xlsx_path,
         "html": pdf_result.html_path,
-        "pdf": pdf_result.pdf_path,
+        "pdf": pdf_path,
     }
 
 
