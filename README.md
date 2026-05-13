@@ -104,14 +104,11 @@ PYTHONPATH=src python3 -m facttrack.render.build_report --project county_researc
 
 The pipeline runs end-to-end on 100% real Texas public records. No synthetic, mock, or placeholder data is used anywhere in the codebase.
 
-**Anderson County, TX — 3 CRITICAL findings on 14 leases, total addressable curative value $55k–$800k:**
+**Anderson County, TX — 1 CRITICAL finding on 14 leases**, after the grantor-side release verifier auto-demoted two prior r05 findings on 1957 Shell leases (Davenport, Chivers) by locating their recorded releases (1968-6829460, 1969-6929994). One CRITICAL `r02 probate_gap` finding remains on the 1958 C.W. Hanks Estate lease (no recorded AOH or probate in Anderson County deed records — independently verified, transcript in `docs/verification/`).
 
-- 2 × `r05` primary-term expired + no continuous production (1957 Shell Oil leases on the Davenport and Chivers tracts)
-- 1 × `r02` probate gap (C.W. Hanks Estate, 1958 lease to Pennybacker — no recorded AOH or probate)
+The full pipeline that surfaced this (ingest → multi-page document fetch → grantor-side release verifier → OCR → clause regex → curative engine with §203.001 logic → report renderer) is driven by `scripts/run_anderson_pipeline.sh` and uses 100% real Anderson County OPR records from 1957-1960 plus live publicsearch.us reverse-search.
 
-The full pipeline that surfaced these (ingest → multi-page document fetch → OCR → clause regex → curative engine → report renderer) is driven by `scripts/run_anderson_pipeline.sh` and uses 100% real Anderson County OPR records from 1957-1960.
-
-**Counties on the free `publicsearch.us` platform:** Anderson, Leon, Freestone, Smith, Nacogdoches, Madison, Walker.
+**Counties on the free `publicsearch.us` platform:** Anderson, Leon, Freestone, Smith, Nacogdoches, Walker. *(Madison County is on Cott/Kofile `uslandrecords.com` and is currently a coverage gap.)*
 
 ## Data sources (all public)
 

@@ -72,9 +72,21 @@ The publicsearch.us viewer was page-1-only in the first cut. The current fetcher
 - 60-second timeout + 1 retry per signed URL (CDN-rate-limit tolerant).
 - All downloads use the live Playwright context (cookie-locked signed URLs).
 
-This is the breakthrough that took clause-extraction coverage from 6 / 14 leases
-to 12 / 14 — page 2+ holds the primary term, royalty, Pugh and depth-limit
-language.
+Per-field extraction on the 14 Anderson leases after multi-page fetch:
+
+- Royalty fraction: 12 / 14 (86%)
+- Primary term: 2 / 14 (14%) — the primary-term clause uses spelled-out years
+  ("for a term of ten (10) years") that survive page 1 OCR cleanly only on
+  the Shell-template leases; the others are on page 2+ and require either
+  more regex variants or LLM-assisted extraction (Phase 2 backlog).
+- Pugh clause: 0 / 14 — none of the 1957-58 leases predate standard Pugh
+  language (the Pugh clause was popularized post-1970).
+- Depth limit: 1 / 14 (Midwest Oil 1500 ft).
+
+Page 2+ holds the primary term, royalty, and Pugh language on a modern lease;
+1950s typewritten leases often phrase these in spelled-out English that the
+current regex doesn't catch consistently. LLM-assisted extraction is the
+Phase 2 path to lift primary-term coverage to 80%+.
 
 ## What's still missing for broader findings
 

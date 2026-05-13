@@ -300,7 +300,11 @@
             </span>
           {% endif %}
         </dd>
-        <dt>Wells indexed</dt>     <dd class="tnum">{{ project.wells|length|format_thousands }}</dd>
+        <dt>Wells indexed</dt>
+        <dd class="tnum">
+          {{ project.wells|length|format_thousands }}
+          <span class="small" style="color:#6a7280;">(RRC EWA wellbore inventory only — no production data)</span>
+        </dd>
         <dt>Examination period</dt><dd class="tnum">{{ examination_period }}</dd>
       </dl>
     </div>
@@ -361,8 +365,8 @@
         <td><code style="font-size: 7.5pt; color: #374151;">{{ f.rule_id }}</code></td>
         <td>
           <div class="finding-title">{{ f.title }}</div>
-          <div class="finding-desc">{{ f.description|truncate(320, true) }}</div>
-          <div class="finding-action">→ {{ f.suggested_action|truncate(220, true) }}</div>
+          <div class="finding-desc">{{ f.description }}</div>
+          <div class="finding-action">→ {{ f.suggested_action }}</div>
         </td>
         <td class="tnum">{{ f.effort_display }}</td>
         <td>{{ f.assignee_display }}</td>
@@ -537,8 +541,11 @@
   <dl class="scope-grid">
     <dt>Records examined</dt>
     <dd>
-      Anderson County Official Public Records as indexed on publicsearch.us;
-      Texas Railroad Commission EWA wellbore data ({{ rrc_pulled_at }}).
+      Anderson County Official Public Records as indexed on publicsearch.us
+      (lease, assignment, release, AOH, probate index entries);
+      Texas Railroad Commission EWA wellbore inventory ({{ rrc_pulled_at }}).
+      RRC monthly production (PR) and P-4 operator-history data are out of
+      scope for this examination — see exclusions below.
     </dd>
 
     <dt>Period</dt>
@@ -561,7 +568,7 @@
 
   <h3>Records expressly excluded from this examination</h3>
   <ul class="tight">
-    <li><strong>County Clerk probate dockets.</strong> Probate cases in the seven East-Texas counties currently supported by FactTrack are filed in the constitutional County Court and held by the County Clerk (the same office that runs the deed records); only contested cases transferred under Texas Estates Code §32.003 land with the District Clerk. The probate <em>case docket</em> — applications, wills offered for probate, letters testamentary, inventories — is not indexed on publicsearch.us. Documents that touch deed records (AOH, will-as-Muniment-of-Title, probate-deed-of-distribution) are indexed and are picked up by this examination.</li>
+    <li><strong>County Clerk probate dockets.</strong> Probate cases in the seven East-Texas counties currently supported by FactTrack are filed in the constitutional County Court and held by the County Clerk (the same office that runs the deed records); only contested cases are transferred to the District Court under Texas Estates Code §32.003. The probate <em>case docket</em> — applications, wills offered for probate, letters testamentary, inventories — is not indexed on publicsearch.us. Documents that touch deed records (AOH, will-as-Muniment-of-Title, probate-deed-of-distribution) are indexed and are picked up by this examination.</li>
     <li><strong>County Appraisal District (CAD) records.</strong> Current mineral- and surface-owner identification has not been cross-referenced.</li>
     <li><strong>Texas RRC monthly production (PR) reports and W-2 completion records.</strong> Primary-term + continuous-production findings (rule r05) rely on absence of recorded release; an offsetting release elsewhere in the chain should be confirmed before treating the finding as actionable.</li>
     <li><strong>Texas General Land Office state-leased mineral records.</strong> Tracts with GLO interests are not currently surfaced.</li>

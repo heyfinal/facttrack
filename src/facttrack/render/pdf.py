@@ -67,7 +67,7 @@ def _assignee_display(level: Any) -> str:
 # the labor + recording shape a Director of Land actually scopes against.
 _EFFORT_BY_RULE = {
     "r01_unrecorded_p4_assignment":     "2–4 hr jr · ~$250 rec.",
-    "r02_probate_gap":                  "4–8 hr jr · district-clerk search · ~$300 rec.",
+    "r02_probate_gap":                  "6–10 hr sr · county-clerk probate search · ~$300 rec.",
     "r04_depth_severance_mismatch":     "Title-opinion review · ~$2,500 atty",
     "r05_primary_term_no_continuous_prod": "Verify recorded release · 1–2 hr jr",
     "r06_pugh_release_missed":          "4–6 hr sr · ~$200 rec.",
@@ -90,10 +90,14 @@ def _badge_for_findings(findings: list[dict], has_clause_data: bool) -> tuple[st
     extraction lands) — we DO NOT claim "Acquisition-ready" off an index scrape.
     Clear: only when we have clause data AND no findings.
     """
-    if any(f["severity"] == "critical" for f in findings):
-        return "red", "CRITICAL — curative required"
-    if any(f["severity"] == "high" for f in findings):
-        return "yellow", "BLOCKED pending curative"
+    crit_count = sum(1 for f in findings if f["severity"] == "critical")
+    high_count = sum(1 for f in findings if f["severity"] == "high")
+    if crit_count > 0:
+        item_word = "item" if crit_count == 1 else "items"
+        return "red", f"{crit_count} critical {item_word} — landman review required"
+    if high_count > 0:
+        item_word = "item" if high_count == 1 else "items"
+        return "yellow", f"{high_count} blocking {item_word} pending curative"
     if not has_clause_data:
         return "yellow", "Insufficient data — clause extraction required"
     return "green", "No findings against current rule set"
@@ -307,18 +311,29 @@ def _examination_period(ctx: ProjectContext) -> str:
 
 
 def _rrc_pulled_at() -> str:
-    """When was the RRC wellbore data last refreshed?"""
+    """When was the RRC wellbore data last refreshed?
+
+    Prefers the ingestion_run audit trail; falls back to the well table's
+    last_seen_at because the EWA bulk-loader (rrc_wellbore_parser) was added
+    before the ingestion_run audit was wired through it. Looking at the well
+    table directly is the source of truth for what's actually loaded.
+    """
     try:
         with cursor() as cur:
             cur.execute(
-                """
-                SELECT MAX(finished_at) AS t FROM ingestion_run
-                 WHERE source LIKE 'rrc_mft:%%' AND rows_upserted > 0
-                """
+                "SELECT MAX(finished_at) AS t FROM ingestion_run "
+                "WHERE source LIKE 'rrc_mft:%%' AND rows_upserted > 0"
             )
             row = cur.fetchone()
             t = row.get("t") if row else None
-            return t.date().isoformat() if t else "not yet pulled"
+            if t:
+                return t.date().isoformat()
+            cur.execute("SELECT MAX(last_seen_at) AS t FROM well")
+            row = cur.fetchone()
+            t = row.get("t") if row else None
+            if t:
+                return t.date().isoformat()
+        return "not yet pulled"
     except Exception:
         return "not yet pulled"
 
