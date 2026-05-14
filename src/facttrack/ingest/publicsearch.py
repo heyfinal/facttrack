@@ -164,11 +164,21 @@ class PublicSearchClient:
     ) -> Iterator[PSDocument]:
         """Yield documents recorded in [recorded_from, recorded_to].
 
-        Uses publicsearch.us simple search with a date range and an empty
-        keyword, which returns all OPR documents in the window.
+        publicsearch.us doesn't expose its date pickers as text inputs the form
+        can fill — they're popover datepickers. But the results page accepts
+        URL parameters directly, so we skip the form and navigate straight to:
+            /results?department=RP&recordedDateRange=YYYYMMDD,YYYYMMDD&searchType=advancedSearch
+        That's the same URL the form would have produced.
         """
         log.info("publicsearch.us scrape %s %s → %s (max=%d)",
                  self.slug, recorded_from, recorded_to, max_results)
+
+        date_range = f"{recorded_from.strftime('%Y%m%d')},{recorded_to.strftime('%Y%m%d')}"
+        results_url = (
+            f"{self.base}/results?department=RP"
+            f"&recordedDateRange={date_range}"
+            f"&searchType=advancedSearch"
+        )
 
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=self._headless)
@@ -179,56 +189,8 @@ class PublicSearchClient:
                 )
                 page = context.new_page()
                 page.set_default_timeout(20_000)
-
-                # Go to advanced search
-                page.goto(f"{self.base}/search/advanced", wait_until="networkidle")
-                page.wait_for_timeout(1500)
-
-                # Fill the recorded-date range
-                fmt = "%m/%d/%Y"
-                date_inputs = page.locator(
-                    "input[name='recordedDateRange-from'], input[name*='recordedDateFrom'], "
-                    "input[placeholder*='From'], input[aria-label*='From']"
-                )
-                if date_inputs.count() == 0:
-                    # Fallback — fill the first two text-like inputs that look like dates
-                    candidates = page.locator("input").all()
-                    text_inputs = [
-                        c for c in candidates
-                        if (c.get_attribute("type") or "text").lower() in ("text", "")
-                        and "date" in ((c.get_attribute("aria-label") or "") + (c.get_attribute("placeholder") or "")).lower()
-                    ]
-                    if len(text_inputs) >= 2:
-                        text_inputs[0].fill(recorded_from.strftime(fmt))
-                        text_inputs[1].fill(recorded_to.strftime(fmt))
-                else:
-                    # Best guess: first occurrence = from, second = to
-                    date_inputs.nth(0).fill(recorded_from.strftime(fmt))
-                    to_input = page.locator(
-                        "input[name='recordedDateRange-to'], input[name*='recordedDateTo'], "
-                        "input[placeholder*='To'], input[aria-label*='To']"
-                    ).first
-                    if to_input.count() > 0:
-                        to_input.fill(recorded_to.strftime(fmt))
-
-                # Submit the search
-                clicked = False
-                for selector in [
-                    "button:has-text('Search')",
-                    "button[type='submit']",
-                    "[role='button']:has-text('Search')",
-                ]:
-                    btn = page.locator(selector).first
-                    if btn.count() > 0:
-                        try:
-                            btn.click()
-                            clicked = True
-                            break
-                        except Exception:
-                            continue
-                if not clicked:
-                    log.warning("could not locate Search button on advanced form for %s", self.slug)
-                    page.keyboard.press("Enter")
+                page.goto(results_url, wait_until="networkidle")
+                page.wait_for_timeout(2500)
 
                 # Wait for results
                 try:
@@ -363,23 +325,43 @@ def _extract_results_from_page(page: Page) -> list[PSDocument]:
 
 
 def _click_next_page(page: Page) -> bool:
-    """Click the pagination 'next' button if present + enabled."""
+    """Click the pagination 'next' button if present + enabled.
+
+    publicsearch.us renders pagination as a `.search-results__pagination`
+    strip with numbered "page N" buttons plus a leading "◀" and trailing
+    "▶" arrow. The "next-page" button uses the "▶" character — not the
+    word "Next". Fall through to a numeric-page-click strategy if the
+    arrow is absent.
+    """
+    # Primary: the ▶ arrow button (Unicode U+25B6 BLACK RIGHT-POINTING TRIANGLE)
     for sel in [
+        "button[aria-label='next page']",
         "button[aria-label='Next page']",
-        "button:has-text('Next')",
-        "a:has-text('Next')",
-        "[data-test='pagination-next']",
+        ".search-results__pagination button:has-text('▶')",
+        ".Pagination button:has-text('▶')",
+        "button:has-text('▶')",
     ]:
         btn = page.locator(sel).first
         if btn.count() > 0:
             try:
-                disabled = btn.get_attribute("aria-disabled")
-                if disabled and disabled.lower() == "true":
+                disabled = btn.get_attribute("aria-disabled") or btn.get_attribute("disabled")
+                if disabled and disabled.lower() in ("true", "disabled"):
                     return False
                 btn.click()
                 return True
             except Exception:
                 continue
+    # Fallback: numbered page buttons — find current "page N" then click "page N+1"
+    try:
+        current = page.locator("button[aria-current='true'][aria-label^='page']").first
+        if current.count() > 0:
+            n = int((current.get_attribute("aria-label") or "page 0").split()[-1])
+            nxt = page.locator(f"button[aria-label='page {n + 1}']").first
+            if nxt.count() > 0:
+                nxt.click()
+                return True
+    except Exception:
+        pass
     return False
 
 

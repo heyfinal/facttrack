@@ -9,9 +9,13 @@ set -uo pipefail
 
 cd "$(dirname "$0")/.."
 
-mkdir -p logs
+mkdir -p logs state
+RUN_TAG="${RUN_TAG:-$(date +%Y%m%d)}"
+CKPT="state/scan_all_counties_${RUN_TAG}.checkpoint"
+touch "$CKPT"
 
 COUNTIES=(
+  "48001:Anderson"     # re-scan with 1990+ window for depth (was 1957 demo)
   "48423:Smith"        # Tyler — Monument HQ, highest priority
   "48289:Leon"         # south of Anderson
   "48161:Freestone"    # southwest of Anderson
@@ -23,12 +27,17 @@ COUNTIES=(
 for entry in "${COUNTIES[@]}"; do
   FIPS="${entry%%:*}"
   NAME="${entry##*:}"
+  if grep -q "^${FIPS}$" "$CKPT" 2>/dev/null; then
+    echo "═════ SKIP ${NAME} (${FIPS}) — already completed in run ${RUN_TAG} ═════"
+    continue
+  fi
   LOG="logs/scan_${FIPS}_$(date +%Y%m%d_%H%M%S).log"
   echo "═════ Starting ${NAME} County (${FIPS}) — log: ${LOG} ═════"
   if bash "scripts/scan_county.sh" "$FIPS" 2>&1 | tee "$LOG"; then
+    echo "${FIPS}" >> "$CKPT"
     echo "═════ ${NAME} complete ═════"
   else
-    echo "═════ ${NAME} FAILED — continuing ═════"
+    echo "═════ ${NAME} FAILED — continuing without checkpoint ═════"
   fi
   sleep 5
 done

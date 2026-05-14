@@ -14,7 +14,11 @@
 set -euo pipefail
 
 FIPS="${1:?usage: scan_county.sh <FIPS> [date_from]}"
-DATE_FROM="${2:-$(date -d '5 years ago' +%Y-%m-%d 2>/dev/null || python3 -c 'import datetime; print((datetime.date.today() - datetime.timedelta(days=5*365)).isoformat())')}"
+# Default window is wide — 1990 to present catches the Haynesville/Cotton
+# Valley boom (2008-2014), the bust-era assignments and releases (2015-2020),
+# and the modern HBP-curative landscape. Pre-1990 records are sparse and
+# largely closed; recapture if a project demands it.
+DATE_FROM="${2:-1990-01-01}"
 DATE_TO="$(date +%Y-%m-%d)"
 PROJECT="county_research_${FIPS}"
 
@@ -41,7 +45,7 @@ INSERT INTO facttrack.project (id, label) VALUES ('$PROJECT', '$COUNTY_NAME Coun
 EOF
 
 echo "[1/8] OPR scrape from publicsearch.us"
-$PY -m facttrack.ingest.publicsearch --county "$FIPS" --from "$DATE_FROM" --to "$DATE_TO" --max 300 || true
+$PY -m facttrack.ingest.publicsearch --county "$FIPS" --from "$DATE_FROM" --to "$DATE_TO" --max 5000 || true
 
 echo "[2/8] parse legal descriptions → tracts + project_tract"
 $PY -m facttrack.ingest.legal_parser --county-fips "$FIPS" --county-name "$COUNTY_NAME" || true
@@ -50,7 +54,7 @@ echo "[3/8] party split (lessor/lessee → lease_party + deceased flags)"
 $PY -m facttrack.ingest.party_splitter --county "$FIPS"
 
 echo "[4/8] fetch doc images (multi-page MPV)"
-$PY -m facttrack.ingest.publicsearch_docs --county "$FIPS" --max 50 || true
+$PY -m facttrack.ingest.publicsearch_docs --county "$FIPS" --max 500 || true
 
 echo "[5/8] grantor-side release verifier"
 mkdir -p docs/verification
