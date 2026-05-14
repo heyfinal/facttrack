@@ -1,36 +1,31 @@
 {
   "tract": {
-    "label": "Anderson Co \u2014 C W Hanks Survey \u00b7 A-1112 \u00b7 11.23 ac",
-    "abstract_no": "A-1112",
-    "survey_name": "C W HANKS",
-    "gross_acres": "11.23",
+    "label": "Anderson Co \u2014 Miles Yandle Survey \u00b7 A-850",
+    "abstract_no": "A-850",
+    "survey_name": "MILES YANDLE",
+    "gross_acres": "\u2014",
     "county_fips": "48001",
     "county_name": "Anderson"
   },
   "leases": [
     {
-      "instrument": "1958-58563225",
-      "recorded": "1958-01-24",
-      "lessor": "HANKS C W ESTATE OF",
-      "lessee": "PENNYBACKER PAUL J",
+      "instrument": "2021-5852",
+      "recorded": "2021-09-07",
+      "lessor": "DOUBLE J OIL AND GAS INTERESTS LLC",
+      "lessee": "ODEN & ASSOCIATES LLC",
       "royalty": "\u2014",
-      "primary_term_end": "\u2014"
+      "primary_term_end": "2024-09-06"
     }
   ],
   "current_status": {
-    "status": "HBP / producing",
-    "rationale": "4 producing wellbore(s) on tract; lease likely held by production.",
-    "producing_count": 4,
-    "shutin_count": 2,
-    "inactive_count": 1,
-    "well_count": 10,
-    "primary_operators": [
-      "ATLANTIS OIL COMPANY  INC.",
-      "BROWN  GEORGE R. PARTNERSHIP THE",
-      "SCOUT ENERGY MANAGEMENT LLC",
-      "SOUTHWEST OPERATING  INC.-TYLER"
-    ],
-    "last_spud": "2006-05-10"
+    "status": "Open / no wells",
+    "rationale": "No RRC-indexed wellbores match this tract by name; verify on RRC GIS.",
+    "producing_count": 0,
+    "shutin_count": 0,
+    "inactive_count": 0,
+    "well_count": 0,
+    "primary_operators": [],
+    "last_spud": null
   },
   "nri": {
     "wi_share": 1.0,
@@ -59,22 +54,22 @@
     "medium_count": 0,
     "items": [
       {
-        "rule_id": "r02_probate_gap",
+        "rule_id": "r05_primary_term_no_continuous_prod",
         "severity": "critical",
-        "title": "Probate gap \u2014 deceased lessor HANKS C W ESTATE OF (lease 1958-58563225)",
-        "effort": "6\u201310 hr sr \u00b7 county-clerk probate search \u00b7 ~$300 rec."
+        "title": "Lease 2021-5852 past primary term \u2014 no continuous production",
+        "effort": "Verify recorded release \u00b7 1\u20132 hr jr"
       }
     ],
-    "hours_lo": 6,
-    "hours_hi": 10,
-    "recording_cost": 300
+    "hours_lo": 1,
+    "hours_hi": 2,
+    "recording_cost": 0
   },
   "competitive": {
     "prior_lessees": [
       {
-        "instrument": "1958-58563225",
-        "lessee": "PENNYBACKER PAUL J",
-        "recorded": "1958-01-24"
+        "instrument": "2021-5852",
+        "lessee": "ODEN & ASSOCIATES LLC",
+        "recorded": "2021-09-07"
       }
     ],
     "releases": [],

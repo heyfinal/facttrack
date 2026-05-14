@@ -1,31 +1,34 @@
 {
   "tract": {
-    "label": "Anderson Co \u2014 Anderson County School Land Survey \u00b7 A-68 \u00b7 122 ac",
-    "abstract_no": "A-68",
-    "survey_name": "ANDERSON COUNTY SCHOOL LAND",
-    "gross_acres": "122",
+    "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac",
+    "abstract_no": "A-713",
+    "survey_name": "MAXIMO SALISAR",
+    "gross_acres": "104",
     "county_fips": "48001",
     "county_name": "Anderson"
   },
   "leases": [
     {
-      "instrument": "1957-57564088",
-      "recorded": "1957-12-10",
-      "lessor": "ANICKER MILDRED K",
-      "lessee": "SHELL OIL COMPANY",
-      "royalty": "0.125",
+      "instrument": "1992-9235284",
+      "recorded": "1992-02-06",
+      "lessor": "COLLEY THOMAS M",
+      "lessee": "EP OPERATING CO",
+      "royalty": "\u2014",
       "primary_term_end": "\u2014"
     }
   ],
   "current_status": {
-    "status": "Open / no wells",
-    "rationale": "No RRC-indexed wellbores match this tract by name; verify on RRC GIS.",
+    "status": "Marginal / suspect",
+    "rationale": "3 well(s) on tract, none currently producing.",
     "producing_count": 0,
     "shutin_count": 0,
     "inactive_count": 0,
-    "well_count": 0,
-    "primary_operators": [],
-    "last_spud": null
+    "well_count": 3,
+    "primary_operators": [
+      "GRAWARD OPERATING  INC.",
+      "LEASE HOLDERS ACQUISITIONS LLC"
+    ],
+    "last_spud": "2004-10-14"
   },
   "nri": {
     "wi_share": 1.0,
@@ -36,14 +39,16 @@
     "value_pct": 87.5,
     "stack": [
       {
-        "party": "ANICKER MILDRED K",
+        "party": "lessor (assumed)",
         "kind": "lessor_royalty",
         "rate": 0.125,
         "rate_pct": 12.5,
-        "source": "lease 1957-57564088"
+        "source": "default \u2014 clause not extracted"
       }
     ],
-    "notes": []
+    "notes": [
+      "Lessor royalty not extracted from any lease; default 1/8 (12.5%) assumed. Verify against original lease before committing."
+    ]
   },
   "curative_scorecard": {
     "tier": "NONE",
@@ -58,18 +63,12 @@
   "competitive": {
     "prior_lessees": [
       {
-        "instrument": "1957-57564088",
-        "lessee": "SHELL OIL COMPANY",
-        "recorded": "1957-12-10"
+        "instrument": "1992-9235284",
+        "lessee": "EP OPERATING CO",
+        "recorded": "1992-02-06"
       }
     ],
-    "releases": [
-      {
-        "instrument": "1969-6934610",
-        "by": "SHELL OIL COMPANY",
-        "recorded": "1969-10-17"
-      }
-    ],
+    "releases": [],
     "top_leases": [],
     "has_competing_top_lease": false
   },

@@ -1,36 +1,31 @@
 {
   "tract": {
-    "label": "Anderson Co \u2014 C W Hanks Survey \u00b7 A-1112 \u00b7 11.23 ac",
-    "abstract_no": "A-1112",
-    "survey_name": "C W HANKS",
-    "gross_acres": "11.23",
+    "label": "Anderson Co \u2014 Solomon Bowlin Survey \u00b7 A-9 \u00b7 102 ac",
+    "abstract_no": "A-9",
+    "survey_name": "SOLOMON BOWLIN",
+    "gross_acres": "102",
     "county_fips": "48001",
     "county_name": "Anderson"
   },
   "leases": [
     {
-      "instrument": "1958-58563225",
-      "recorded": "1958-01-24",
-      "lessor": "HANKS C W ESTATE OF",
-      "lessee": "PENNYBACKER PAUL J",
-      "royalty": "\u2014",
+      "instrument": "1992-9235335",
+      "recorded": "1992-02-07",
+      "lessor": "SUMMERS ALFRED H ESTATE OF",
+      "lessee": "COHO RESOURCES INC",
+      "royalty": "0.125",
       "primary_term_end": "\u2014"
     }
   ],
   "current_status": {
-    "status": "HBP / producing",
-    "rationale": "4 producing wellbore(s) on tract; lease likely held by production.",
-    "producing_count": 4,
-    "shutin_count": 2,
-    "inactive_count": 1,
-    "well_count": 10,
-    "primary_operators": [
-      "ATLANTIS OIL COMPANY  INC.",
-      "BROWN  GEORGE R. PARTNERSHIP THE",
-      "SCOUT ENERGY MANAGEMENT LLC",
-      "SOUTHWEST OPERATING  INC.-TYLER"
-    ],
-    "last_spud": "2006-05-10"
+    "status": "Open / no wells",
+    "rationale": "No RRC-indexed wellbores match this tract by name; verify on RRC GIS.",
+    "producing_count": 0,
+    "shutin_count": 0,
+    "inactive_count": 0,
+    "well_count": 0,
+    "primary_operators": [],
+    "last_spud": null
   },
   "nri": {
     "wi_share": 1.0,
@@ -41,16 +36,14 @@
     "value_pct": 87.5,
     "stack": [
       {
-        "party": "lessor (assumed)",
+        "party": "SUMMERS ALFRED H ESTATE OF",
         "kind": "lessor_royalty",
         "rate": 0.125,
         "rate_pct": 12.5,
-        "source": "default \u2014 clause not extracted"
+        "source": "lease 1992-9235335"
       }
     ],
-    "notes": [
-      "Lessor royalty not extracted from any lease; default 1/8 (12.5%) assumed. Verify against original lease before committing."
-    ]
+    "notes": []
   },
   "curative_scorecard": {
     "tier": "MEDIUM",
@@ -61,7 +54,7 @@
       {
         "rule_id": "r02_probate_gap",
         "severity": "critical",
-        "title": "Probate gap \u2014 deceased lessor HANKS C W ESTATE OF (lease 1958-58563225)",
+        "title": "Probate gap \u2014 deceased lessor SUMMERS ALFRED H ESTATE OF (lease 1992-9235335)",
         "effort": "6\u201310 hr sr \u00b7 county-clerk probate search \u00b7 ~$300 rec."
       }
     ],
@@ -72,9 +65,9 @@
   "competitive": {
     "prior_lessees": [
       {
-        "instrument": "1958-58563225",
-        "lessee": "PENNYBACKER PAUL J",
-        "recorded": "1958-01-24"
+        "instrument": "1992-9235335",
+        "lessee": "COHO RESOURCES INC",
+        "recorded": "1992-02-07"
       }
     ],
     "releases": [],

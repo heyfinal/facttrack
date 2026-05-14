@@ -1,31 +1,37 @@
 {
   "tract": {
-    "label": "Anderson Co \u2014 Samuel Edmondson Survey",
-    "abstract_no": "\u2014",
-    "survey_name": "SAMUEL EDMONDSON",
-    "gross_acres": "\u2014",
+    "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 1.2 ac",
+    "abstract_no": "A-594",
+    "survey_name": "JOHN C OGDEN",
+    "gross_acres": "1.2",
     "county_fips": "48001",
     "county_name": "Anderson"
   },
   "leases": [
     {
-      "instrument": "1960-6006030339",
-      "recorded": "1960-03-24",
-      "lessor": "CAGE J W",
-      "lessee": "TIDEWATER OIL COMPANY",
+      "instrument": "1992-9235160",
+      "recorded": "1992-01-30",
+      "lessor": "WILLIAMS BERNIECE",
+      "lessee": "ROWAN UNGERECHT INC",
       "royalty": "\u2014",
       "primary_term_end": "\u2014"
     }
   ],
   "current_status": {
-    "status": "Open / no wells",
-    "rationale": "No RRC-indexed wellbores match this tract by name; verify on RRC GIS.",
-    "producing_count": 0,
-    "shutin_count": 0,
+    "status": "HBP / producing",
+    "rationale": "2 producing wellbore(s) on tract; lease likely held by production.",
+    "producing_count": 2,
+    "shutin_count": 1,
     "inactive_count": 0,
-    "well_count": 0,
-    "primary_operators": [],
-    "last_spud": null
+    "well_count": 22,
+    "primary_operators": [
+      "AMERADA HESS CORPORATION",
+      "BASA RESOURCES  INC.",
+      "COLORADO GENERAL OIL & GAS CO.",
+      "HAUPT  INC.",
+      "PETRALIS ENERGY RESOURCES  LLC"
+    ],
+    "last_spud": "2020-03-01"
   },
   "nri": {
     "wi_share": 1.0,
@@ -60,9 +66,9 @@
   "competitive": {
     "prior_lessees": [
       {
-        "instrument": "1960-6006030339",
-        "lessee": "TIDEWATER OIL COMPANY",
-        "recorded": "1960-03-24"
+        "instrument": "1992-9235160",
+        "lessee": "ROWAN UNGERECHT INC",
+        "recorded": "1992-01-30"
       }
     ],
     "releases": [],
@@ -70,11 +76,11 @@
     "has_competing_top_lease": false
   },
   "recommendation": {
-    "recommendation": "BUY",
+    "recommendation": "WALK",
     "reasons": [
-      "Clean chain, no recorded HBP \u2014 proceed with standard form lease at market bonus."
+      "Tract is HBP by current producer; no acquisition opportunity at this time \u2014 monitor for release."
     ],
-    "walkaway_bonus_ceiling_per_ac": 750
+    "walkaway_bonus_ceiling_per_ac": null
   },
   "project_id": "county_research_48001",
   "prepared_by": "FactTrack v0.1.0",

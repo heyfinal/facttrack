@@ -1,20 +1,20 @@
 {
   "tract": {
-    "label": "Anderson Co \u2014 Anderson County School Land Survey \u00b7 A-68 \u00b7 122 ac",
-    "abstract_no": "A-68",
-    "survey_name": "ANDERSON COUNTY SCHOOL LAND",
-    "gross_acres": "122",
+    "label": "Anderson Co \u2014 R Erwin Survey \u00b7 A-262",
+    "abstract_no": "A-262",
+    "survey_name": "R ERWIN",
+    "gross_acres": "\u2014",
     "county_fips": "48001",
     "county_name": "Anderson"
   },
   "leases": [
     {
-      "instrument": "1957-57564088",
-      "recorded": "1957-12-10",
-      "lessor": "ANICKER MILDRED K",
-      "lessee": "SHELL OIL COMPANY",
-      "royalty": "0.125",
-      "primary_term_end": "\u2014"
+      "instrument": "2019-3844",
+      "recorded": "2019-06-25",
+      "lessor": "PAULA LYNN NASH",
+      "lessee": "TEXAS GENERAL OIL & GAS LP",
+      "royalty": "\u2014",
+      "primary_term_end": "2024-06-24"
     }
   ],
   "current_status": {
@@ -36,14 +36,16 @@
     "value_pct": 87.5,
     "stack": [
       {
-        "party": "ANICKER MILDRED K",
+        "party": "lessor (assumed)",
         "kind": "lessor_royalty",
         "rate": 0.125,
         "rate_pct": 12.5,
-        "source": "lease 1957-57564088"
+        "source": "default \u2014 clause not extracted"
       }
     ],
-    "notes": []
+    "notes": [
+      "Lessor royalty not extracted from any lease; default 1/8 (12.5%) assumed. Verify against original lease before committing."
+    ]
   },
   "curative_scorecard": {
     "tier": "NONE",
@@ -58,16 +60,16 @@
   "competitive": {
     "prior_lessees": [
       {
-        "instrument": "1957-57564088",
-        "lessee": "SHELL OIL COMPANY",
-        "recorded": "1957-12-10"
+        "instrument": "2019-3844",
+        "lessee": "TEXAS GENERAL OIL & GAS LP",
+        "recorded": "2019-06-25"
       }
     ],
     "releases": [
       {
-        "instrument": "1969-6934610",
-        "by": "SHELL OIL COMPANY",
-        "recorded": "1969-10-17"
+        "instrument": "2021-5411",
+        "by": "TEXAS GENERAL OIL & GAS LP",
+        "recorded": "2021-08-17"
       }
     ],
     "top_leases": [],

@@ -1,31 +1,33 @@
 {
   "tract": {
-    "label": "Anderson Co \u2014 D McKinzie Survey \u00b7 39.2 ac",
-    "abstract_no": "\u2014",
-    "survey_name": "D MCKINZIE",
-    "gross_acres": "39.2",
+    "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 57.11 ac",
+    "abstract_no": "A-713",
+    "survey_name": "MAXIMO SALISAR",
+    "gross_acres": "57.11",
     "county_fips": "48001",
     "county_name": "Anderson"
   },
   "leases": [
     {
-      "instrument": "1957-57564019",
-      "recorded": "1957-11-19",
-      "lessor": "SABINE ROYALTY CORPORATION",
-      "lessee": "HERSCHBACH E FRED",
+      "instrument": "1992-9235289",
+      "recorded": "1992-02-06",
+      "lessor": "CARTER LU LA M LARKIN",
+      "lessee": "SUN OPERATING LTD PARTNERSHIP",
       "royalty": "0.125",
       "primary_term_end": "\u2014"
     }
   ],
   "current_status": {
-    "status": "Open / no wells",
-    "rationale": "No RRC-indexed wellbores match this tract by name; verify on RRC GIS.",
-    "producing_count": 0,
+    "status": "HBP / producing",
+    "rationale": "1 producing wellbore(s) on tract; lease likely held by production.",
+    "producing_count": 1,
     "shutin_count": 0,
     "inactive_count": 0,
-    "well_count": 0,
-    "primary_operators": [],
-    "last_spud": null
+    "well_count": 5,
+    "primary_operators": [
+      "PELES  LLC"
+    ],
+    "last_spud": "1989-07-22"
   },
   "nri": {
     "wi_share": 1.0,
@@ -36,11 +38,11 @@
     "value_pct": 87.5,
     "stack": [
       {
-        "party": "SABINE ROYALTY CORPORATION",
+        "party": "CARTER LU LA M LARKIN",
         "kind": "lessor_royalty",
         "rate": 0.125,
         "rate_pct": 12.5,
-        "source": "lease 1957-57564019"
+        "source": "lease 1992-9235289"
       }
     ],
     "notes": []
@@ -58,9 +60,9 @@
   "competitive": {
     "prior_lessees": [
       {
-        "instrument": "1957-57564019",
-        "lessee": "HERSCHBACH E FRED",
-        "recorded": "1957-11-19"
+        "instrument": "1992-9235289",
+        "lessee": "SUN OPERATING LTD PARTNERSHIP",
+        "recorded": "1992-02-06"
       }
     ],
     "releases": [],
@@ -68,11 +70,11 @@
     "has_competing_top_lease": false
   },
   "recommendation": {
-    "recommendation": "BUY",
+    "recommendation": "WALK",
     "reasons": [
-      "Clean chain, no recorded HBP \u2014 proceed with standard form lease at market bonus."
+      "Tract is HBP by current producer; no acquisition opportunity at this time \u2014 monitor for release."
     ],
-    "walkaway_bonus_ceiling_per_ac": 750
+    "walkaway_bonus_ceiling_per_ac": null
   },
   "project_id": "county_research_48001",
   "prepared_by": "FactTrack v0.1.0",

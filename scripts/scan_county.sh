@@ -37,7 +37,7 @@ echo " project: ${PROJECT}"
 echo "════════════════════════════════════════════════════════════════"
 
 # 0. Bootstrap project + project_tract entries if needed
-PGPASSWORD="$FT_DB_PASSWORD" psql -h 127.0.0.1 -U daniel -d facttrack -v ON_ERROR_STOP=1 <<EOF
+PGPASSWORD="$FT_DB_PASSWORD" psql -h "${FT_DB_HOST:-127.0.0.1}" -U daniel -d facttrack -v ON_ERROR_STOP=1 <<EOF
 INSERT INTO facttrack.county (fips, name, state) VALUES ('$FIPS', '$COUNTY_NAME', 'TX')
   ON CONFLICT (fips) DO NOTHING;
 INSERT INTO facttrack.project (id, label) VALUES ('$PROJECT', '$COUNTY_NAME County Research — All Tracts')
@@ -88,7 +88,7 @@ echo "[8/8] build report"
 $PY -m facttrack.render.build_report --project "$PROJECT" || true
 
 # Critical-finding alert
-CRIT=$(PGPASSWORD="$FT_DB_PASSWORD" psql -h 127.0.0.1 -U daniel -d facttrack -t -A \
+CRIT=$(PGPASSWORD="$FT_DB_PASSWORD" psql -h "${FT_DB_HOST:-127.0.0.1}" -U daniel -d facttrack -t -A \
     -c "SELECT count(*) FROM facttrack.curative_item WHERE project_id = '$PROJECT' AND severity = 'critical';")
 echo
 echo "════════════════════════════════════════════════════════════════"

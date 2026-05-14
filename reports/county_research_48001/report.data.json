@@ -54,15 +54,175 @@
       {
         "id": 13,
         "label": "Anderson Co \u2014 Anderson County School Land Survey \u00b7 A-68"
+      },
+      {
+        "id": 14,
+        "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac"
+      },
+      {
+        "id": 15,
+        "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 57.11 ac"
+      },
+      {
+        "id": 16,
+        "label": "Anderson Co \u2014 Samuel Davis Survey \u00b7 A-232 \u00b7 73.8 ac"
+      },
+      {
+        "id": 17,
+        "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 2.41 ac"
+      },
+      {
+        "id": 18,
+        "label": "Anderson Co \u2014 Miles Yandle Survey \u00b7 A-850"
+      },
+      {
+        "id": 19,
+        "label": "Anderson Co \u2014 Robert Erwin Survey \u00b7 A-262 \u00b7 220.409 ac"
+      },
+      {
+        "id": 20,
+        "label": "Anderson Co \u2014 R Erwin Survey \u00b7 A-262"
+      },
+      {
+        "id": 21,
+        "label": "Anderson Co \u2014 Ip Rhinehart Survey \u00b7 A-661 \u00b7 89.51 ac"
+      },
+      {
+        "id": 22,
+        "label": "Anderson Co \u2014 Bird Gilbert Survey \u00b7 A-327 \u00b7 160 ac"
+      },
+      {
+        "id": 23,
+        "label": "Anderson Co \u2014 James Rice Survey \u00b7 A-675 \u00b7 104.22 ac"
+      },
+      {
+        "id": 24,
+        "label": "Anderson Co \u2014 M Main Survey \u00b7 A-40 \u00b7 160 ac"
+      },
+      {
+        "id": 25,
+        "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac"
+      },
+      {
+        "id": 26,
+        "label": "Anderson Co \u2014 Samuel Davis Survey \u00b7 A-232"
+      },
+      {
+        "id": 27,
+        "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713"
+      },
+      {
+        "id": 28,
+        "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 23.768 ac"
+      },
+      {
+        "id": 29,
+        "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 50 ac"
+      },
+      {
+        "id": 30,
+        "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 145.44 ac"
+      },
+      {
+        "id": 31,
+        "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 100 ac"
+      },
+      {
+        "id": 32,
+        "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 100 ac"
+      },
+      {
+        "id": 33,
+        "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 60 ac"
+      },
+      {
+        "id": 34,
+        "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9"
+      },
+      {
+        "id": 35,
+        "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 2.5 ac"
+      },
+      {
+        "id": 36,
+        "label": "Anderson Co \u2014 Solomon Bowlin Survey \u00b7 A-9 \u00b7 64.9 ac"
+      },
+      {
+        "id": 37,
+        "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 2.5 ac"
+      },
+      {
+        "id": 38,
+        "label": "Anderson Co \u2014 Solomon Bowlin Survey \u00b7 A-9 \u00b7 102 ac"
+      },
+      {
+        "id": 39,
+        "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 23.88 ac"
+      },
+      {
+        "id": 40,
+        "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 1.2 ac"
+      },
+      {
+        "id": 41,
+        "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 145.44 ac"
+      },
+      {
+        "id": 42,
+        "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9"
+      },
+      {
+        "id": 43,
+        "label": "Anderson Co \u2014 Maximo Salisary Survey \u00b7 A-713 \u00b7 145.44 ac"
+      },
+      {
+        "id": 44,
+        "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713"
       }
     ],
-    "leases_total": 14,
-    "leases_attributed": 13,
+    "leases_total": 52,
+    "leases_attributed": 44,
     "wells_formatted": "4,649"
   },
   "county_fips": "48001",
   "county_name": "Anderson",
   "findings": [
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 2021-5852 past primary term \u2014 no continuous production",
+      "description": "Lease 2021-5852 primary term ended 2024-09-06. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1991-9133913 past primary term \u2014 no continuous production",
+      "description": "Lease 1991-9133913 primary term ended 1994-11-25. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235282 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235282 primary term ended 1995-02-05. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9234933 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9234933 primary term ended 1995-01-20. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
     {
       "rule_id": "r02_probate_gap",
       "severity": "critical",
@@ -71,15 +231,46 @@
       "suggested_action": "Locate heirs of HANKS C W ESTATE OF; obtain an Affidavit of Heirship and have it recorded in the county OPR. If a probate is open or closed in the appropriate jurisdiction, record a certified copy of the order. Until this is filed any conveyance from purported heirs is exposed.",
       "effort_display": "6\u201310 hr sr \u00b7 county-clerk probate search \u00b7 ~$300 rec.",
       "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r02_probate_gap",
+      "severity": "critical",
+      "title": "Probate gap \u2014 deceased lessor SUMMERS ALFRED H ESTATE OF (lease 1992-9235335)",
+      "description": "The lessor SUMMERS ALFRED H ESTATE OF on lease 1992-9235335 (recorded 1992-02-07) is indicated as deceased in the records. No Affidavit of Heirship, probate decree, or Record of Probate has been located in the county OPR linking heirs to this interest. The chain of title is therefore broken at this point for the undivided interest signed by this party.",
+      "suggested_action": "Locate heirs of SUMMERS ALFRED H ESTATE OF; obtain an Affidavit of Heirship and have it recorded in the county OPR. If a probate is open or closed in the appropriate jurisdiction, record a certified copy of the order. Until this is filed any conveyance from purported heirs is exposed.",
+      "effort_display": "6\u201310 hr sr \u00b7 county-clerk probate search \u00b7 ~$300 rec.",
+      "assignee_display": "Sr. landman"
     }
   ],
   "summary": {
-    "headline": "1 curative item",
-    "body": "1 curative item identified across 13 tracts (1 critical). Each finding cites the specific instrument and the chain-of-title rationale; curative-effort estimates assume current East-Texas operator pricing. Findings flagged as historical should be confirmed against the recorded-release index before action \u2014 see Section V for the records expressly excluded from this examination."
+    "headline": "6 curative items",
+    "body": "6 curative items identified across 44 tracts (6 critical). Each finding cites the specific instrument and the chain-of-title rationale; curative-effort estimates assume current East-Texas operator pricing. Findings flagged as historical should be confirmed against the recorded-release index before action \u2014 see Section V for the records expressly excluded from this examination."
   },
   "overall_badge_color": "red",
-  "overall_badge_text": "1 critical item \u2014 landman review required",
+  "overall_badge_text": "6 critical items \u2014 landman review required",
   "lease_calendar": [
+    {
+      "instrument": "2019-3844",
+      "parties": "PAULA LYNN NASH \u2192 TEXAS GENERAL OIL & GAS LP",
+      "recording_date": "2019-06-25",
+      "term_end": "2024-06-24",
+      "royalty_display": "\u2014",
+      "pugh_status": "\u2014",
+      "risk_pill": "critical",
+      "risk_label": "Term expired",
+      "risk_note": "688 d past term end"
+    },
+    {
+      "instrument": "2021-5852",
+      "parties": "DOUBLE J OIL AND GAS INTERESTS LLC \u2192 ODEN & ASSOCIATES LLC",
+      "recording_date": "2021-09-07",
+      "term_end": "2024-09-06",
+      "royalty_display": "\u2014",
+      "pugh_status": "\u2014",
+      "risk_pill": "critical",
+      "risk_label": "Term expired",
+      "risk_note": "614 d past term end"
+    },
     {
       "instrument": "1957-57563178",
       "parties": "DAVENPORT ALMARINE PEARL \u2192 SHELL OIL COMPANY",
@@ -100,6 +291,39 @@
       "pugh_status": "\u2014",
       "risk_pill": "outline-grey",
       "risk_label": "Historical (1967)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1991-9133913",
+      "parties": "TARBUTTON JEAN D \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-26",
+      "term_end": "1994-11-25",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1994)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9234933",
+      "parties": "ROGERS ORAL MAUDE \u2192 EP OPERATING CO",
+      "recording_date": "1992-01-21",
+      "term_end": "1995-01-20",
+      "royalty_display": "\u2014",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235282",
+      "parties": "COLLEY JILL DAVEY \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "term_end": "1995-02-05",
+      "royalty_display": "\u2014",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
       "risk_note": "Verify recorded release before action"
     }
   ],
@@ -207,6 +431,254 @@
       "open_count": 0,
       "critical_count": 0,
       "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 57.11 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 Samuel Davis Survey \u00b7 A-232 \u00b7 73.8 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 2.41 ac",
+      "badge_color": "outline-grey",
+      "badge_text": "Insufficient data",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 Miles Yandle Survey \u00b7 A-850",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 Robert Erwin Survey \u00b7 A-262 \u00b7 220.409 ac",
+      "badge_color": "outline-grey",
+      "badge_text": "Insufficient data",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 R Erwin Survey \u00b7 A-262",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 Ip Rhinehart Survey \u00b7 A-661 \u00b7 89.51 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.2500 \u2013 0.2500"
+    },
+    {
+      "label": "Anderson Co \u2014 Bird Gilbert Survey \u00b7 A-327 \u00b7 160 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 James Rice Survey \u00b7 A-675 \u00b7 104.22 ac",
+      "badge_color": "outline-grey",
+      "badge_text": "Insufficient data",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 M Main Survey \u00b7 A-40 \u00b7 160 ac",
+      "badge_color": "outline-grey",
+      "badge_text": "Insufficient data",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 Samuel Davis Survey \u00b7 A-232",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 23.768 ac",
+      "badge_color": "outline-grey",
+      "badge_text": "Insufficient data",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 50 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 145.44 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 100 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 100 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 60 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 2.5 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 Solomon Bowlin Survey \u00b7 A-9 \u00b7 64.9 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 2.5 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 Solomon Bowlin Survey \u00b7 A-9 \u00b7 102 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 23.88 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 1.2 ac",
+      "badge_color": "outline-grey",
+      "badge_text": "Insufficient data",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 145.44 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "royalty 0.1250 \u2013 0.1250"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisary Survey \u00b7 A-713 \u00b7 145.44 ac",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
+      "open_count": 0,
+      "critical_count": 0,
+      "nri_summary": "\u2014"
     }
   ],
   "tracts": [
@@ -388,6 +860,365 @@
           "parties": "SHELL OIL COMPANY \u2192 WOOLVERTON P R"
         }
       ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235283",
+          "parties": "EAST TEXAS NATIONAL BANK \u2192 EP OPERATING CO"
+        },
+        {
+          "date": "1998-01-29",
+          "kind": "Release",
+          "instrument": "1998-9892022",
+          "parties": "EP OPERATING CO \u2192 EAST TEXAS NATIONAL BANK"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 57.11 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235289",
+          "parties": "CARTER LU LA M LARKIN \u2192 SUN OPERATING LTD PARTNERSHIP"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Samuel Davis Survey \u00b7 A-232 \u00b7 73.8 ac",
+      "chain_entries": [
+        {
+          "date": "1992-01-30",
+          "kind": "Lease",
+          "instrument": "1992-9235151",
+          "parties": "JACKSON ZENORA \u2192 MOSBACHER ENERGY CO"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 2.41 ac",
+      "chain_entries": [
+        {
+          "date": "1992-01-30",
+          "kind": "Lease",
+          "instrument": "1992-9235159",
+          "parties": "JACKSON ADELL \u2192 ROWEN UNGERECHT INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Miles Yandle Survey \u00b7 A-850",
+      "chain_entries": [
+        {
+          "date": "2021-09-07",
+          "kind": "Lease",
+          "instrument": "2021-5852",
+          "parties": "DOUBLE J OIL AND GAS INTERESTS LLC \u2192 ODEN & ASSOCIATES LLC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Robert Erwin Survey \u00b7 A-262 \u00b7 220.409 ac",
+      "chain_entries": [
+        {
+          "date": "2019-08-02",
+          "kind": "Lease",
+          "instrument": "2019-4654",
+          "parties": "MINERAL RESOURCES DEVELOPMENT LP \u2192 TEXAS GENERAL OIL & GAS LP"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 R Erwin Survey \u00b7 A-262",
+      "chain_entries": [
+        {
+          "date": "2019-06-25",
+          "kind": "Lease",
+          "instrument": "2019-3844",
+          "parties": "PAULA LYNN NASH \u2192 TEXAS GENERAL OIL & GAS LP"
+        },
+        {
+          "date": "2021-08-17",
+          "kind": "Release",
+          "instrument": "2021-5411",
+          "parties": "TEXAS GENERAL OIL & GAS LP \u2192 PAULA LYNN NASH"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Ip Rhinehart Survey \u00b7 A-661 \u00b7 89.51 ac",
+      "chain_entries": [
+        {
+          "date": "2019-09-30",
+          "kind": "Lease",
+          "instrument": "2019-5981",
+          "parties": "BOKF NA TRUSTEE \u2192 BUFFCO PRODUCTION INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Bird Gilbert Survey \u00b7 A-327 \u00b7 160 ac",
+      "chain_entries": [
+        {
+          "date": "2014-03-14",
+          "kind": "Lease",
+          "instrument": "2014-6825105",
+          "parties": "HEARNE ESTHER J \u2192 TEXACO INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 James Rice Survey \u00b7 A-675 \u00b7 104.22 ac",
+      "chain_entries": [
+        {
+          "date": "2002-05-07",
+          "kind": "Lease",
+          "instrument": "2002-7249103",
+          "parties": "WITTNEBEN A H \u2192 ANDERSON ROY T"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 M Main Survey \u00b7 A-40 \u00b7 160 ac",
+      "chain_entries": [
+        {
+          "date": "2007-07-21",
+          "kind": "Lease",
+          "instrument": "2007-7038853",
+          "parties": "KIRBY PETROLEUM COMPANY \u2192 HUMBLE OIL & REFINING COMPANY"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235284",
+          "parties": "COLLEY THOMAS M \u2192 EP OPERATING CO"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Samuel Davis Survey \u00b7 A-232",
+      "chain_entries": [
+        {
+          "date": "1992-02-05",
+          "kind": "Lease",
+          "instrument": "1992-9235244",
+          "parties": "GROSS DONNA \u2192 MOSBACHER ENERGY CO"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713",
+      "chain_entries": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235291",
+          "parties": "HARRIS ALMA M \u2192 SUN OPERATING LTD PARTNERSHIP"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 23.768 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235274",
+          "parties": "HIGHTOWER HOWARD DANIEL \u2192 EP OPERATING CO"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 50 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235290",
+          "parties": "HOECHSTETTER ANDEY \u2192 SUN OPERATING LTD PARTNERSHIP"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 145.44 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235285",
+          "parties": "EAST TEXAS NATIONAL BANK \u2192 EP OPERATING CO"
+        },
+        {
+          "date": "1998-01-29",
+          "kind": "Release",
+          "instrument": "1998-9892022",
+          "parties": "EP OPERATING CO \u2192 EAST TEXAS NATIONAL BANK"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 100 ac",
+      "chain_entries": [
+        {
+          "date": "1991-11-26",
+          "kind": "Lease",
+          "instrument": "1991-9133908",
+          "parties": "WEATHERFORD H M \u2192 COHO RESOURCES INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 100 ac",
+      "chain_entries": [
+        {
+          "date": "1991-11-26",
+          "kind": "Lease",
+          "instrument": "1991-9133913",
+          "parties": "TARBUTTON JEAN D \u2192 COHO RESOURCES INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 60 ac",
+      "chain_entries": [
+        {
+          "date": "1991-11-26",
+          "kind": "Lease",
+          "instrument": "1991-9133912",
+          "parties": "COOK S R \u2192 COHO RESOURCES INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9",
+      "chain_entries": [
+        {
+          "date": "1991-11-08",
+          "kind": "Lease",
+          "instrument": "1991-9133516",
+          "parties": "JONES BURLEAN E \u2192 COHO RESOURCES INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 2.5 ac",
+      "chain_entries": [
+        {
+          "date": "1991-11-08",
+          "kind": "Lease",
+          "instrument": "1991-9133518",
+          "parties": "GAINES LIDDIE M \u2192 COHO RESOURCES INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Solomon Bowlin Survey \u00b7 A-9 \u00b7 64.9 ac",
+      "chain_entries": [
+        {
+          "date": "1991-11-08",
+          "kind": "Lease",
+          "instrument": "1991-9133521",
+          "parties": "ABILEZ JUDITH ANN \u2192 COHO RESOURCES INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 2.5 ac",
+      "chain_entries": [
+        {
+          "date": "1991-11-26",
+          "kind": "Lease",
+          "instrument": "1991-9133909",
+          "parties": "VALCHAR DORIS JEAN \u2192 COHO RESOURCES INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Solomon Bowlin Survey \u00b7 A-9 \u00b7 102 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-07",
+          "kind": "Lease",
+          "instrument": "1992-9235335",
+          "parties": "SUMMERS ALFRED H ESTATE OF \u2192 COHO RESOURCES INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 23.88 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-13",
+          "kind": "Lease",
+          "instrument": "1992-9235453",
+          "parties": "ROBERSON LAMAR \u2192 ROWAN UNGERECHT INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 1.2 ac",
+      "chain_entries": [
+        {
+          "date": "1992-01-30",
+          "kind": "Lease",
+          "instrument": "1992-9235160",
+          "parties": "WILLIAMS BERNIECE \u2192 ROWAN UNGERECHT INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 145.44 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235282",
+          "parties": "COLLEY JILL DAVEY \u2192 EP OPERATING CO"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9",
+      "chain_entries": [
+        {
+          "date": "1992-02-03",
+          "kind": "Lease",
+          "instrument": "1992-9235192",
+          "parties": "LINSON LAURIN M \u2192 COHO RESOURCES INC"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisary Survey \u00b7 A-713 \u00b7 145.44 ac",
+      "chain_entries": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235286",
+          "parties": "COLLEY THOMAS M \u2192 EP OPERATING CO"
+        }
+      ]
+    },
+    {
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713",
+      "chain_entries": [
+        {
+          "date": "1992-01-21",
+          "kind": "Lease",
+          "instrument": "1992-9234933",
+          "parties": "ROGERS ORAL MAUDE \u2192 EP OPERATING CO"
+        }
+      ]
     }
   ],
   "unattributed_leases": [
@@ -397,26 +1228,95 @@
       "lessor_text": "MIDWEST OIL CORPORATION",
       "lessee_text": "DUNAGAN OTIS T",
       "legal_raw": "VOL 115 PG 574 80.17 ACS"
+    },
+    {
+      "opr_instrument_no": "1991-9134117",
+      "recording_date": "1991-12-06",
+      "lessor_text": "E P OPERATING COMPANY",
+      "lessee_text": "HASSIE HUNT EXPLORATION COMPANY",
+      "legal_raw": "SEE INSTRUMENT"
+    },
+    {
+      "opr_instrument_no": "1991-9134164",
+      "recording_date": "1991-12-09",
+      "lessor_text": "HUMPHREY ROBERT L",
+      "lessee_text": "EP OPERATING CO",
+      "legal_raw": "SEE INSTRUMENT"
+    },
+    {
+      "opr_instrument_no": "1992-9235041",
+      "recording_date": "1992-01-27",
+      "lessor_text": "EP OPERATING CO",
+      "lessee_text": "HASSIE HUNT EXPLORATION CO",
+      "legal_raw": "SEE INSTRUMENT"
+    },
+    {
+      "opr_instrument_no": "1992-9235042",
+      "recording_date": "1992-01-27",
+      "lessor_text": "FIRST CITY TEXAS TYLER NA",
+      "lessee_text": "COHO RESOURCES INC",
+      "legal_raw": "SEE INSTRUMENT"
+    },
+    {
+      "opr_instrument_no": "1992-9235043",
+      "recording_date": "1992-01-27",
+      "lessor_text": "FIRST CITY TEXAS TYLER NA",
+      "lessee_text": "COHO RESOURCES INC",
+      "legal_raw": "SEE INSTRUMENT"
+    },
+    {
+      "opr_instrument_no": "2009-9134119",
+      "recording_date": "2009-11-01",
+      "lessor_text": "TEMPLE INLAND FOREST PRODUCTS CORPORATION",
+      "lessee_text": "COLUMBIA GAS DEVELOPMENT CORPORATION",
+      "legal_raw": "SEE INSTRUMENT"
+    },
+    {
+      "opr_instrument_no": "2019-5228",
+      "recording_date": "2019-08-27",
+      "lessor_text": "OBENCO IV LP",
+      "lessee_text": "OBRIEN RESOURCES LLC",
+      "legal_raw": "SEE INSTRUMENT"
     }
   ],
   "clause_coverage": {
-    "primary_term": 15,
-    "royalty": 85,
-    "pugh": 0,
-    "depth_limit": 0,
-    "total_leases": 13
+    "primary_term": 16,
+    "royalty": 61,
+    "pugh": 2,
+    "depth_limit": 11,
+    "total_leases": 44
   },
-  "examination_period": "1957-10-28 \u2013 1969-10-17",
+  "examination_period": "1957-10-28 \u2013 2023-05-10",
   "rrc_pulled_at": "2026-05-13",
   "data_sources": [
     {
+      "name": "publicsearch.us:48289",
+      "description": "ingest run \u2014 1751 rows ingested",
+      "pulled_at": "2026-05-14"
+    },
+    {
+      "name": "publicsearch.us:48161",
+      "description": "ingest run \u2014 387 rows ingested",
+      "pulled_at": "2026-05-14"
+    },
+    {
+      "name": "publicsearch.us:48347",
+      "description": "ingest run \u2014 239 rows ingested",
+      "pulled_at": "2026-05-14"
+    },
+    {
+      "name": "publicsearch.us:48423",
+      "description": "ingest run \u2014 103 rows ingested",
+      "pulled_at": "2026-05-14"
+    },
+    {
       "name": "Anderson County OPR (publicsearch.us)",
-      "description": "Lease, assignment, release, AOH, probate index entries \u2014 32 rows ingested",
-      "pulled_at": "2026-05-13"
+      "description": "Lease, assignment, release, AOH, probate index entries \u2014 222 rows ingested",
+      "pulled_at": "2026-05-14"
     }
   ],
   "rules_total": 8,
-  "verified_release_count": 6,
+  "verified_release_count": 44,
   "tract_dossiers": [
     {
       "id": 1,
@@ -1208,6 +2108,1561 @@
         }
       ],
       "findings": []
+    },
+    {
+      "id": 14,
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISAR",
+      "gross_acres": "104",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235283",
+          "recording_date": "1992-02-06",
+          "lessor": "EAST TEXAS NATIONAL BANK",
+          "lessee": "EP OPERATING CO",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "100"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235283",
+          "parties": "EAST TEXAS NATIONAL BANK \u2192 EP OPERATING CO"
+        },
+        {
+          "date": "1998-01-29",
+          "kind": "Release",
+          "instrument": "1998-9892022",
+          "parties": "EP OPERATING CO \u2192 EAST TEXAS NATIONAL BANK"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 15,
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 57.11 ac",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISAR",
+      "gross_acres": "57.11",
+      "lease_count": 1,
+      "well_count": 5,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235289",
+          "recording_date": "1992-02-06",
+          "lessor": "CARTER LU LA M LARKIN",
+          "lessee": "SUN OPERATING LTD PARTNERSHIP",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060010033501",
+          "lease_name": "CARTER  D   HARRY LEE",
+          "well_no": "1 T",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "PELES  LLC"
+        },
+        {
+          "api_no": "TX060010033602",
+          "lease_name": "CARTER  D   HARRY LEE",
+          "well_no": "2",
+          "status": "\u2014",
+          "spud_date": "1989-07-22",
+          "operator": "PELES  LLC"
+        },
+        {
+          "api_no": "TX060013177604",
+          "lease_name": "CARTER  HARVY LEE  D",
+          "well_no": "4",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013157501",
+          "lease_name": "CARTER  MARY",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060010033703",
+          "lease_name": "CARTER  D   HARRY LEE",
+          "well_no": "3 T",
+          "status": "PRODUCING",
+          "spud_date": "1985-12-27",
+          "operator": "PELES  LLC"
+        }
+      ],
+      "chain": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235289",
+          "parties": "CARTER LU LA M LARKIN \u2192 SUN OPERATING LTD PARTNERSHIP"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 16,
+      "label": "Anderson Co \u2014 Samuel Davis Survey \u00b7 A-232 \u00b7 73.8 ac",
+      "abstract_no": "A-232",
+      "survey_name": "SAMUEL DAVIS",
+      "gross_acres": "73.8",
+      "lease_count": 1,
+      "well_count": 6,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235151",
+          "recording_date": "1992-01-30",
+          "lessor": "JACKSON ZENORA",
+          "lessee": "MOSBACHER ENERGY CO",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060010069401",
+          "lease_name": "JACKSON  NETTIE ET AL",
+          "well_no": "1__",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013198301",
+          "lease_name": "JACKSON",
+          "well_no": "1__",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013198902",
+          "lease_name": "JACKSON",
+          "well_no": "2__",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060010067101",
+          "lease_name": "JACKSON  M. E. HEIRS",
+          "well_no": "1",
+          "status": "PRODUCING",
+          "spud_date": "1952-02-19",
+          "operator": "LINDER  JOHN OPERATING CO.  LLC"
+        },
+        {
+          "api_no": "TX060010067201",
+          "lease_name": "HODGES  M. S. JACKSON  ETAL",
+          "well_no": "1",
+          "status": "PRODUCING",
+          "spud_date": "\u2014",
+          "operator": "PETRALIS ENERGY RESOURCES  LLC"
+        },
+        {
+          "api_no": "TX060010067401",
+          "lease_name": "JACKSON  R. M.",
+          "well_no": "1",
+          "status": "NO PRODUCTION",
+          "spud_date": "1954-01-21",
+          "operator": "PETRALIS ENERGY RESOURCES  LLC"
+        }
+      ],
+      "chain": [
+        {
+          "date": "1992-01-30",
+          "kind": "Lease",
+          "instrument": "1992-9235151",
+          "parties": "JACKSON ZENORA \u2192 MOSBACHER ENERGY CO"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 17,
+      "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 2.41 ac",
+      "abstract_no": "A-594",
+      "survey_name": "JOHN C OGDEN",
+      "gross_acres": "2.41",
+      "lease_count": 1,
+      "well_count": 6,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235159",
+          "recording_date": "1992-01-30",
+          "lessor": "JACKSON ADELL",
+          "lessee": "ROWEN UNGERECHT INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060010069401",
+          "lease_name": "JACKSON  NETTIE ET AL",
+          "well_no": "1__",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013198301",
+          "lease_name": "JACKSON",
+          "well_no": "1__",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013198902",
+          "lease_name": "JACKSON",
+          "well_no": "2__",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060010067101",
+          "lease_name": "JACKSON  M. E. HEIRS",
+          "well_no": "1",
+          "status": "PRODUCING",
+          "spud_date": "1952-02-19",
+          "operator": "LINDER  JOHN OPERATING CO.  LLC"
+        },
+        {
+          "api_no": "TX060010067201",
+          "lease_name": "HODGES  M. S. JACKSON  ETAL",
+          "well_no": "1",
+          "status": "PRODUCING",
+          "spud_date": "\u2014",
+          "operator": "PETRALIS ENERGY RESOURCES  LLC"
+        },
+        {
+          "api_no": "TX060010067401",
+          "lease_name": "JACKSON  R. M.",
+          "well_no": "1",
+          "status": "NO PRODUCTION",
+          "spud_date": "1954-01-21",
+          "operator": "PETRALIS ENERGY RESOURCES  LLC"
+        }
+      ],
+      "chain": [
+        {
+          "date": "1992-01-30",
+          "kind": "Lease",
+          "instrument": "1992-9235159",
+          "parties": "JACKSON ADELL \u2192 ROWEN UNGERECHT INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 18,
+      "label": "Anderson Co \u2014 Miles Yandle Survey \u00b7 A-850",
+      "abstract_no": "A-850",
+      "survey_name": "MILES YANDLE",
+      "gross_acres": "\u2014",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "2021-5852",
+          "recording_date": "2021-09-07",
+          "lessor": "DOUBLE J OIL AND GAS INTERESTS LLC",
+          "lessee": "ODEN & ASSOCIATES LLC",
+          "primary_term_years": 3.0,
+          "primary_term_end": "2024-09-06",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "2021-09-07",
+          "kind": "Lease",
+          "instrument": "2021-5852",
+          "parties": "DOUBLE J OIL AND GAS INTERESTS LLC \u2192 ODEN & ASSOCIATES LLC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 19,
+      "label": "Anderson Co \u2014 Robert Erwin Survey \u00b7 A-262 \u00b7 220.409 ac",
+      "abstract_no": "A-262",
+      "survey_name": "ROBERT ERWIN",
+      "gross_acres": "220.409",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "2019-4654",
+          "recording_date": "2019-08-02",
+          "lessor": "MINERAL RESOURCES DEVELOPMENT LP",
+          "lessee": "TEXAS GENERAL OIL & GAS LP",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "2019-08-02",
+          "kind": "Lease",
+          "instrument": "2019-4654",
+          "parties": "MINERAL RESOURCES DEVELOPMENT LP \u2192 TEXAS GENERAL OIL & GAS LP"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 20,
+      "label": "Anderson Co \u2014 R Erwin Survey \u00b7 A-262",
+      "abstract_no": "A-262",
+      "survey_name": "R ERWIN",
+      "gross_acres": "\u2014",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "2019-3844",
+          "recording_date": "2019-06-25",
+          "lessor": "PAULA LYNN NASH",
+          "lessee": "TEXAS GENERAL OIL & GAS LP",
+          "primary_term_years": 5.0,
+          "primary_term_end": "2024-06-24",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "2019-06-25",
+          "kind": "Lease",
+          "instrument": "2019-3844",
+          "parties": "PAULA LYNN NASH \u2192 TEXAS GENERAL OIL & GAS LP"
+        },
+        {
+          "date": "2021-08-17",
+          "kind": "Release",
+          "instrument": "2021-5411",
+          "parties": "TEXAS GENERAL OIL & GAS LP \u2192 PAULA LYNN NASH"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 21,
+      "label": "Anderson Co \u2014 Ip Rhinehart Survey \u00b7 A-661 \u00b7 89.51 ac",
+      "abstract_no": "A-661",
+      "survey_name": "IP RHINEHART",
+      "gross_acres": "89.51",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "2019-5981",
+          "recording_date": "2019-09-30",
+          "lessor": "BOKF NA TRUSTEE",
+          "lessee": "BUFFCO PRODUCTION INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.25",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "2019-09-30",
+          "kind": "Lease",
+          "instrument": "2019-5981",
+          "parties": "BOKF NA TRUSTEE \u2192 BUFFCO PRODUCTION INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 22,
+      "label": "Anderson Co \u2014 Bird Gilbert Survey \u00b7 A-327 \u00b7 160 ac",
+      "abstract_no": "A-327",
+      "survey_name": "BIRD GILBERT",
+      "gross_acres": "160",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "2014-6825105",
+          "recording_date": "2014-03-14",
+          "lessor": "HEARNE ESTHER J",
+          "lessee": "TEXACO INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "2014-03-14",
+          "kind": "Lease",
+          "instrument": "2014-6825105",
+          "parties": "HEARNE ESTHER J \u2192 TEXACO INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 23,
+      "label": "Anderson Co \u2014 James Rice Survey \u00b7 A-675 \u00b7 104.22 ac",
+      "abstract_no": "A-675",
+      "survey_name": "JAMES RICE",
+      "gross_acres": "104.22",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "2002-7249103",
+          "recording_date": "2002-05-07",
+          "lessor": "WITTNEBEN A H",
+          "lessee": "ANDERSON ROY T",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "2002-05-07",
+          "kind": "Lease",
+          "instrument": "2002-7249103",
+          "parties": "WITTNEBEN A H \u2192 ANDERSON ROY T"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 24,
+      "label": "Anderson Co \u2014 M Main Survey \u00b7 A-40 \u00b7 160 ac",
+      "abstract_no": "A-40",
+      "survey_name": "M MAIN",
+      "gross_acres": "160",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "2007-7038853",
+          "recording_date": "2007-07-21",
+          "lessor": "KIRBY PETROLEUM COMPANY",
+          "lessee": "HUMBLE OIL & REFINING COMPANY",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "2007-07-21",
+          "kind": "Lease",
+          "instrument": "2007-7038853",
+          "parties": "KIRBY PETROLEUM COMPANY \u2192 HUMBLE OIL & REFINING COMPANY"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 25,
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISAR",
+      "gross_acres": "104",
+      "lease_count": 1,
+      "well_count": 3,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235284",
+          "recording_date": "1992-02-06",
+          "lessor": "COLLEY THOMAS M",
+          "lessee": "EP OPERATING CO",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "100"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060013232001",
+          "lease_name": "COLLEY",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013133301",
+          "lease_name": "COLLEY HEIRS",
+          "well_no": "1",
+          "status": "TEMP ABANDONED",
+          "spud_date": "1982-10-06",
+          "operator": "LEASE HOLDERS ACQUISITIONS LLC"
+        },
+        {
+          "api_no": "TX060013246401",
+          "lease_name": "DAVEY-COLLEY",
+          "well_no": "1R",
+          "status": "TEMP ABANDONED",
+          "spud_date": "2004-10-14",
+          "operator": "GRAWARD OPERATING  INC."
+        }
+      ],
+      "chain": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235284",
+          "parties": "COLLEY THOMAS M \u2192 EP OPERATING CO"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 26,
+      "label": "Anderson Co \u2014 Samuel Davis Survey \u00b7 A-232",
+      "abstract_no": "A-232",
+      "survey_name": "SAMUEL DAVIS",
+      "gross_acres": "\u2014",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235244",
+          "recording_date": "1992-02-05",
+          "lessor": "GROSS DONNA",
+          "lessee": "MOSBACHER ENERGY CO",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "Yes",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1992-02-05",
+          "kind": "Lease",
+          "instrument": "1992-9235244",
+          "parties": "GROSS DONNA \u2192 MOSBACHER ENERGY CO"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 27,
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISAR",
+      "gross_acres": "\u2014",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235291",
+          "recording_date": "1992-02-06",
+          "lessor": "HARRIS ALMA M",
+          "lessee": "SUN OPERATING LTD PARTNERSHIP",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235291",
+          "parties": "HARRIS ALMA M \u2192 SUN OPERATING LTD PARTNERSHIP"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 28,
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 23.768 ac",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISAR",
+      "gross_acres": "23.768",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235274",
+          "recording_date": "1992-02-06",
+          "lessor": "HIGHTOWER HOWARD DANIEL",
+          "lessee": "EP OPERATING CO",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235274",
+          "parties": "HIGHTOWER HOWARD DANIEL \u2192 EP OPERATING CO"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 29,
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 50 ac",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISAR",
+      "gross_acres": "50",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235290",
+          "recording_date": "1992-02-06",
+          "lessor": "HOECHSTETTER ANDEY",
+          "lessee": "SUN OPERATING LTD PARTNERSHIP",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235290",
+          "parties": "HOECHSTETTER ANDEY \u2192 SUN OPERATING LTD PARTNERSHIP"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 30,
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 145.44 ac",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISAR",
+      "gross_acres": "145.44",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235285",
+          "recording_date": "1992-02-06",
+          "lessor": "EAST TEXAS NATIONAL BANK",
+          "lessee": "EP OPERATING CO",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "100"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235285",
+          "parties": "EAST TEXAS NATIONAL BANK \u2192 EP OPERATING CO"
+        },
+        {
+          "date": "1998-01-29",
+          "kind": "Release",
+          "instrument": "1998-9892022",
+          "parties": "EP OPERATING CO \u2192 EAST TEXAS NATIONAL BANK"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 31,
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 100 ac",
+      "abstract_no": "A-9",
+      "survey_name": "S BOWLIN",
+      "gross_acres": "100",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1991-9133908",
+          "recording_date": "1991-11-26",
+          "lessor": "WEATHERFORD H M",
+          "lessee": "COHO RESOURCES INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1991-11-26",
+          "kind": "Lease",
+          "instrument": "1991-9133908",
+          "parties": "WEATHERFORD H M \u2192 COHO RESOURCES INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 32,
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 100 ac",
+      "abstract_no": "A-9",
+      "survey_name": "S BOWLIN",
+      "gross_acres": "100",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1991-9133913",
+          "recording_date": "1991-11-26",
+          "lessor": "TARBUTTON JEAN D",
+          "lessee": "COHO RESOURCES INC",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1994-11-25",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1991-11-26",
+          "kind": "Lease",
+          "instrument": "1991-9133913",
+          "parties": "TARBUTTON JEAN D \u2192 COHO RESOURCES INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 33,
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 60 ac",
+      "abstract_no": "A-9",
+      "survey_name": "S BOWLIN",
+      "gross_acres": "60",
+      "lease_count": 1,
+      "well_count": 7,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1991-9133912",
+          "recording_date": "1991-11-26",
+          "lessor": "COOK S R",
+          "lessee": "COHO RESOURCES INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060010078401",
+          "lease_name": "COOK GAS UNIT O/A",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "1992-11-12",
+          "operator": "TEXACO E & P INC."
+        },
+        {
+          "api_no": "TX060013010601",
+          "lease_name": "COOK  W. L.  HEIRS -B-",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "1970-02-26",
+          "operator": "PHILLIPS  JACK L."
+        },
+        {
+          "api_no": "TX060013008601",
+          "lease_name": "COOK UNIT NO 1",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "1969-10-13",
+          "operator": "PHILLIPS  JACK L."
+        },
+        {
+          "api_no": "TX060010255401",
+          "lease_name": "COOK  W. L.  HEIRS",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "1969-02-18",
+          "operator": "PHILLIPS  JACK L."
+        },
+        {
+          "api_no": "TX060013005002",
+          "lease_name": "COOK  W. L.  HEIRS",
+          "well_no": "2",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "PHILLIPS  JACK L."
+        },
+        {
+          "api_no": "TX060013279301",
+          "lease_name": "COOK",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013089502",
+          "lease_name": "COOK GAS UNIT O/A",
+          "well_no": "2AU",
+          "status": "PRODUCING",
+          "spud_date": "1979-03-01",
+          "operator": "XTO ENERGY INC."
+        }
+      ],
+      "chain": [
+        {
+          "date": "1991-11-26",
+          "kind": "Lease",
+          "instrument": "1991-9133912",
+          "parties": "COOK S R \u2192 COHO RESOURCES INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 34,
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9",
+      "abstract_no": "A-9",
+      "survey_name": "S BOWLIN",
+      "gross_acres": "\u2014",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1991-9133516",
+          "recording_date": "1991-11-08",
+          "lessor": "JONES BURLEAN E",
+          "lessee": "COHO RESOURCES INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1991-11-08",
+          "kind": "Lease",
+          "instrument": "1991-9133516",
+          "parties": "JONES BURLEAN E \u2192 COHO RESOURCES INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 35,
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 2.5 ac",
+      "abstract_no": "A-9",
+      "survey_name": "S BOWLIN",
+      "gross_acres": "2.5",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1991-9133518",
+          "recording_date": "1991-11-08",
+          "lessor": "GAINES LIDDIE M",
+          "lessee": "COHO RESOURCES INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1991-11-08",
+          "kind": "Lease",
+          "instrument": "1991-9133518",
+          "parties": "GAINES LIDDIE M \u2192 COHO RESOURCES INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 36,
+      "label": "Anderson Co \u2014 Solomon Bowlin Survey \u00b7 A-9 \u00b7 64.9 ac",
+      "abstract_no": "A-9",
+      "survey_name": "SOLOMON BOWLIN",
+      "gross_acres": "64.9",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1991-9133521",
+          "recording_date": "1991-11-08",
+          "lessor": "ABILEZ JUDITH ANN",
+          "lessee": "COHO RESOURCES INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "1500"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1991-11-08",
+          "kind": "Lease",
+          "instrument": "1991-9133521",
+          "parties": "ABILEZ JUDITH ANN \u2192 COHO RESOURCES INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 37,
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 2.5 ac",
+      "abstract_no": "A-9",
+      "survey_name": "S BOWLIN",
+      "gross_acres": "2.5",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1991-9133909",
+          "recording_date": "1991-11-26",
+          "lessor": "VALCHAR DORIS JEAN",
+          "lessee": "COHO RESOURCES INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1991-11-26",
+          "kind": "Lease",
+          "instrument": "1991-9133909",
+          "parties": "VALCHAR DORIS JEAN \u2192 COHO RESOURCES INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 38,
+      "label": "Anderson Co \u2014 Solomon Bowlin Survey \u00b7 A-9 \u00b7 102 ac",
+      "abstract_no": "A-9",
+      "survey_name": "SOLOMON BOWLIN",
+      "gross_acres": "102",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235335",
+          "recording_date": "1992-02-07",
+          "lessor": "SUMMERS ALFRED H ESTATE OF",
+          "lessee": "COHO RESOURCES INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1992-02-07",
+          "kind": "Lease",
+          "instrument": "1992-9235335",
+          "parties": "SUMMERS ALFRED H ESTATE OF \u2192 COHO RESOURCES INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 39,
+      "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 23.88 ac",
+      "abstract_no": "A-594",
+      "survey_name": "JOHN C OGDEN",
+      "gross_acres": "23.88",
+      "lease_count": 1,
+      "well_count": 1,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235453",
+          "recording_date": "1992-02-13",
+          "lessor": "ROBERSON LAMAR",
+          "lessee": "ROWAN UNGERECHT INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060013200901",
+          "lease_name": "ROBERSON",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "2006-09-19",
+          "operator": "MACHIN & ASSOCIATES  INC."
+        }
+      ],
+      "chain": [
+        {
+          "date": "1992-02-13",
+          "kind": "Lease",
+          "instrument": "1992-9235453",
+          "parties": "ROBERSON LAMAR \u2192 ROWAN UNGERECHT INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 40,
+      "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 1.2 ac",
+      "abstract_no": "A-594",
+      "survey_name": "JOHN C OGDEN",
+      "gross_acres": "1.2",
+      "lease_count": 1,
+      "well_count": 22,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235160",
+          "recording_date": "1992-01-30",
+          "lessor": "WILLIAMS BERNIECE",
+          "lessee": "ROWAN UNGERECHT INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060010077203",
+          "lease_name": "WILLIAMS E.C.",
+          "well_no": "3",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "TEXACO E & P INC."
+        },
+        {
+          "api_no": "TX060010077304",
+          "lease_name": "WILLIAMS E.C.",
+          "well_no": "4",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "TEXACO E & P INC."
+        },
+        {
+          "api_no": "TX060010077406",
+          "lease_name": "WILLIAMS E.C.",
+          "well_no": "6",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "TEXACO E & P INC."
+        },
+        {
+          "api_no": "TX060010077507",
+          "lease_name": "WILLIAMS E.C.",
+          "well_no": "7",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "TEXACO E & P INC."
+        },
+        {
+          "api_no": "TX060010078302",
+          "lease_name": "WILLIAMS E.C.",
+          "well_no": "2",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "TEXACO E & P INC."
+        },
+        {
+          "api_no": "TX060013058901",
+          "lease_name": "WILLIAMS E.C.",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "1975-07-03",
+          "operator": "TEXACO E & P INC."
+        },
+        {
+          "api_no": "TX060013058911",
+          "lease_name": "WILLIAMS E.C.",
+          "well_no": "11",
+          "status": "\u2014",
+          "spud_date": "1975-07-03",
+          "operator": "TEXACO E & P INC."
+        },
+        {
+          "api_no": "TX060010076908",
+          "lease_name": "WILLIAMS E.C.",
+          "well_no": "8",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "TEXACO INC."
+        },
+        {
+          "api_no": "TX060010077710",
+          "lease_name": "WILLIAMS  E. C. TR. 1",
+          "well_no": "10",
+          "status": "\u2014",
+          "spud_date": "1959-04-01",
+          "operator": "TEXACO INC."
+        },
+        {
+          "api_no": "TX060013161601",
+          "lease_name": "WILLIAMS  P. E.",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "1985-05-23",
+          "operator": "AMERADA HESS CORPORATION"
+        },
+        {
+          "api_no": "TX060013119901",
+          "lease_name": "WILLIAMS  PAUL",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "1981-11-26",
+          "operator": "HAUPT  INC."
+        },
+        {
+          "api_no": "TX060010003901",
+          "lease_name": "WILLIAMS  A. G.",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "REPUBLIC ENGINEERS  INC."
+        },
+        {
+          "api_no": "TX060010004002",
+          "lease_name": "WILLIAMS  A. G.",
+          "well_no": "2",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "REPUBLIC ENGINEERS  INC."
+        },
+        {
+          "api_no": "TX060010004103",
+          "lease_name": "WILLIAMS  A. G.",
+          "well_no": "3",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "REPUBLIC ENGINEERS  INC."
+        },
+        {
+          "api_no": "TX060010113901",
+          "lease_name": "WILLIAMS  ZELF",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "W & W SERVICES  INC."
+        },
+        {
+          "api_no": "TX060010114002",
+          "lease_name": "WILLIAMS  ZELF",
+          "well_no": "2",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "W & W SERVICES  INC."
+        },
+        {
+          "api_no": "TX060010114103",
+          "lease_name": "WILLIAMS  ZELF",
+          "well_no": "3",
+          "status": "\u2014",
+          "spud_date": "2018-04-14",
+          "operator": "W & W SERVICES  INC."
+        },
+        {
+          "api_no": "TX060010063901",
+          "lease_name": "WILLIAMS  J. R. G.  NCT-1",
+          "well_no": "1 C",
+          "status": "\u2014",
+          "spud_date": "1951-10-24",
+          "operator": "COLORADO GENERAL OIL & GAS CO."
+        },
+        {
+          "api_no": "TX060010003802",
+          "lease_name": "WILLIAMS  A. G.",
+          "well_no": "2__",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060010004301",
+          "lease_name": "WILLIAMS  A. C.",
+          "well_no": "1",
+          "status": "PRODUCING",
+          "spud_date": "1963-01-01",
+          "operator": "BASA RESOURCES  INC."
+        },
+        {
+          "api_no": "TX060010064002",
+          "lease_name": "WILLIAMS  J. R. G.  NCT-1",
+          "well_no": "2",
+          "status": "PRODUCING",
+          "spud_date": "2020-03-01",
+          "operator": "PETRALIS ENERGY RESOURCES  LLC"
+        },
+        {
+          "api_no": "TX060010064103",
+          "lease_name": "WILLIAMS  J. R. G.  NCT-1",
+          "well_no": "3 C",
+          "status": "SHUT IN-MULTI-COMPL",
+          "spud_date": "\u2014",
+          "operator": "PETRALIS ENERGY RESOURCES  LLC"
+        }
+      ],
+      "chain": [
+        {
+          "date": "1992-01-30",
+          "kind": "Lease",
+          "instrument": "1992-9235160",
+          "parties": "WILLIAMS BERNIECE \u2192 ROWAN UNGERECHT INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 41,
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 145.44 ac",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISAR",
+      "gross_acres": "145.44",
+      "lease_count": 1,
+      "well_count": 3,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235282",
+          "recording_date": "1992-02-06",
+          "lessor": "COLLEY JILL DAVEY",
+          "lessee": "EP OPERATING CO",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-05",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060013232001",
+          "lease_name": "COLLEY",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013133301",
+          "lease_name": "COLLEY HEIRS",
+          "well_no": "1",
+          "status": "TEMP ABANDONED",
+          "spud_date": "1982-10-06",
+          "operator": "LEASE HOLDERS ACQUISITIONS LLC"
+        },
+        {
+          "api_no": "TX060013246401",
+          "lease_name": "DAVEY-COLLEY",
+          "well_no": "1R",
+          "status": "TEMP ABANDONED",
+          "spud_date": "2004-10-14",
+          "operator": "GRAWARD OPERATING  INC."
+        }
+      ],
+      "chain": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235282",
+          "parties": "COLLEY JILL DAVEY \u2192 EP OPERATING CO"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 42,
+      "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9",
+      "abstract_no": "A-9",
+      "survey_name": "S BOWLIN",
+      "gross_acres": "\u2014",
+      "lease_count": 1,
+      "well_count": 0,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235192",
+          "recording_date": "1992-02-03",
+          "lessor": "LINSON LAURIN M",
+          "lessee": "COHO RESOURCES INC",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "0.125",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [],
+      "chain": [
+        {
+          "date": "1992-02-03",
+          "kind": "Lease",
+          "instrument": "1992-9235192",
+          "parties": "LINSON LAURIN M \u2192 COHO RESOURCES INC"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 43,
+      "label": "Anderson Co \u2014 Maximo Salisary Survey \u00b7 A-713 \u00b7 145.44 ac",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISARY",
+      "gross_acres": "145.44",
+      "lease_count": 1,
+      "well_count": 3,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9235286",
+          "recording_date": "1992-02-06",
+          "lessor": "COLLEY THOMAS M",
+          "lessee": "EP OPERATING CO",
+          "primary_term_years": null,
+          "primary_term_end": "\u2014",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "100"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060013232001",
+          "lease_name": "COLLEY",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013133301",
+          "lease_name": "COLLEY HEIRS",
+          "well_no": "1",
+          "status": "TEMP ABANDONED",
+          "spud_date": "1982-10-06",
+          "operator": "LEASE HOLDERS ACQUISITIONS LLC"
+        },
+        {
+          "api_no": "TX060013246401",
+          "lease_name": "DAVEY-COLLEY",
+          "well_no": "1R",
+          "status": "TEMP ABANDONED",
+          "spud_date": "2004-10-14",
+          "operator": "GRAWARD OPERATING  INC."
+        }
+      ],
+      "chain": [
+        {
+          "date": "1992-02-06",
+          "kind": "Lease",
+          "instrument": "1992-9235286",
+          "parties": "COLLEY THOMAS M \u2192 EP OPERATING CO"
+        }
+      ],
+      "findings": []
+    },
+    {
+      "id": 44,
+      "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713",
+      "abstract_no": "A-713",
+      "survey_name": "MAXIMO SALISAR",
+      "gross_acres": "\u2014",
+      "lease_count": 1,
+      "well_count": 7,
+      "finding_count": 0,
+      "leases": [
+        {
+          "instrument": "1992-9234933",
+          "recording_date": "1992-01-21",
+          "lessor": "ROGERS ORAL MAUDE",
+          "lessee": "EP OPERATING CO",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-01-20",
+          "royalty": "\u2014",
+          "has_pugh": "\u2014",
+          "depth_limit_ft": "\u2014"
+        }
+      ],
+      "wells": [
+        {
+          "api_no": "TX060010143701",
+          "lease_name": "ROGERS  O. G. EST.",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "WRATHER  J. D.  JR."
+        },
+        {
+          "api_no": "TX060013139401",
+          "lease_name": "ROGERS  EARL",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "1986-08-08",
+          "operator": "BRUSHY CREEK SALTWATER DISP  INC"
+        },
+        {
+          "api_no": "TX060013176901",
+          "lease_name": "ROGERS ESTATE",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "1987-03-25",
+          "operator": "BROWNING  LANDON"
+        },
+        {
+          "api_no": "TX060013159801",
+          "lease_name": "ROGERS",
+          "well_no": "1",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060013168501",
+          "lease_name": "ROGERS  EVA",
+          "well_no": "1__",
+          "status": "\u2014",
+          "spud_date": "\u2014",
+          "operator": "\u2014"
+        },
+        {
+          "api_no": "TX060010144101",
+          "lease_name": "O.G. ROGERS ESTATE",
+          "well_no": "1",
+          "status": "TEMP ABANDONED",
+          "spud_date": "1964-05-19",
+          "operator": "WEATHERS EXPLORATION  INC."
+        },
+        {
+          "api_no": "TX060013009802",
+          "lease_name": "O.G. ROGERS ESTATE",
+          "well_no": "2",
+          "status": "PRODUCING",
+          "spud_date": "1969-12-10",
+          "operator": "WEATHERS EXPLORATION  INC."
+        }
+      ],
+      "chain": [
+        {
+          "date": "1992-01-21",
+          "kind": "Lease",
+          "instrument": "1992-9234933",
+          "parties": "ROGERS ORAL MAUDE \u2192 EP OPERATING CO"
+        }
+      ],
+      "findings": []
     }
   ],
   "operator_view": [
@@ -1934,86 +4389,7 @@
       "status": "\u2014"
     }
   ],
-  "lease_images": [
-    {
-      "instrument": "1957-57564039",
-      "parties": "BIGGERSTAFF JOHN M \u2192 BRYANT W H",
-      "recording_date": "1957-11-25",
-      "image_path": "_lease_thumbs/1957-57564039_p1.png"
-    },
-    {
-      "instrument": "1958-58564116",
-      "parties": "CAMP JOE \u2192 GRAHAM HUNT",
-      "recording_date": "1958-01-02",
-      "image_path": "_lease_thumbs/1958-58564116_p1.png"
-    },
-    {
-      "instrument": "1957-57564019",
-      "parties": "SABINE ROYALTY CORPORATION \u2192 HERSCHBACH E FRED",
-      "recording_date": "1957-11-19",
-      "image_path": "_lease_thumbs/1957-57564019_p1.png"
-    },
-    {
-      "instrument": "1960-6006030339",
-      "parties": "CAGE J W \u2192 TIDEWATER OIL COMPANY",
-      "recording_date": "1960-03-24",
-      "image_path": "_lease_thumbs/1960-6006030339_p1.png"
-    },
-    {
-      "instrument": "1958-58563225",
-      "parties": "HANKS C W ESTATE OF \u2192 PENNYBACKER PAUL J",
-      "recording_date": "1958-01-24",
-      "image_path": "_lease_thumbs/1958-58563225_p1.png"
-    },
-    {
-      "instrument": "1958-58563236",
-      "parties": "BARTON MARY L \u2192 BRADSHAW RAY E",
-      "recording_date": "1958-01-30",
-      "image_path": "_lease_thumbs/1958-58563236_p1.png"
-    },
-    {
-      "instrument": "1958-58564114",
-      "parties": "LIVELY ELIZABETH \u2192 GRAHAM HUNT",
-      "recording_date": "1958-01-02",
-      "image_path": "_lease_thumbs/1958-58564114_p1.png"
-    },
-    {
-      "instrument": "1957-57564056",
-      "parties": "WOOLVERTON P R \u2192 SHELL OIL COMPANY",
-      "recording_date": "1957-11-22",
-      "image_path": "_lease_thumbs/1957-57564056_p1.png"
-    },
-    {
-      "instrument": "1957-57564020",
-      "parties": "HAMMER HELEN RICHARDSON \u2192 BILBO REDDING DRILLING COMPANY INC",
-      "recording_date": "1957-11-18",
-      "image_path": "_lease_thumbs/1957-57564020_p1.png"
-    },
-    {
-      "instrument": "1957-57563211",
-      "parties": "REED JIM \u2192 GORDON TOM",
-      "recording_date": "1957-11-06",
-      "image_path": "_lease_thumbs/1957-57563211_p1.png"
-    },
-    {
-      "instrument": "1957-57564085",
-      "parties": "CHIVERS GARFIELD \u2192 SHELL OIL COMPANY",
-      "recording_date": "1957-12-10",
-      "image_path": "_lease_thumbs/1957-57564085_p1.png"
-    },
-    {
-      "instrument": "1957-57564088",
-      "parties": "ANICKER MILDRED K \u2192 SHELL OIL COMPANY",
-      "recording_date": "1957-12-10",
-      "image_path": "_lease_thumbs/1957-57564088_p1.png"
-    },
-    {
-      "instrument": "1957-57563178",
-      "parties": "DAVENPORT ALMARINE PEARL \u2192 SHELL OIL COMPANY",
-      "recording_date": "1957-10-28",
-      "image_path": "_lease_thumbs/1957-57563178_p1.png"
-    }
-  ],
+  "lease_images": [],
   "rrc_counties": [
     "Anderson",
     "Houston"
@@ -2035,5 +4411,5 @@
     }
   ],
   "facttrack_version": "0.1.0",
-  "generated_at": "2026-05-14 00:00 UTC"
+  "generated_at": "2026-05-14 04:11 UTC"
 }

@@ -1,18 +1,18 @@
 {
   "tract": {
-    "label": "Anderson Co \u2014 Anderson County School Land Survey \u00b7 A-68 \u00b7 122 ac",
-    "abstract_no": "A-68",
-    "survey_name": "ANDERSON COUNTY SCHOOL LAND",
-    "gross_acres": "122",
+    "label": "Anderson Co \u2014 Bird Gilbert Survey \u00b7 A-327 \u00b7 160 ac",
+    "abstract_no": "A-327",
+    "survey_name": "BIRD GILBERT",
+    "gross_acres": "160",
     "county_fips": "48001",
     "county_name": "Anderson"
   },
   "leases": [
     {
-      "instrument": "1957-57564088",
-      "recorded": "1957-12-10",
-      "lessor": "ANICKER MILDRED K",
-      "lessee": "SHELL OIL COMPANY",
+      "instrument": "2014-6825105",
+      "recorded": "2014-03-14",
+      "lessor": "HEARNE ESTHER J",
+      "lessee": "TEXACO INC",
       "royalty": "0.125",
       "primary_term_end": "\u2014"
     }
@@ -36,11 +36,11 @@
     "value_pct": 87.5,
     "stack": [
       {
-        "party": "ANICKER MILDRED K",
+        "party": "HEARNE ESTHER J",
         "kind": "lessor_royalty",
         "rate": 0.125,
         "rate_pct": 12.5,
-        "source": "lease 1957-57564088"
+        "source": "lease 2014-6825105"
       }
     ],
     "notes": []
@@ -58,18 +58,12 @@
   "competitive": {
     "prior_lessees": [
       {
-        "instrument": "1957-57564088",
-        "lessee": "SHELL OIL COMPANY",
-        "recorded": "1957-12-10"
+        "instrument": "2014-6825105",
+        "lessee": "TEXACO INC",
+        "recorded": "2014-03-14"
       }
     ],
-    "releases": [
-      {
-        "instrument": "1969-6934610",
-        "by": "SHELL OIL COMPANY",
-        "recorded": "1969-10-17"
-      }
-    ],
+    "releases": [],
     "top_leases": [],
     "has_competing_top_lease": false
   },
