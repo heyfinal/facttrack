@@ -14,7 +14,7 @@
       "lessor": "JACKSON ZENORA",
       "lessee": "MOSBACHER ENERGY CO",
       "royalty": "0.125",
-      "primary_term_end": "\u2014"
+      "primary_term_end": "1997-01-29"
     }
   ],
   "current_status": {
@@ -49,13 +49,20 @@
     "notes": []
   },
   "curative_scorecard": {
-    "tier": "NONE",
-    "crit_count": 0,
+    "tier": "MEDIUM",
+    "crit_count": 1,
     "high_count": 0,
     "medium_count": 0,
-    "items": [],
-    "hours_lo": 0,
-    "hours_hi": 0,
+    "items": [
+      {
+        "rule_id": "r05_primary_term_no_continuous_prod",
+        "severity": "critical",
+        "title": "Lease 1992-9235151 past primary term \u2014 no continuous production",
+        "effort": "Verify recorded release \u00b7 1\u20132 hr jr"
+      }
+    ],
+    "hours_lo": 1,
+    "hours_hi": 2,
     "recording_cost": 0
   },
   "competitive": {
@@ -71,13 +78,13 @@
     "has_competing_top_lease": false
   },
   "recommendation": {
-    "recommendation": "WALK",
+    "recommendation": "NEGOTIATE",
     "reasons": [
-      "Tract is HBP by current producer; no acquisition opportunity at this time \u2014 monitor for release."
+      "Single critical curative item \u2014 buyable contingent on the seller curing prior to closing or a bonus offset."
     ],
-    "walkaway_bonus_ceiling_per_ac": null
+    "walkaway_bonus_ceiling_per_ac": 550
   },
   "project_id": "county_research_48001",
   "prepared_by": "FactTrack v0.1.0",
-  "generated_at": "2026-05-14 04:12 UTC"
+  "generated_at": "2026-05-14 05:32 UTC"
 }

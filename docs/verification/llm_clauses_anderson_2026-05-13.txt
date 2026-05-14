@@ -1,0 +1,115 @@
+=== llm_clause_extractor: county=48001 model=deepseek/deepseek-chat ===
+target leases (only_missing=True): 52
+
+OK 1992-9235289: term=None roy=0.125 pugh=False depth=None deceased=['Jeff Larkin']
+   notes: Primary term years not explicitly stated in the text. OCR noise and formatting issues present, but key clauses are readable.
+OK 1992-9235151: term=5.0 roy=0.1667 pugh=None depth=None deceased=[]
+   notes: The OCR text is noisy and fragmented, making it difficult to confirm the presence of a Pugh clause or retained acreage language. The royalty fraction is amended to 'one-sixth' (0.1667) from 'one-eight
+OK 1957-57564039: term=5.0 roy=0.125 pugh=False depth=None deceased=[]
+   notes: OCR noise present, but key lease terms are discernible. No explicit Pugh clause or depth limit found. Continuous development and retained acreage clauses are present.
+OK 1992-9235453: term=3.0 roy=0.1875 pugh=None depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, but key clauses like primary term and royalty fraction are discernible. Continuous development clause is present, but Pugh clause and ret
+OK 1992-9235286: term=3.0 roy=0.25 pugh=None depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, but key terms like 'primary term' and 'royalty' are discernible. No explicit Pugh clause or retained acreage language is detected. Contin
+OK 1992-9235285: term=3.0 roy=0.25 pugh=None depth=None deceased=[]
+   notes: OCR noise and formatting issues present, but key terms like primary term and royalty fraction are clear. No explicit Pugh clause or retained acreage language detected. Continuous development clause is
+OK 1958-58564116: term=5.0 roy=0.125 pugh=None depth=None deceased=[]
+   notes: The OCR text is noisy and fragmented, making it difficult to confirm the presence of a Pugh clause or retained acreage language. Continuous development clause is inferred from language about drilling 
+OK 1960-6006030339: term=None roy=None pugh=None depth=None deceased=[]
+   notes: The OCR text contains significant noise and is incomplete, making it difficult to extract specific lease terms such as primary term, royalty fraction, and clauses. The text appears to be an amendment 
+OK 2021-5852: term=3.0 roy=None pugh=None depth=None deceased=['Donald Arch Fitzgerald', 'Carrie L. Tarrant', 'G. L. Billingsley']
+   notes: The OCR text contains significant noise and formatting issues, making some clauses difficult to interpret. Specific details on royalty fraction, Pugh clause, retained acreage, and continuous developme
+OK 2019-5228: term=5.0 roy=0.22 pugh=False depth=None deceased=[]
+   notes: OCR noise present, but key terms like 'primary term' and 'royalty' are clear. No explicit Pugh clause or depth limit found.
+OK 2019-4654: term=2.0 roy=None pugh=None depth=680.0 deceased=[]
+   notes: Royalty fraction not explicitly stated in the text. Pugh clause, retained acreage, and continuous development clauses are not mentioned. OCR noise present but does not obscure key terms.
+OK 1958-58563225: term=5.0 roy=0.0625 pugh=False depth=None deceased=['C. W. Hanks']
+   notes: The royalty fraction is derived from the 1/16th mentioned in the text. The continuous development clause is present, but there is no explicit mention of a Pugh clause or retained acreage specifics. Th
+OK 2019-5981: term=0.5 roy=0.25 pugh=True depth=None deceased=[]
+   notes: Primary term is stated as six months, which is converted to 0.5 years. The OCR text contains significant noise and formatting issues, but key clauses are discernible.
+OK 2014-6825105: term=5.0 roy=0.125 pugh=None depth=None deceased=['ESTHER J. HEARNE, a widow']
+   notes: OCR text contains significant noise and formatting issues, but key lease terms were identifiable. Pugh clause and retained acreage language not explicitly found.
+OK 2002-7249103: term=None roy=0.25 pugh=None depth=None deceased=[]
+   notes: OCR text is heavily corrupted, making it difficult to extract certain fields with confidence. The primary term, Pugh clause, retained acreage, and continuous development clauses are unclear due to OCR
+OK 2019-3844: term=5.0 roy=None pugh=None depth=None deceased=[]
+   notes: Royalty fraction, Pugh clause, retained acreage, continuous development, and depth limit are not mentioned in the text. OCR quality is generally good, but some minor noise exists.
+OK 1958-58564114: term=5.0 roy=0.125 pugh=None depth=None deceased=[]
+   notes: OCR text contains significant noise and formatting issues, but key terms like primary term and royalty fraction are discernible. Continuous development clause is present, but Pugh clause and retained 
+OK 1957-57564056: term=5.0 roy=0.125 pugh=None depth=None deceased=[]
+   notes: The OCR text is noisy and fragmented, making it difficult to confirm the presence of clauses like Pugh, retained acreage, or continuous development. The primary term and royalty fraction are clear.
+OK 1957-57564020: term=3.0 roy=0.25 pugh=None depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, but key terms like 'primary term' and 'royalty' were identifiable. Some clauses, such as Pugh clause and retained acreage, are not explic
+OK 1991-9133913: term=3.0 roy=0.1667 pugh=None depth=None deceased=[]
+   notes: OCR text contains significant noise and formatting issues, making some clauses difficult to interpret. The royalty fraction is explicitly stated as one-sixth (1/6), but other clauses like Pugh, retain
+OK 2007-7038853: term=5.0 roy=0.1875 pugh=None depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, making some clauses difficult to interpret. Specifically, the presence of a Pugh clause, retained acreage, and continuous development cla
+OK 1992-9235291: term=3.0 roy=0.125 pugh=None depth=None deceased=['J. Hutcherson']
+   notes: OCR text contains significant noise and formatting issues, but key terms like 'primary term' and 'royalty' are discernible. Continuous development clause is present, but Pugh clause and retained acrea
+OK 1992-9235274: term=3.0 roy=0.0625 pugh=None depth=None deceased=[]
+   notes: OCR noise makes some text unclear, but key terms like 'primary term' and 'royalty' are legible. Continuous development clause is present, but Pugh clause and retained acreage language are not explicit
+OK 1992-9235290: term=5.0 roy=0.125 pugh=False depth=None deceased=[]
+   notes: OCR text contains significant noise and formatting issues, but key lease terms are discernible. No explicit Pugh clause or depth limit found.
+OK 1991-9133912: term=3.0 roy=0.1667 pugh=None depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, but key terms like 'primary term' and 'royalty fraction' are discernible. The continuous development clause is present, but the Pugh clau
+OK 1957-57563211: term=10.0 roy=0.125 pugh=None depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, making it difficult to extract certain clauses like Pugh clause, retained acreage, and continuous development. The primary term and royal
+OK 1957-57564088: term=5.0 roy=0.125 pugh=None depth=None deceased=[]
+   notes: OCR noise present, but key terms like 'primary term' and 'royalty' are clear. Pugh clause and retained acreage language not explicitly found. Continuous development clause is present.
+OK 1957-57563178: term=10.0 roy=0.125 pugh=None depth=None deceased=['J.M. Davenport']
+   notes: OCR noise affects clarity in some sections, but key terms like primary term and royalty fraction are clear. Pugh clause, retained acreage, and continuous development language not explicitly found.
+OK 1957-57564085: term=10.0 roy=0.125 pugh=False depth=None deceased=[]
+   notes: OCR text contains significant noise and formatting issues, but key clauses like primary term and royalty fraction are discernible. No explicit Pugh clause or depth limit found. Retained acreage and co
+OK 1992-9235282: term=6.0 roy=None pugh=None depth=None deceased=[]
+   notes: The primary term is explicitly stated as 6 years. The royalty fraction, Pugh clause, retained acreage, continuous development clause, and depth limit are not mentioned in the text. No deceased lessors
+OK 1992-9234933: term=3.0 roy=None pugh=None depth=None deceased=[]
+   notes: The OCR text is noisy and fragmented, making it difficult to extract some fields. The primary term is explicitly stated as 3 years, but other clauses (royalty, Pugh, retained acreage, continuous devel
+OK 1992-9235042: term=5.0 roy=None pugh=None depth=None deceased=[]
+   notes: The primary term is explicitly amended from 3 to 5 years. No explicit mention of royalty fraction, Pugh clause, retained acreage, continuous development, or depth limit. No deceased lessors are indica
+OK 1992-9235335: term=3.0 roy=0.125 pugh=None depth=None deceased=['Alfred H. Summers']
+   notes: The OCR text contains significant noise and formatting issues, but key clauses were identifiable. The Pugh clause and retained acreage provisions are not explicitly mentioned.
+OK 1992-9235160: term=2.0 roy=0.1 pugh=None depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, but key lease terms like primary term and royalty fraction are discernible. Continuous development clause is present, but Pugh clause and
+OK 1992-9235244: term=5.0 roy=0.125 pugh=True depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, but key clauses like the primary term, royalty fraction, and Pugh Clause are discernible. Continuous development clause is implied but no
+OK 1992-9235192: term=3.0 roy=0.1667 pugh=False depth=None deceased=[]
+   notes: OCR noise and formatting issues present, but key clauses are legible. Royalty fraction is explicitly stated as one-sixth (1/6). Continuous development clause inferred from language about operations ma
+OK 1992-9235159: term=3.0 roy=0.1 pugh=None depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, making some clauses difficult to interpret. The continuous development clause is present, but the presence of a Pugh clause or retained a
+OK 1992-9235043: term=5.0 roy=None pugh=None depth=None deceased=[]
+   notes: The primary term is explicitly extended from 3 to 5 years. No explicit mention of royalty fraction, Pugh clause, retained acreage, continuous development, depth limit, or deceased lessors.
+OK 1991-9133908: term=3.0 roy=0.1667 pugh=True depth=None deceased=[]
+   notes: OCR text contains significant noise and formatting issues, but key clauses were identifiable. The royalty fraction is derived from the substitution of 'one-sixth (1/6)' for 'one-eighth (1/8)'.
+OK 1991-9133518: term=None roy=0.125 pugh=None depth=None deceased=['D.A. Akin']
+   notes: Primary term years not explicitly stated in the text. Pugh clause and retained acreage language not clearly present. Continuous development clause is present.
+OK 1991-9133516: term=3.0 roy=0.125 pugh=True depth=None deceased=[]
+   notes: OCR text contains significant noise and formatting issues, but key clauses were identifiable. The Pugh clause is inferred from the language about maintaining the lease only for land included in pooled
+OK 1991-9134164: term=6.0 roy=None pugh=None depth=None deceased=[]
+   notes: The primary term is explicitly stated as 6 years. No royalty fraction, Pugh clause, retained acreage, continuous development clause, or depth limit is mentioned. No deceased lessors are indicated.
+OK 1992-9235283: term=3.0 roy=0.25 pugh=None depth=None deceased=[]
+   notes: OCR noise makes some clauses difficult to interpret. No explicit Pugh clause or retained acreage language found. Continuous development clause is present.
+OK 2009-9134119: term=None roy=0.25 pugh=None depth=1000.0 deceased=[]
+   notes: Primary term years could not be determined due to OCR noise and missing text. Pugh clause, retained acreage, and continuous development clauses were not explicitly mentioned or could not be identified
+OK 1957-57564019: term=6.0 roy=0.125 pugh=False depth=None deceased=[]
+   notes: The OCR text contains significant noise and formatting issues, but key lease terms such as primary term and royalty fraction are discernible. Continuous development clause and retained acreage languag
+OK 1991-9133909: term=3.0 roy=0.125 pugh=None depth=None deceased=['D.A. Akin']
+   notes: OCR noise and formatting issues present, but key terms like primary term and royalty fraction are clear. Pugh clause and retained acreage language not explicitly found.
+OK 1958-58563236: term=1.0 roy=0.125 pugh=False depth=None deceased=['Mary L. Barton']
+   notes: Mary L. Barton is referred to as a widow, indicating she is deceased. The OCR text contains significant noise and some ambiguous phrasing, but key lease terms are discernible.
+OK 1991-9133521: term=2.0 roy=0.25 pugh=None depth=None deceased=[]
+   notes: OCR noise makes some clauses difficult to interpret. No explicit mention of Pugh clause, retained acreage, or continuous development. Depth limit not specified.
+OK 1957-57564024: term=0.5 roy=0.125 pugh=False depth=1500.0 deceased=[]
+   notes: Primary term is specified as six (6) months, which is converted to 0.5 years for consistency. The OCR text contains significant noise and formatting issues, but key clauses appear to be intact.
+OK 1992-9235284: term=3.0 roy=0.25 pugh=None depth=None deceased=[]
+   notes: OCR noise and formatting issues make it difficult to confirm the presence of a Pugh clause or retained acreage language. Continuous development clause is present.
+OK 1992-9235041: term=None roy=None pugh=None depth=None deceased=[]
+   notes: The OCR text appears to be a partial assignment of oil, gas, and mineral leases, but it does not contain specific lease terms such as primary term, royalty fraction, Pugh clause, retained acreage, con
+OK 1991-9134117: term=None roy=None pugh=None depth=None deceased=['HAMILTON, LEEN DAVEY ESTATE']
+   notes: The OCR text is noisy and fragmented, making it difficult to extract specific lease terms such as primary term, royalty fraction, and clauses. The only clear information is the deceased lessor's name.
+
+=== summary ===
+{
+  "checked": 52,
+  "extracted": 52,
+  "no_ocr": 0,
+  "failed": 0
+}

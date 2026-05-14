@@ -190,8 +190,170 @@
     {
       "rule_id": "r05_primary_term_no_continuous_prod",
       "severity": "critical",
+      "title": "Lease 1957-57563211 past primary term \u2014 no continuous production",
+      "description": "Lease 1957-57563211 primary term ended 1967-11-06. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1958-58563225 past primary term \u2014 no continuous production",
+      "description": "Lease 1958-58563225 primary term ended 1963-01-24. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1957-57564039 past primary term \u2014 no continuous production",
+      "description": "Lease 1957-57564039 primary term ended 1962-11-25. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1957-57564019 past primary term \u2014 no continuous production",
+      "description": "Lease 1957-57564019 primary term ended 1963-11-19. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1958-58563236 past primary term \u2014 no continuous production",
+      "description": "Lease 1958-58563236 primary term ended 1959-01-30. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1957-57564020 past primary term \u2014 no continuous production",
+      "description": "Lease 1957-57564020 primary term ended 1960-11-17. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235151 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235151 primary term ended 1997-01-29. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235159 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235159 primary term ended 1995-01-29. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
       "title": "Lease 2021-5852 past primary term \u2014 no continuous production",
       "description": "Lease 2021-5852 primary term ended 2024-09-06. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 2019-4654 past primary term \u2014 no continuous production",
+      "description": "Lease 2019-4654 primary term ended 2021-08-01. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 2019-5981 past primary term \u2014 no continuous production",
+      "description": "Lease 2019-5981 primary term ended 2020-03-30. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 2014-6825105 past primary term \u2014 no continuous production",
+      "description": "Lease 2014-6825105 primary term ended 2019-03-14. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 2007-7038853 past primary term \u2014 no continuous production",
+      "description": "Lease 2007-7038853 primary term ended 2012-07-20. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235284 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235284 primary term ended 1995-02-05. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235244 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235244 primary term ended 1997-02-04. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235291 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235291 primary term ended 1995-02-05. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235274 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235274 primary term ended 1995-02-05. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235290 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235290 primary term ended 1997-02-05. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1991-9133908 past primary term \u2014 no continuous production",
+      "description": "Lease 1991-9133908 primary term ended 1994-11-25. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
       "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
       "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
       "assignee_display": "Sr. landman"
@@ -208,8 +370,89 @@
     {
       "rule_id": "r05_primary_term_no_continuous_prod",
       "severity": "critical",
+      "title": "Lease 1991-9133912 past primary term \u2014 no continuous production",
+      "description": "Lease 1991-9133912 primary term ended 1994-11-25. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1991-9133516 past primary term \u2014 no continuous production",
+      "description": "Lease 1991-9133516 primary term ended 1994-11-07. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1991-9133521 past primary term \u2014 no continuous production",
+      "description": "Lease 1991-9133521 primary term ended 1993-11-07. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1991-9133909 past primary term \u2014 no continuous production",
+      "description": "Lease 1991-9133909 primary term ended 1994-11-25. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235335 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235335 primary term ended 1995-02-06. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235453 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235453 primary term ended 1995-02-12. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235160 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235160 primary term ended 1994-01-29. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
       "title": "Lease 1992-9235282 past primary term \u2014 no continuous production",
       "description": "Lease 1992-9235282 primary term ended 1995-02-05. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235192 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235192 primary term ended 1995-02-02. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
+      "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
+      "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r05_primary_term_no_continuous_prod",
+      "severity": "critical",
+      "title": "Lease 1992-9235286 past primary term \u2014 no continuous production",
+      "description": "Lease 1992-9235286 primary term ended 1995-02-05. No oil or gas production has been reported on any well covering this tract in the last 6 months. Habendum / continuous-production clause appears violated; the lease may be terminated automatically unless extended by clause language.",
       "suggested_action": "Examine the habendum and any continuous-development / re-work clauses. If shut-in royalty provisions apply, confirm payments were made. Issue a Lease Termination Notice to operator and either renegotiate a new lease or release the leasehold.",
       "effort_display": "Verify recorded release \u00b7 1\u20132 hr jr",
       "assignee_display": "Sr. landman"
@@ -240,15 +483,62 @@
       "suggested_action": "Locate heirs of SUMMERS ALFRED H ESTATE OF; obtain an Affidavit of Heirship and have it recorded in the county OPR. If a probate is open or closed in the appropriate jurisdiction, record a certified copy of the order. Until this is filed any conveyance from purported heirs is exposed.",
       "effort_display": "6\u201310 hr sr \u00b7 county-clerk probate search \u00b7 ~$300 rec.",
       "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r06_pugh_release_missed",
+      "severity": "high",
+      "title": "Pugh-clause acreage release missing on lease 2019-5981",
+      "description": "Lease 2019-5981 contains a Pugh clause requiring release of acreage not held by a producing unit after the end of the primary term (2020-03-30). No release of unproduced acreage has been recorded since term expiration.",
+      "suggested_action": "Prepare and record a Partial Release covering all acreage outside the producing unit. Update internal acreage records. If the operator disputes the release, request a title opinion regarding lease validity on the held acreage.",
+      "effort_display": "4\u20136 hr sr \u00b7 ~$200 rec.",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r06_pugh_release_missed",
+      "severity": "high",
+      "title": "Pugh-clause acreage release missing on lease 1992-9235244",
+      "description": "Lease 1992-9235244 contains a Pugh clause requiring release of acreage not held by a producing unit after the end of the primary term (1997-02-04). No release of unproduced acreage has been recorded since term expiration.",
+      "suggested_action": "Prepare and record a Partial Release covering all acreage outside the producing unit. Update internal acreage records. If the operator disputes the release, request a title opinion regarding lease validity on the held acreage.",
+      "effort_display": "4\u20136 hr sr \u00b7 ~$200 rec.",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r06_pugh_release_missed",
+      "severity": "high",
+      "title": "Pugh-clause acreage release missing on lease 1991-9133908",
+      "description": "Lease 1991-9133908 contains a Pugh clause requiring release of acreage not held by a producing unit after the end of the primary term (1994-11-25). No release of unproduced acreage has been recorded since term expiration.",
+      "suggested_action": "Prepare and record a Partial Release covering all acreage outside the producing unit. Update internal acreage records. If the operator disputes the release, request a title opinion regarding lease validity on the held acreage.",
+      "effort_display": "4\u20136 hr sr \u00b7 ~$200 rec.",
+      "assignee_display": "Sr. landman"
+    },
+    {
+      "rule_id": "r06_pugh_release_missed",
+      "severity": "high",
+      "title": "Pugh-clause acreage release missing on lease 1991-9133516",
+      "description": "Lease 1991-9133516 contains a Pugh clause requiring release of acreage not held by a producing unit after the end of the primary term (1994-11-07). No release of unproduced acreage has been recorded since term expiration.",
+      "suggested_action": "Prepare and record a Partial Release covering all acreage outside the producing unit. Update internal acreage records. If the operator disputes the release, request a title opinion regarding lease validity on the held acreage.",
+      "effort_display": "4\u20136 hr sr \u00b7 ~$200 rec.",
+      "assignee_display": "Sr. landman"
     }
   ],
   "summary": {
-    "headline": "6 curative items",
-    "body": "6 curative items identified across 44 tracts (6 critical). Each finding cites the specific instrument and the chain-of-title rationale; curative-effort estimates assume current East-Texas operator pricing. Findings flagged as historical should be confirmed against the recorded-release index before action \u2014 see Section V for the records expressly excluded from this examination."
+    "headline": "37 curative items",
+    "body": "37 curative items identified across 44 tracts (33 critical, 4 high). Each finding cites the specific instrument and the chain-of-title rationale; curative-effort estimates assume current East-Texas operator pricing. Findings flagged as historical should be confirmed against the recorded-release index before action \u2014 see Section V for the records expressly excluded from this examination."
   },
   "overall_badge_color": "red",
-  "overall_badge_text": "6 critical items \u2014 landman review required",
+  "overall_badge_text": "33 critical items \u2014 landman review required",
   "lease_calendar": [
+    {
+      "instrument": "2019-4654",
+      "parties": "MINERAL RESOURCES DEVELOPMENT LP \u2192 TEXAS GENERAL OIL & GAS LP",
+      "recording_date": "2019-08-02",
+      "term_end": "2021-08-01",
+      "royalty_display": "\u2014",
+      "pugh_status": "\u2014",
+      "risk_pill": "critical",
+      "risk_label": "Term expired",
+      "risk_note": "1747 d past term end"
+    },
     {
       "instrument": "2019-3844",
       "parties": "PAULA LYNN NASH \u2192 TEXAS GENERAL OIL & GAS LP",
@@ -258,7 +548,7 @@
       "pugh_status": "\u2014",
       "risk_pill": "critical",
       "risk_label": "Term expired",
-      "risk_note": "688 d past term end"
+      "risk_note": "689 d past term end"
     },
     {
       "instrument": "2021-5852",
@@ -269,7 +559,106 @@
       "pugh_status": "\u2014",
       "risk_pill": "critical",
       "risk_label": "Term expired",
-      "risk_note": "614 d past term end"
+      "risk_note": "615 d past term end"
+    },
+    {
+      "instrument": "1958-58563236",
+      "parties": "BARTON MARY L \u2192 BRADSHAW RAY E",
+      "recording_date": "1958-01-30",
+      "term_end": "1959-01-30",
+      "royalty_display": "0.125",
+      "pugh_status": "Retained acreage",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1959)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1957-57564020",
+      "parties": "HAMMER HELEN RICHARDSON \u2192 BILBO REDDING DRILLING COMPANY INC",
+      "recording_date": "1957-11-18",
+      "term_end": "1960-11-17",
+      "royalty_display": "0.25",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1960)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1957-57564056",
+      "parties": "WOOLVERTON P R \u2192 SHELL OIL COMPANY",
+      "recording_date": "1957-11-22",
+      "term_end": "1962-11-22",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1962)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1957-57564039",
+      "parties": "BIGGERSTAFF JOHN M \u2192 BRYANT W H",
+      "recording_date": "1957-11-25",
+      "term_end": "1962-11-25",
+      "royalty_display": "0.125",
+      "pugh_status": "Retained acreage",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1962)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1957-57564088",
+      "parties": "ANICKER MILDRED K \u2192 SHELL OIL COMPANY",
+      "recording_date": "1957-12-10",
+      "term_end": "1962-12-10",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1962)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1958-58564116",
+      "parties": "CAMP JOE \u2192 GRAHAM HUNT",
+      "recording_date": "1958-01-02",
+      "term_end": "1963-01-02",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1963)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1958-58564114",
+      "parties": "LIVELY ELIZABETH \u2192 GRAHAM HUNT",
+      "recording_date": "1958-01-02",
+      "term_end": "1963-01-02",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1963)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1958-58563225",
+      "parties": "HANKS C W ESTATE OF \u2192 PENNYBACKER PAUL J",
+      "recording_date": "1958-01-24",
+      "term_end": "1963-01-24",
+      "royalty_display": "0.0625",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1963)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1957-57564019",
+      "parties": "SABINE ROYALTY CORPORATION \u2192 HERSCHBACH E FRED",
+      "recording_date": "1957-11-19",
+      "term_end": "1963-11-19",
+      "royalty_display": "0.125",
+      "pugh_status": "Retained acreage",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1963)",
+      "risk_note": "Verify recorded release before action"
     },
     {
       "instrument": "1957-57563178",
@@ -283,14 +672,80 @@
       "risk_note": "Verify recorded release before action"
     },
     {
+      "instrument": "1957-57563211",
+      "parties": "REED JIM \u2192 GORDON TOM",
+      "recording_date": "1957-11-06",
+      "term_end": "1967-11-06",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1967)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
       "instrument": "1957-57564085",
       "parties": "CHIVERS GARFIELD \u2192 SHELL OIL COMPANY",
       "recording_date": "1957-12-10",
       "term_end": "1967-12-10",
       "royalty_display": "0.125",
-      "pugh_status": "\u2014",
+      "pugh_status": "Retained acreage",
       "risk_pill": "outline-grey",
       "risk_label": "Historical (1967)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1991-9133521",
+      "parties": "ABILEZ JUDITH ANN \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-08",
+      "term_end": "1993-11-07",
+      "royalty_display": "0.25",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1993)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235160",
+      "parties": "WILLIAMS BERNIECE \u2192 ROWAN UNGERECHT INC",
+      "recording_date": "1992-01-30",
+      "term_end": "1994-01-29",
+      "royalty_display": "0.1",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1994)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1991-9133516",
+      "parties": "JONES BURLEAN E \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-08",
+      "term_end": "1994-11-07",
+      "royalty_display": "0.125",
+      "pugh_status": "Pugh + retained",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1994)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1991-9133908",
+      "parties": "WEATHERFORD H M \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-26",
+      "term_end": "1994-11-25",
+      "royalty_display": "0.125",
+      "pugh_status": "Pugh + retained",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1994)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1991-9133909",
+      "parties": "VALCHAR DORIS JEAN \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-26",
+      "term_end": "1994-11-25",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1994)",
       "risk_note": "Verify recorded release before action"
     },
     {
@@ -300,6 +755,17 @@
       "term_end": "1994-11-25",
       "royalty_display": "0.125",
       "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1994)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1991-9133912",
+      "parties": "COOK S R \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-26",
+      "term_end": "1994-11-25",
+      "royalty_display": "0.125",
+      "pugh_status": "Retained acreage",
       "risk_pill": "outline-grey",
       "risk_label": "Historical (1994)",
       "risk_note": "Verify recorded release before action"
@@ -316,6 +782,72 @@
       "risk_note": "Verify recorded release before action"
     },
     {
+      "instrument": "1992-9235159",
+      "parties": "JACKSON ADELL \u2192 ROWEN UNGERECHT INC",
+      "recording_date": "1992-01-30",
+      "term_end": "1995-01-29",
+      "royalty_display": "0.1",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235192",
+      "parties": "LINSON LAURIN M \u2192 COHO RESOURCES INC",
+      "recording_date": "1992-02-03",
+      "term_end": "1995-02-02",
+      "royalty_display": "0.125",
+      "pugh_status": "Retained acreage",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235286",
+      "parties": "COLLEY THOMAS M \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "term_end": "1995-02-05",
+      "royalty_display": "0.25",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235285",
+      "parties": "EAST TEXAS NATIONAL BANK \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "term_end": "1995-02-05",
+      "royalty_display": "0.25",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235291",
+      "parties": "HARRIS ALMA M \u2192 SUN OPERATING LTD PARTNERSHIP",
+      "recording_date": "1992-02-06",
+      "term_end": "1995-02-05",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235274",
+      "parties": "HIGHTOWER HOWARD DANIEL \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "term_end": "1995-02-05",
+      "royalty_display": "0.0625",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
       "instrument": "1992-9235282",
       "parties": "COLLEY JILL DAVEY \u2192 EP OPERATING CO",
       "recording_date": "1992-02-06",
@@ -324,6 +856,116 @@
       "pugh_status": "\u2014",
       "risk_pill": "outline-grey",
       "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235283",
+      "parties": "EAST TEXAS NATIONAL BANK \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "term_end": "1995-02-05",
+      "royalty_display": "0.25",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235284",
+      "parties": "COLLEY THOMAS M \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "term_end": "1995-02-05",
+      "royalty_display": "0.25",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235335",
+      "parties": "SUMMERS ALFRED H ESTATE OF \u2192 COHO RESOURCES INC",
+      "recording_date": "1992-02-07",
+      "term_end": "1995-02-06",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235453",
+      "parties": "ROBERSON LAMAR \u2192 ROWAN UNGERECHT INC",
+      "recording_date": "1992-02-13",
+      "term_end": "1995-02-12",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1995)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235151",
+      "parties": "JACKSON ZENORA \u2192 MOSBACHER ENERGY CO",
+      "recording_date": "1992-01-30",
+      "term_end": "1997-01-29",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1997)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235244",
+      "parties": "GROSS DONNA \u2192 MOSBACHER ENERGY CO",
+      "recording_date": "1992-02-05",
+      "term_end": "1997-02-04",
+      "royalty_display": "0.125",
+      "pugh_status": "Pugh + retained",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1997)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "1992-9235290",
+      "parties": "HOECHSTETTER ANDEY \u2192 SUN OPERATING LTD PARTNERSHIP",
+      "recording_date": "1992-02-06",
+      "term_end": "1997-02-05",
+      "royalty_display": "0.125",
+      "pugh_status": "Retained acreage",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (1997)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "2007-7038853",
+      "parties": "KIRBY PETROLEUM COMPANY \u2192 HUMBLE OIL & REFINING COMPANY",
+      "recording_date": "2007-07-21",
+      "term_end": "2012-07-20",
+      "royalty_display": "0.1875",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (2012)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "2014-6825105",
+      "parties": "HEARNE ESTHER J \u2192 TEXACO INC",
+      "recording_date": "2014-03-14",
+      "term_end": "2019-03-14",
+      "royalty_display": "0.125",
+      "pugh_status": "\u2014",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (2019)",
+      "risk_note": "Verify recorded release before action"
+    },
+    {
+      "instrument": "2019-5981",
+      "parties": "BOKF NA TRUSTEE \u2192 BUFFCO PRODUCTION INC",
+      "recording_date": "2019-09-30",
+      "term_end": "2020-03-30",
+      "royalty_display": "0.25",
+      "pugh_status": "Pugh + retained",
+      "risk_pill": "outline-grey",
+      "risk_label": "Historical (2020)",
       "risk_note": "Verify recorded release before action"
     }
   ],
@@ -346,11 +988,11 @@
     },
     {
       "label": "Anderson Co \u2014 C W Hanks Survey \u00b7 A-1112 \u00b7 11.23 ac",
-      "badge_color": "outline-grey",
-      "badge_text": "Insufficient data",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.0625 \u2013 0.0625"
     },
     {
       "label": "Anderson Co \u2014 Samuel Edmondson Survey",
@@ -438,7 +1080,7 @@
       "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.2500 \u2013 0.2500"
     },
     {
       "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 57.11 ac",
@@ -458,11 +1100,11 @@
     },
     {
       "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 2.41 ac",
-      "badge_color": "outline-grey",
-      "badge_text": "Insufficient data",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.1000 \u2013 0.1000"
     },
     {
       "label": "Anderson Co \u2014 Miles Yandle Survey \u00b7 A-850",
@@ -474,8 +1116,8 @@
     },
     {
       "label": "Anderson Co \u2014 Robert Erwin Survey \u00b7 A-262 \u00b7 220.409 ac",
-      "badge_color": "outline-grey",
-      "badge_text": "Insufficient data",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
       "nri_summary": "\u2014"
@@ -506,19 +1148,19 @@
     },
     {
       "label": "Anderson Co \u2014 James Rice Survey \u00b7 A-675 \u00b7 104.22 ac",
-      "badge_color": "outline-grey",
-      "badge_text": "Insufficient data",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.2500 \u2013 0.2500"
     },
     {
       "label": "Anderson Co \u2014 M Main Survey \u00b7 A-40 \u00b7 160 ac",
-      "badge_color": "outline-grey",
-      "badge_text": "Insufficient data",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.1875 \u2013 0.1875"
     },
     {
       "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 104 ac",
@@ -526,7 +1168,7 @@
       "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.2500 \u2013 0.2500"
     },
     {
       "label": "Anderson Co \u2014 Samuel Davis Survey \u00b7 A-232",
@@ -546,11 +1188,11 @@
     },
     {
       "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 23.768 ac",
-      "badge_color": "outline-grey",
-      "badge_text": "Insufficient data",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.0625 \u2013 0.0625"
     },
     {
       "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 50 ac",
@@ -566,7 +1208,7 @@
       "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.2500 \u2013 0.2500"
     },
     {
       "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 100 ac",
@@ -614,7 +1256,7 @@
       "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.2500 \u2013 0.2500"
     },
     {
       "label": "Anderson Co \u2014 S Bowlin Survey \u00b7 A-9 \u00b7 2.5 ac",
@@ -642,11 +1284,11 @@
     },
     {
       "label": "Anderson Co \u2014 John C Ogden Survey \u00b7 A-594 \u00b7 1.2 ac",
-      "badge_color": "outline-grey",
-      "badge_text": "Insufficient data",
+      "badge_color": "solid-green",
+      "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.1000 \u2013 0.1000"
     },
     {
       "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713 \u00b7 145.44 ac",
@@ -670,7 +1312,7 @@
       "badge_text": "No findings",
       "open_count": 0,
       "critical_count": 0,
-      "nri_summary": "\u2014"
+      "nri_summary": "royalty 0.2500 \u2013 0.2500"
     },
     {
       "label": "Anderson Co \u2014 Maximo Salisar Survey \u00b7 A-713",
@@ -1251,14 +1893,14 @@
       "legal_raw": "SEE INSTRUMENT"
     },
     {
-      "opr_instrument_no": "1992-9235042",
+      "opr_instrument_no": "1992-9235043",
       "recording_date": "1992-01-27",
       "lessor_text": "FIRST CITY TEXAS TYLER NA",
       "lessee_text": "COHO RESOURCES INC",
       "legal_raw": "SEE INSTRUMENT"
     },
     {
-      "opr_instrument_no": "1992-9235043",
+      "opr_instrument_no": "1992-9235042",
       "recording_date": "1992-01-27",
       "lessor_text": "FIRST CITY TEXAS TYLER NA",
       "lessee_text": "COHO RESOURCES INC",
@@ -1280,10 +1922,10 @@
     }
   ],
   "clause_coverage": {
-    "primary_term": 16,
-    "royalty": 61,
-    "pugh": 2,
-    "depth_limit": 11,
+    "primary_term": 91,
+    "royalty": 86,
+    "pugh": 9,
+    "depth_limit": 14,
     "total_leases": 44
   },
   "examination_period": "1957-10-28 \u2013 2023-05-10",
@@ -1306,7 +1948,7 @@
     },
     {
       "name": "publicsearch.us:48423",
-      "description": "ingest run \u2014 103 rows ingested",
+      "description": "ingest run \u2014 163 rows ingested",
       "pulled_at": "2026-05-14"
     },
     {
@@ -1453,8 +2095,8 @@
           "recording_date": "1957-11-06",
           "lessor": "REED JIM",
           "lessee": "GORDON TOM",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 10.0,
+          "primary_term_end": "1967-11-06",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -1503,10 +2145,10 @@
           "recording_date": "1958-01-24",
           "lessor": "HANKS C W ESTATE OF",
           "lessee": "PENNYBACKER PAUL J",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
-          "has_pugh": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "1963-01-24",
+          "royalty": "0.0625",
+          "has_pugh": "No",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -1650,8 +2292,8 @@
           "recording_date": "1957-12-10",
           "lessor": "ANICKER MILDRED K",
           "lessee": "SHELL OIL COMPANY",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "1962-12-10",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -1689,10 +2331,10 @@
           "recording_date": "1957-11-25",
           "lessor": "BIGGERSTAFF JOHN M",
           "lessee": "BRYANT W H",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "1962-11-25",
           "royalty": "0.125",
-          "has_pugh": "\u2014",
+          "has_pugh": "No",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -1722,10 +2364,10 @@
           "recording_date": "1957-11-19",
           "lessor": "SABINE ROYALTY CORPORATION",
           "lessee": "HERSCHBACH E FRED",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 6.0,
+          "primary_term_end": "1963-11-19",
           "royalty": "0.125",
-          "has_pugh": "\u2014",
+          "has_pugh": "No",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -1755,8 +2397,8 @@
           "recording_date": "1958-01-02",
           "lessor": "CAMP JOE",
           "lessee": "GRAHAM HUNT",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "1963-01-02",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -1827,10 +2469,10 @@
           "recording_date": "1958-01-30",
           "lessor": "BARTON MARY L",
           "lessee": "BRADSHAW RAY E",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 1.0,
+          "primary_term_end": "1959-01-30",
           "royalty": "0.125",
-          "has_pugh": "\u2014",
+          "has_pugh": "No",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -1909,8 +2551,8 @@
           "recording_date": "1957-11-18",
           "lessor": "HAMMER HELEN RICHARDSON",
           "lessee": "BILBO REDDING DRILLING COMPANY INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1960-11-17",
           "royalty": "0.25",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -1945,7 +2587,7 @@
           "primary_term_years": 10.0,
           "primary_term_end": "1967-12-10",
           "royalty": "0.125",
-          "has_pugh": "\u2014",
+          "has_pugh": "No",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -1981,8 +2623,8 @@
           "recording_date": "1958-01-02",
           "lessor": "LIVELY ELIZABETH",
           "lessee": "GRAHAM HUNT",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "1963-01-02",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -2020,8 +2662,8 @@
           "recording_date": "1957-11-22",
           "lessor": "WOOLVERTON P R",
           "lessee": "SHELL OIL COMPANY",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "1962-11-22",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -2124,9 +2766,9 @@
           "recording_date": "1992-02-06",
           "lessor": "EAST TEXAS NATIONAL BANK",
           "lessee": "EP OPERATING CO",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-05",
+          "royalty": "0.25",
           "has_pugh": "\u2014",
           "depth_limit_ft": "100"
         }
@@ -2166,7 +2808,7 @@
           "primary_term_years": null,
           "primary_term_end": "\u2014",
           "royalty": "0.125",
-          "has_pugh": "\u2014",
+          "has_pugh": "No",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -2237,8 +2879,8 @@
           "recording_date": "1992-01-30",
           "lessor": "JACKSON ZENORA",
           "lessee": "MOSBACHER ENERGY CO",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "1997-01-29",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -2319,9 +2961,9 @@
           "recording_date": "1992-01-30",
           "lessor": "JACKSON ADELL",
           "lessee": "ROWEN UNGERECHT INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-01-29",
+          "royalty": "0.1",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
         }
@@ -2434,11 +3076,11 @@
           "recording_date": "2019-08-02",
           "lessor": "MINERAL RESOURCES DEVELOPMENT LP",
           "lessee": "TEXAS GENERAL OIL & GAS LP",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 2.0,
+          "primary_term_end": "2021-08-01",
           "royalty": "\u2014",
           "has_pugh": "\u2014",
-          "depth_limit_ft": "\u2014"
+          "depth_limit_ft": "680"
         }
       ],
       "wells": [],
@@ -2506,10 +3148,10 @@
           "recording_date": "2019-09-30",
           "lessor": "BOKF NA TRUSTEE",
           "lessee": "BUFFCO PRODUCTION INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 0.5,
+          "primary_term_end": "2020-03-30",
           "royalty": "0.25",
-          "has_pugh": "\u2014",
+          "has_pugh": "Yes",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -2539,8 +3181,8 @@
           "recording_date": "2014-03-14",
           "lessor": "HEARNE ESTHER J",
           "lessee": "TEXACO INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "2019-03-14",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -2574,7 +3216,7 @@
           "lessee": "ANDERSON ROY T",
           "primary_term_years": null,
           "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "royalty": "0.25",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
         }
@@ -2605,9 +3247,9 @@
           "recording_date": "2007-07-21",
           "lessor": "KIRBY PETROLEUM COMPANY",
           "lessee": "HUMBLE OIL & REFINING COMPANY",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "2012-07-20",
+          "royalty": "0.1875",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
         }
@@ -2638,9 +3280,9 @@
           "recording_date": "1992-02-06",
           "lessor": "COLLEY THOMAS M",
           "lessee": "EP OPERATING CO",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-05",
+          "royalty": "0.25",
           "has_pugh": "\u2014",
           "depth_limit_ft": "100"
         }
@@ -2696,8 +3338,8 @@
           "recording_date": "1992-02-05",
           "lessor": "GROSS DONNA",
           "lessee": "MOSBACHER ENERGY CO",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "1997-02-04",
           "royalty": "0.125",
           "has_pugh": "Yes",
           "depth_limit_ft": "\u2014"
@@ -2729,8 +3371,8 @@
           "recording_date": "1992-02-06",
           "lessor": "HARRIS ALMA M",
           "lessee": "SUN OPERATING LTD PARTNERSHIP",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-05",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -2762,9 +3404,9 @@
           "recording_date": "1992-02-06",
           "lessor": "HIGHTOWER HOWARD DANIEL",
           "lessee": "EP OPERATING CO",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-05",
+          "royalty": "0.0625",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
         }
@@ -2795,10 +3437,10 @@
           "recording_date": "1992-02-06",
           "lessor": "HOECHSTETTER ANDEY",
           "lessee": "SUN OPERATING LTD PARTNERSHIP",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 5.0,
+          "primary_term_end": "1997-02-05",
           "royalty": "0.125",
-          "has_pugh": "\u2014",
+          "has_pugh": "No",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -2828,9 +3470,9 @@
           "recording_date": "1992-02-06",
           "lessor": "EAST TEXAS NATIONAL BANK",
           "lessee": "EP OPERATING CO",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-05",
+          "royalty": "0.25",
           "has_pugh": "\u2014",
           "depth_limit_ft": "100"
         }
@@ -2867,10 +3509,10 @@
           "recording_date": "1991-11-26",
           "lessor": "WEATHERFORD H M",
           "lessee": "COHO RESOURCES INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1994-11-25",
           "royalty": "0.125",
-          "has_pugh": "\u2014",
+          "has_pugh": "Yes",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -2933,8 +3575,8 @@
           "recording_date": "1991-11-26",
           "lessor": "COOK S R",
           "lessee": "COHO RESOURCES INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1994-11-25",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -3023,10 +3665,10 @@
           "recording_date": "1991-11-08",
           "lessor": "JONES BURLEAN E",
           "lessee": "COHO RESOURCES INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1994-11-07",
           "royalty": "0.125",
-          "has_pugh": "\u2014",
+          "has_pugh": "Yes",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -3089,9 +3731,9 @@
           "recording_date": "1991-11-08",
           "lessor": "ABILEZ JUDITH ANN",
           "lessee": "COHO RESOURCES INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "primary_term_years": 2.0,
+          "primary_term_end": "1993-11-07",
+          "royalty": "0.25",
           "has_pugh": "\u2014",
           "depth_limit_ft": "1500"
         }
@@ -3122,8 +3764,8 @@
           "recording_date": "1991-11-26",
           "lessor": "VALCHAR DORIS JEAN",
           "lessee": "COHO RESOURCES INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1994-11-25",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -3155,8 +3797,8 @@
           "recording_date": "1992-02-07",
           "lessor": "SUMMERS ALFRED H ESTATE OF",
           "lessee": "COHO RESOURCES INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-06",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -3188,8 +3830,8 @@
           "recording_date": "1992-02-13",
           "lessor": "ROBERSON LAMAR",
           "lessee": "ROWAN UNGERECHT INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-12",
           "royalty": "0.125",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
@@ -3230,9 +3872,9 @@
           "recording_date": "1992-01-30",
           "lessor": "WILLIAMS BERNIECE",
           "lessee": "ROWAN UNGERECHT INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "primary_term_years": 2.0,
+          "primary_term_end": "1994-01-29",
+          "royalty": "0.1",
           "has_pugh": "\u2014",
           "depth_limit_ft": "\u2014"
         }
@@ -3498,10 +4140,10 @@
           "recording_date": "1992-02-03",
           "lessor": "LINSON LAURIN M",
           "lessee": "COHO RESOURCES INC",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-02",
           "royalty": "0.125",
-          "has_pugh": "\u2014",
+          "has_pugh": "No",
           "depth_limit_ft": "\u2014"
         }
       ],
@@ -3531,9 +4173,9 @@
           "recording_date": "1992-02-06",
           "lessor": "COLLEY THOMAS M",
           "lessee": "EP OPERATING CO",
-          "primary_term_years": null,
-          "primary_term_end": "\u2014",
-          "royalty": "\u2014",
+          "primary_term_years": 3.0,
+          "primary_term_end": "1995-02-05",
+          "royalty": "0.25",
           "has_pugh": "\u2014",
           "depth_limit_ft": "100"
         }
@@ -4389,7 +5031,272 @@
       "status": "\u2014"
     }
   ],
-  "lease_images": [],
+  "lease_images": [
+    {
+      "instrument": "1992-9235192",
+      "parties": "LINSON LAURIN M \u2192 COHO RESOURCES INC",
+      "recording_date": "1992-02-03",
+      "image_path": "_lease_thumbs/1992-9235192_p1.png"
+    },
+    {
+      "instrument": "1991-9133908",
+      "parties": "WEATHERFORD H M \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-26",
+      "image_path": "_lease_thumbs/1991-9133908_p1.png"
+    },
+    {
+      "instrument": "1991-9133516",
+      "parties": "JONES BURLEAN E \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-08",
+      "image_path": "_lease_thumbs/1991-9133516_p1.png"
+    },
+    {
+      "instrument": "1957-57564019",
+      "parties": "SABINE ROYALTY CORPORATION \u2192 HERSCHBACH E FRED",
+      "recording_date": "1957-11-19",
+      "image_path": "_lease_thumbs/1957-57564019_p1.png"
+    },
+    {
+      "instrument": "1991-9133909",
+      "parties": "VALCHAR DORIS JEAN \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-26",
+      "image_path": "_lease_thumbs/1991-9133909_p1.png"
+    },
+    {
+      "instrument": "1991-9133521",
+      "parties": "ABILEZ JUDITH ANN \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-08",
+      "image_path": "_lease_thumbs/1991-9133521_p1.png"
+    },
+    {
+      "instrument": "1992-9235289",
+      "parties": "CARTER LU LA M LARKIN \u2192 SUN OPERATING LTD PARTNERSHIP",
+      "recording_date": "1992-02-06",
+      "image_path": "_lease_thumbs/1992-9235289_p1.png"
+    },
+    {
+      "instrument": "1992-9235151",
+      "parties": "JACKSON ZENORA \u2192 MOSBACHER ENERGY CO",
+      "recording_date": "1992-01-30",
+      "image_path": "_lease_thumbs/1992-9235151_p1.png"
+    },
+    {
+      "instrument": "1957-57564039",
+      "parties": "BIGGERSTAFF JOHN M \u2192 BRYANT W H",
+      "recording_date": "1957-11-25",
+      "image_path": "_lease_thumbs/1957-57564039_p1.png"
+    },
+    {
+      "instrument": "1992-9235453",
+      "parties": "ROBERSON LAMAR \u2192 ROWAN UNGERECHT INC",
+      "recording_date": "1992-02-13",
+      "image_path": "_lease_thumbs/1992-9235453_p1.png"
+    },
+    {
+      "instrument": "1992-9235286",
+      "parties": "COLLEY THOMAS M \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "image_path": "_lease_thumbs/1992-9235286_p1.png"
+    },
+    {
+      "instrument": "1992-9235285",
+      "parties": "EAST TEXAS NATIONAL BANK \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "image_path": "_lease_thumbs/1992-9235285_p1.png"
+    },
+    {
+      "instrument": "1958-58564116",
+      "parties": "CAMP JOE \u2192 GRAHAM HUNT",
+      "recording_date": "1958-01-02",
+      "image_path": "_lease_thumbs/1958-58564116_p1.png"
+    },
+    {
+      "instrument": "1960-6006030339",
+      "parties": "CAGE J W \u2192 TIDEWATER OIL COMPANY",
+      "recording_date": "1960-03-24",
+      "image_path": "_lease_thumbs/1960-6006030339_p1.png"
+    },
+    {
+      "instrument": "2021-5852",
+      "parties": "DOUBLE J OIL AND GAS INTERESTS LLC \u2192 ODEN & ASSOCIATES LLC",
+      "recording_date": "2021-09-07",
+      "image_path": "_lease_thumbs/2021-5852_p1.png"
+    },
+    {
+      "instrument": "2019-4654",
+      "parties": "MINERAL RESOURCES DEVELOPMENT LP \u2192 TEXAS GENERAL OIL & GAS LP",
+      "recording_date": "2019-08-02",
+      "image_path": "_lease_thumbs/2019-4654_p1.png"
+    },
+    {
+      "instrument": "1958-58563225",
+      "parties": "HANKS C W ESTATE OF \u2192 PENNYBACKER PAUL J",
+      "recording_date": "1958-01-24",
+      "image_path": "_lease_thumbs/1958-58563225_p1.png"
+    },
+    {
+      "instrument": "2019-5981",
+      "parties": "BOKF NA TRUSTEE \u2192 BUFFCO PRODUCTION INC",
+      "recording_date": "2019-09-30",
+      "image_path": "_lease_thumbs/2019-5981_p1.png"
+    },
+    {
+      "instrument": "2014-6825105",
+      "parties": "HEARNE ESTHER J \u2192 TEXACO INC",
+      "recording_date": "2014-03-14",
+      "image_path": "_lease_thumbs/2014-6825105_p1.png"
+    },
+    {
+      "instrument": "2002-7249103",
+      "parties": "WITTNEBEN A H \u2192 ANDERSON ROY T",
+      "recording_date": "2002-05-07",
+      "image_path": "_lease_thumbs/2002-7249103_p1.png"
+    },
+    {
+      "instrument": "2019-3844",
+      "parties": "PAULA LYNN NASH \u2192 TEXAS GENERAL OIL & GAS LP",
+      "recording_date": "2019-06-25",
+      "image_path": "_lease_thumbs/2019-3844_p1.png"
+    },
+    {
+      "instrument": "1958-58564114",
+      "parties": "LIVELY ELIZABETH \u2192 GRAHAM HUNT",
+      "recording_date": "1958-01-02",
+      "image_path": "_lease_thumbs/1958-58564114_p1.png"
+    },
+    {
+      "instrument": "1957-57564056",
+      "parties": "WOOLVERTON P R \u2192 SHELL OIL COMPANY",
+      "recording_date": "1957-11-22",
+      "image_path": "_lease_thumbs/1957-57564056_p1.png"
+    },
+    {
+      "instrument": "1957-57564020",
+      "parties": "HAMMER HELEN RICHARDSON \u2192 BILBO REDDING DRILLING COMPANY INC",
+      "recording_date": "1957-11-18",
+      "image_path": "_lease_thumbs/1957-57564020_p1.png"
+    },
+    {
+      "instrument": "1991-9133913",
+      "parties": "TARBUTTON JEAN D \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-26",
+      "image_path": "_lease_thumbs/1991-9133913_p1.png"
+    },
+    {
+      "instrument": "2007-7038853",
+      "parties": "KIRBY PETROLEUM COMPANY \u2192 HUMBLE OIL & REFINING COMPANY",
+      "recording_date": "2007-07-21",
+      "image_path": "_lease_thumbs/2007-7038853_p1.png"
+    },
+    {
+      "instrument": "1992-9235291",
+      "parties": "HARRIS ALMA M \u2192 SUN OPERATING LTD PARTNERSHIP",
+      "recording_date": "1992-02-06",
+      "image_path": "_lease_thumbs/1992-9235291_p1.png"
+    },
+    {
+      "instrument": "1992-9235274",
+      "parties": "HIGHTOWER HOWARD DANIEL \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "image_path": "_lease_thumbs/1992-9235274_p1.png"
+    },
+    {
+      "instrument": "1992-9235290",
+      "parties": "HOECHSTETTER ANDEY \u2192 SUN OPERATING LTD PARTNERSHIP",
+      "recording_date": "1992-02-06",
+      "image_path": "_lease_thumbs/1992-9235290_p1.png"
+    },
+    {
+      "instrument": "1991-9133912",
+      "parties": "COOK S R \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-26",
+      "image_path": "_lease_thumbs/1991-9133912_p1.png"
+    },
+    {
+      "instrument": "1957-57563211",
+      "parties": "REED JIM \u2192 GORDON TOM",
+      "recording_date": "1957-11-06",
+      "image_path": "_lease_thumbs/1957-57563211_p1.png"
+    },
+    {
+      "instrument": "1957-57564088",
+      "parties": "ANICKER MILDRED K \u2192 SHELL OIL COMPANY",
+      "recording_date": "1957-12-10",
+      "image_path": "_lease_thumbs/1957-57564088_p1.png"
+    },
+    {
+      "instrument": "1957-57563178",
+      "parties": "DAVENPORT ALMARINE PEARL \u2192 SHELL OIL COMPANY",
+      "recording_date": "1957-10-28",
+      "image_path": "_lease_thumbs/1957-57563178_p1.png"
+    },
+    {
+      "instrument": "1957-57564085",
+      "parties": "CHIVERS GARFIELD \u2192 SHELL OIL COMPANY",
+      "recording_date": "1957-12-10",
+      "image_path": "_lease_thumbs/1957-57564085_p1.png"
+    },
+    {
+      "instrument": "1992-9235282",
+      "parties": "COLLEY JILL DAVEY \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "image_path": "_lease_thumbs/1992-9235282_p1.png"
+    },
+    {
+      "instrument": "1992-9234933",
+      "parties": "ROGERS ORAL MAUDE \u2192 EP OPERATING CO",
+      "recording_date": "1992-01-21",
+      "image_path": "_lease_thumbs/1992-9234933_p1.png"
+    },
+    {
+      "instrument": "1992-9235335",
+      "parties": "SUMMERS ALFRED H ESTATE OF \u2192 COHO RESOURCES INC",
+      "recording_date": "1992-02-07",
+      "image_path": "_lease_thumbs/1992-9235335_p1.png"
+    },
+    {
+      "instrument": "1992-9235160",
+      "parties": "WILLIAMS BERNIECE \u2192 ROWAN UNGERECHT INC",
+      "recording_date": "1992-01-30",
+      "image_path": "_lease_thumbs/1992-9235160_p1.png"
+    },
+    {
+      "instrument": "1992-9235244",
+      "parties": "GROSS DONNA \u2192 MOSBACHER ENERGY CO",
+      "recording_date": "1992-02-05",
+      "image_path": "_lease_thumbs/1992-9235244_p1.png"
+    },
+    {
+      "instrument": "1992-9235159",
+      "parties": "JACKSON ADELL \u2192 ROWEN UNGERECHT INC",
+      "recording_date": "1992-01-30",
+      "image_path": "_lease_thumbs/1992-9235159_p1.png"
+    },
+    {
+      "instrument": "1991-9133518",
+      "parties": "GAINES LIDDIE M \u2192 COHO RESOURCES INC",
+      "recording_date": "1991-11-08",
+      "image_path": "_lease_thumbs/1991-9133518_p1.png"
+    },
+    {
+      "instrument": "1992-9235283",
+      "parties": "EAST TEXAS NATIONAL BANK \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "image_path": "_lease_thumbs/1992-9235283_p1.png"
+    },
+    {
+      "instrument": "1958-58563236",
+      "parties": "BARTON MARY L \u2192 BRADSHAW RAY E",
+      "recording_date": "1958-01-30",
+      "image_path": "_lease_thumbs/1958-58563236_p1.png"
+    },
+    {
+      "instrument": "1992-9235284",
+      "parties": "COLLEY THOMAS M \u2192 EP OPERATING CO",
+      "recording_date": "1992-02-06",
+      "image_path": "_lease_thumbs/1992-9235284_p1.png"
+    }
+  ],
   "rrc_counties": [
     "Anderson",
     "Houston"
@@ -4411,5 +5318,5 @@
     }
   ],
   "facttrack_version": "0.1.0",
-  "generated_at": "2026-05-14 04:11 UTC"
+  "generated_at": "2026-05-14 05:32 UTC"
 }

@@ -14,7 +14,7 @@
       "lessor": "SUMMERS ALFRED H ESTATE OF",
       "lessee": "COHO RESOURCES INC",
       "royalty": "0.125",
-      "primary_term_end": "\u2014"
+      "primary_term_end": "1995-02-06"
     }
   ],
   "current_status": {
@@ -46,11 +46,17 @@
     "notes": []
   },
   "curative_scorecard": {
-    "tier": "MEDIUM",
-    "crit_count": 1,
+    "tier": "HIGH",
+    "crit_count": 2,
     "high_count": 0,
     "medium_count": 0,
     "items": [
+      {
+        "rule_id": "r05_primary_term_no_continuous_prod",
+        "severity": "critical",
+        "title": "Lease 1992-9235335 past primary term \u2014 no continuous production",
+        "effort": "Verify recorded release \u00b7 1\u20132 hr jr"
+      },
       {
         "rule_id": "r02_probate_gap",
         "severity": "critical",
@@ -58,8 +64,8 @@
         "effort": "6\u201310 hr sr \u00b7 county-clerk probate search \u00b7 ~$300 rec."
       }
     ],
-    "hours_lo": 6,
-    "hours_hi": 10,
+    "hours_lo": 7,
+    "hours_hi": 12,
     "recording_cost": 300
   },
   "competitive": {
@@ -75,13 +81,13 @@
     "has_competing_top_lease": false
   },
   "recommendation": {
-    "recommendation": "NEGOTIATE",
+    "recommendation": "WALK",
     "reasons": [
-      "Single critical curative item \u2014 buyable contingent on the seller curing prior to closing or a bonus offset."
+      "2 critical chain defects \u2014 out of pocket on cure exceeds reasonable bonus."
     ],
-    "walkaway_bonus_ceiling_per_ac": 550
+    "walkaway_bonus_ceiling_per_ac": null
   },
   "project_id": "county_research_48001",
   "prepared_by": "FactTrack v0.1.0",
-  "generated_at": "2026-05-14 04:12 UTC"
+  "generated_at": "2026-05-14 05:32 UTC"
 }

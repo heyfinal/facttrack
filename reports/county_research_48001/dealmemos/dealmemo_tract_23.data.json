@@ -13,7 +13,7 @@
       "recorded": "2002-05-07",
       "lessor": "WITTNEBEN A H",
       "lessee": "ANDERSON ROY T",
-      "royalty": "\u2014",
+      "royalty": "0.25",
       "primary_term_end": "\u2014"
     }
   ],
@@ -29,23 +29,21 @@
   },
   "nri": {
     "wi_share": 1.0,
-    "lessor_royalty": 0.125,
+    "lessor_royalty": 0.25,
     "orri_burden": 0.0,
     "other_burden": 0.0,
-    "value": 0.875,
-    "value_pct": 87.5,
+    "value": 0.75,
+    "value_pct": 75.0,
     "stack": [
       {
-        "party": "lessor (assumed)",
+        "party": "WITTNEBEN A H",
         "kind": "lessor_royalty",
-        "rate": 0.125,
-        "rate_pct": 12.5,
-        "source": "default \u2014 clause not extracted"
+        "rate": 0.25,
+        "rate_pct": 25.0,
+        "source": "lease 2002-7249103"
       }
     ],
-    "notes": [
-      "Lessor royalty not extracted from any lease; default 1/8 (12.5%) assumed. Verify against original lease before committing."
-    ]
+    "notes": []
   },
   "curative_scorecard": {
     "tier": "NONE",
@@ -78,5 +76,5 @@
   },
   "project_id": "county_research_48001",
   "prepared_by": "FactTrack v0.1.0",
-  "generated_at": "2026-05-14 04:12 UTC"
+  "generated_at": "2026-05-14 05:32 UTC"
 }

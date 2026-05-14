@@ -14,7 +14,7 @@
       "lessor": "BOKF NA TRUSTEE",
       "lessee": "BUFFCO PRODUCTION INC",
       "royalty": "0.25",
-      "primary_term_end": "\u2014"
+      "primary_term_end": "2020-03-30"
     }
   ],
   "current_status": {
@@ -46,14 +46,27 @@
     "notes": []
   },
   "curative_scorecard": {
-    "tier": "NONE",
-    "crit_count": 0,
-    "high_count": 0,
+    "tier": "MEDIUM",
+    "crit_count": 1,
+    "high_count": 1,
     "medium_count": 0,
-    "items": [],
-    "hours_lo": 0,
-    "hours_hi": 0,
-    "recording_cost": 0
+    "items": [
+      {
+        "rule_id": "r05_primary_term_no_continuous_prod",
+        "severity": "critical",
+        "title": "Lease 2019-5981 past primary term \u2014 no continuous production",
+        "effort": "Verify recorded release \u00b7 1\u20132 hr jr"
+      },
+      {
+        "rule_id": "r06_pugh_release_missed",
+        "severity": "high",
+        "title": "Pugh-clause acreage release missing on lease 2019-5981",
+        "effort": "4\u20136 hr sr \u00b7 ~$200 rec."
+      }
+    ],
+    "hours_lo": 5,
+    "hours_hi": 8,
+    "recording_cost": 200
   },
   "competitive": {
     "prior_lessees": [
@@ -68,13 +81,13 @@
     "has_competing_top_lease": false
   },
   "recommendation": {
-    "recommendation": "BUY",
+    "recommendation": "NEGOTIATE",
     "reasons": [
-      "Clean chain, no recorded HBP \u2014 proceed with standard form lease at market bonus."
+      "1 high-severity finding(s) \u2014 buyable but cure pricing must be reflected in the offer."
     ],
-    "walkaway_bonus_ceiling_per_ac": 750
+    "walkaway_bonus_ceiling_per_ac": 550
   },
   "project_id": "county_research_48001",
   "prepared_by": "FactTrack v0.1.0",
-  "generated_at": "2026-05-14 04:12 UTC"
+  "generated_at": "2026-05-14 05:32 UTC"
 }

@@ -14,7 +14,7 @@
       "lessor": "ANICKER MILDRED K",
       "lessee": "SHELL OIL COMPANY",
       "royalty": "0.125",
-      "primary_term_end": "\u2014"
+      "primary_term_end": "1962-12-10"
     }
   ],
   "current_status": {
@@ -82,5 +82,5 @@
   },
   "project_id": "county_research_48001",
   "prepared_by": "FactTrack v0.1.0",
-  "generated_at": "2026-05-14 04:12 UTC"
+  "generated_at": "2026-05-14 05:32 UTC"
 }

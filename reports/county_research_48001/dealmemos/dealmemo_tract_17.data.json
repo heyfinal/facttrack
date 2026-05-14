@@ -13,8 +13,8 @@
       "recorded": "1992-01-30",
       "lessor": "JACKSON ADELL",
       "lessee": "ROWEN UNGERECHT INC",
-      "royalty": "\u2014",
-      "primary_term_end": "\u2014"
+      "royalty": "0.1",
+      "primary_term_end": "1995-01-29"
     }
   ],
   "current_status": {
@@ -32,32 +32,37 @@
   },
   "nri": {
     "wi_share": 1.0,
-    "lessor_royalty": 0.125,
+    "lessor_royalty": 0.1,
     "orri_burden": 0.0,
     "other_burden": 0.0,
-    "value": 0.875,
-    "value_pct": 87.5,
+    "value": 0.9,
+    "value_pct": 90.0,
     "stack": [
       {
-        "party": "lessor (assumed)",
+        "party": "JACKSON ADELL",
         "kind": "lessor_royalty",
-        "rate": 0.125,
-        "rate_pct": 12.5,
-        "source": "default \u2014 clause not extracted"
+        "rate": 0.1,
+        "rate_pct": 10.0,
+        "source": "lease 1992-9235159"
       }
     ],
-    "notes": [
-      "Lessor royalty not extracted from any lease; default 1/8 (12.5%) assumed. Verify against original lease before committing."
-    ]
+    "notes": []
   },
   "curative_scorecard": {
-    "tier": "NONE",
-    "crit_count": 0,
+    "tier": "MEDIUM",
+    "crit_count": 1,
     "high_count": 0,
     "medium_count": 0,
-    "items": [],
-    "hours_lo": 0,
-    "hours_hi": 0,
+    "items": [
+      {
+        "rule_id": "r05_primary_term_no_continuous_prod",
+        "severity": "critical",
+        "title": "Lease 1992-9235159 past primary term \u2014 no continuous production",
+        "effort": "Verify recorded release \u00b7 1\u20132 hr jr"
+      }
+    ],
+    "hours_lo": 1,
+    "hours_hi": 2,
     "recording_cost": 0
   },
   "competitive": {
@@ -73,13 +78,13 @@
     "has_competing_top_lease": false
   },
   "recommendation": {
-    "recommendation": "WALK",
+    "recommendation": "NEGOTIATE",
     "reasons": [
-      "Tract is HBP by current producer; no acquisition opportunity at this time \u2014 monitor for release."
+      "Single critical curative item \u2014 buyable contingent on the seller curing prior to closing or a bonus offset."
     ],
-    "walkaway_bonus_ceiling_per_ac": null
+    "walkaway_bonus_ceiling_per_ac": 550
   },
   "project_id": "county_research_48001",
   "prepared_by": "FactTrack v0.1.0",
-  "generated_at": "2026-05-14 04:12 UTC"
+  "generated_at": "2026-05-14 05:32 UTC"
 }
