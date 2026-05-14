@@ -46,38 +46,53 @@ PUBLICSEARCH_TX_COUNTIES: dict[str, str] = {
 
 # Document-type strings publicsearch.us uses → our canonical event_type values.
 DOC_TYPE_MAP: dict[str, str] = {
-    "OIL & GAS LEASE":               "lease",
-    "OIL AND GAS LEASE":             "lease",
-    "OIL GAS LEASE":                 "lease",
-    "MEMORANDUM OF OIL & GAS LEASE": "lease",
-    "MINERAL LEASE":                 "lease",
-    "LEASE":                         "lease",
-    "ASSIGNMENT":                    "assignment",
-    "ASSIGNMENT OF OIL & GAS LEASE": "assignment",
-    "ASSIGNMENT OF LEASE":           "assignment",
-    "PARTIAL ASSIGNMENT":            "assignment",
-    "RELEASE":                       "release",
-    "RELEASE OF OIL & GAS LEASE":    "release",
-    "RELEASE OF LEASE":              "release",
-    "PARTIAL RELEASE":               "release",
-    "RATIFICATION":                  "ratification",
-    "RATIFICATION OF LEASE":         "ratification",
-    "EXTENSION":                     "extension",
-    "EXTENSION OF LEASE":            "extension",
-    "TOP LEASE":                     "top_lease",
-    "AFFIDAVIT OF HEIRSHIP":         "aoh",
-    "HEIRSHIP AFFIDAVIT":            "aoh",
-    "PROBATE":                       "probate",
-    "RECORD OF PROBATE":             "rop",
-    "ESTATE":                        "probate",
-    "OVERRIDING ROYALTY":            "orri_creation",
-    "ORRI":                          "orri_creation",
-    "OVERRIDING ROYALTY INTEREST":   "orri_creation",
-    "RELEASE OF ORRI":               "orri_release",
-    "POOLED UNIT":                   "pooled_unit",
-    "UNIT DESIGNATION":              "pooled_unit",
-    "DECLARATION OF POOLED UNIT":    "pooled_unit",
+    # Longest / most specific first — substring matching in canonical_event_type
+    # iterates this dict and the first key that's a substring wins. "RELEASE OF
+    # OIL & GAS LEASE" must beat "LEASE" or it gets misclassified.
+    "MEMORANDUM OF OIL & GAS LEASE":   "lease",
+    "MEMORANDUM OF OIL AND GAS LEASE": "lease",
+    "OIL, GAS AND MINERAL LEASE":      "lease",
+    "OIL AND GAS LEASE":               "lease",
+    "OIL & GAS LEASE":                 "lease",
+    "MINERAL LEASE":                   "lease",
+    "OIL GAS LEASE":                   "lease",
+    "ASSIGNMENT OF OIL & GAS LEASE":   "assignment",
+    "ASSIGNMENT OF OIL AND GAS LEASE": "assignment",
+    "PARTIAL ASSIGNMENT":              "assignment",
+    "ASSIGNMENT OF LEASE":             "assignment",
+    "RELEASE OF OIL & GAS LEASE":      "release",
+    "RELEASE OF OIL AND GAS LEASE":    "release",
+    "PARTIAL RELEASE":                 "release",
+    "RELEASE OF LEASE":                "release",
+    "RATIFICATION OF LEASE":           "ratification",
+    "RATIFICATION":                    "ratification",
+    "EXTENSION OF LEASE":              "extension",
+    "EXTENSION":                       "extension",
+    "TOP LEASE":                       "top_lease",
+    "AFFIDAVIT OF HEIRSHIP":           "aoh",
+    "HEIRSHIP AFFIDAVIT":              "aoh",
+    "RECORD OF PROBATE":               "rop",
+    "OVERRIDING ROYALTY INTEREST":     "orri_creation",
+    "OVERRIDING ROYALTY":              "orri_creation",
+    "ORRI":                            "orri_creation",
+    "RELEASE OF ORRI":                 "orri_release",
+    "DECLARATION OF POOLED UNIT":      "pooled_unit",
+    "UNIT DESIGNATION":                "pooled_unit",
+    "POOLED UNIT":                     "pooled_unit",
+    "PROBATE":                         "probate",
+    "ESTATE":                          "probate",
 }
+
+# Substrings that, when present in the doc type, mean it is NOT an oil-and-gas
+# instrument and must be skipped regardless of other matches. Catches the
+# class of bugs where "RELEASE OF LIEN" was wrongly classified as a release
+# of lease, or "DEED OF TRUST" as a lease.
+NON_OG_MARKERS = (
+    "LIEN", "DEED OF TRUST", "MORTGAGE", "VENDOR", "JUDGMENT", "MARRIAGE",
+    "DIVORCE", "POWER OF ATTORNEY", "BIRTH", "DEATH CERTIFICATE",
+    "TAX", "BANKRUPTCY", "WARRANTY DEED", "QUITCLAIM", "SUBORDINATION",
+    "EASEMENT", "RIGHT OF WAY", "ROW", "PIPELINE EASEMENT",
+)
 
 
 @dataclass
@@ -97,11 +112,17 @@ class PSDocument:
         if not self.instrument_type:
             return None
         key = self.instrument_type.upper().strip()
+        # Reject obviously-non-O&G documents (mortgage releases, deeds of trust,
+        # marriage licenses, etc.) regardless of what substrings they match.
+        for marker in NON_OG_MARKERS:
+            if marker in key:
+                return None
         if key in DOC_TYPE_MAP:
             return DOC_TYPE_MAP[key]
-        for k, v in DOC_TYPE_MAP.items():
+        # Iterate longest-key first so specific patterns beat short ones.
+        for k in sorted(DOC_TYPE_MAP.keys(), key=len, reverse=True):
             if k in key:
-                return v
+                return DOC_TYPE_MAP[k]
         return None
 
 
@@ -419,7 +440,8 @@ def ingest_oil_and_gas_records_for_county(
                                              event_type, grantor_text, grantee_text,
                                              parsed_metadata, confidence_score)
                     VALUES (%s, %s, %s, %s, %s, %s, %s::jsonb, %s)
-                    ON CONFLICT (county_fips, opr_instrument_no, event_type) DO UPDATE
+                    ON CONFLICT (county_fips, opr_instrument_no, event_type, references_lease_id)
+                      DO UPDATE
                       SET recording_date = EXCLUDED.recording_date,
                           grantor_text = EXCLUDED.grantor_text,
                           grantee_text = EXCLUDED.grantee_text

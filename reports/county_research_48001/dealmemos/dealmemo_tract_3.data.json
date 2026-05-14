@@ -1,0 +1,94 @@
+{
+  "tract": {
+    "label": "Anderson Co \u2014 C W Hanks Survey \u00b7 A-1112 \u00b7 11.23 ac",
+    "abstract_no": "A-1112",
+    "survey_name": "C W HANKS",
+    "gross_acres": "11.23",
+    "county_fips": "48001",
+    "county_name": "Anderson"
+  },
+  "leases": [
+    {
+      "instrument": "1958-58563225",
+      "recorded": "1958-01-24",
+      "lessor": "HANKS C W ESTATE OF",
+      "lessee": "PENNYBACKER PAUL J",
+      "royalty": "\u2014",
+      "primary_term_end": "\u2014"
+    }
+  ],
+  "current_status": {
+    "status": "HBP / producing",
+    "rationale": "4 producing wellbore(s) on tract; lease likely held by production.",
+    "producing_count": 4,
+    "shutin_count": 2,
+    "inactive_count": 1,
+    "well_count": 10,
+    "primary_operators": [
+      "ATLANTIS OIL COMPANY  INC.",
+      "BROWN  GEORGE R. PARTNERSHIP THE",
+      "SCOUT ENERGY MANAGEMENT LLC",
+      "SOUTHWEST OPERATING  INC.-TYLER"
+    ],
+    "last_spud": "2006-05-10"
+  },
+  "nri": {
+    "wi_share": 1.0,
+    "lessor_royalty": 0.125,
+    "orri_burden": 0.0,
+    "other_burden": 0.0,
+    "value": 0.875,
+    "value_pct": 87.5,
+    "stack": [
+      {
+        "party": "lessor (assumed)",
+        "kind": "lessor_royalty",
+        "rate": 0.125,
+        "rate_pct": 12.5,
+        "source": "default \u2014 clause not extracted"
+      }
+    ],
+    "notes": [
+      "Lessor royalty not extracted from any lease; default 1/8 (12.5%) assumed. Verify against original lease before committing."
+    ]
+  },
+  "curative_scorecard": {
+    "tier": "MEDIUM",
+    "crit_count": 1,
+    "high_count": 0,
+    "medium_count": 0,
+    "items": [
+      {
+        "rule_id": "r02_probate_gap",
+        "severity": "critical",
+        "title": "Probate gap \u2014 deceased lessor HANKS C W ESTATE OF (lease 1958-58563225)",
+        "effort": "6\u201310 hr sr \u00b7 county-clerk probate search \u00b7 ~$300 rec."
+      }
+    ],
+    "hours_lo": 6,
+    "hours_hi": 10,
+    "recording_cost": 300
+  },
+  "competitive": {
+    "prior_lessees": [
+      {
+        "instrument": "1958-58563225",
+        "lessee": "PENNYBACKER PAUL J",
+        "recorded": "1958-01-24"
+      }
+    ],
+    "releases": [],
+    "top_leases": [],
+    "has_competing_top_lease": false
+  },
+  "recommendation": {
+    "recommendation": "NEGOTIATE",
+    "reasons": [
+      "Single critical curative item \u2014 buyable contingent on the seller curing prior to closing or a bonus offset."
+    ],
+    "walkaway_bonus_ceiling_per_ac": 550
+  },
+  "project_id": "county_research_48001",
+  "prepared_by": "FactTrack v0.1.0",
+  "generated_at": "2026-05-14 01:48 UTC"
+}

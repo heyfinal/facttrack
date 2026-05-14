@@ -1,0 +1,86 @@
+{
+  "tract": {
+    "label": "Anderson Co \u2014 Anderson County School Land Survey \u00b7 A-68 \u00b7 122 ac",
+    "abstract_no": "A-68",
+    "survey_name": "ANDERSON COUNTY SCHOOL LAND",
+    "gross_acres": "122",
+    "county_fips": "48001",
+    "county_name": "Anderson"
+  },
+  "leases": [
+    {
+      "instrument": "1957-57564088",
+      "recorded": "1957-12-10",
+      "lessor": "ANICKER MILDRED K",
+      "lessee": "SHELL OIL COMPANY",
+      "royalty": "0.125",
+      "primary_term_end": "\u2014"
+    }
+  ],
+  "current_status": {
+    "status": "Open / no wells",
+    "rationale": "No RRC-indexed wellbores match this tract by name; verify on RRC GIS.",
+    "producing_count": 0,
+    "shutin_count": 0,
+    "inactive_count": 0,
+    "well_count": 0,
+    "primary_operators": [],
+    "last_spud": null
+  },
+  "nri": {
+    "wi_share": 1.0,
+    "lessor_royalty": 0.125,
+    "orri_burden": 0.0,
+    "other_burden": 0.0,
+    "value": 0.875,
+    "value_pct": 87.5,
+    "stack": [
+      {
+        "party": "ANICKER MILDRED K",
+        "kind": "lessor_royalty",
+        "rate": 0.125,
+        "rate_pct": 12.5,
+        "source": "lease 1957-57564088"
+      }
+    ],
+    "notes": []
+  },
+  "curative_scorecard": {
+    "tier": "NONE",
+    "crit_count": 0,
+    "high_count": 0,
+    "medium_count": 0,
+    "items": [],
+    "hours_lo": 0,
+    "hours_hi": 0,
+    "recording_cost": 0
+  },
+  "competitive": {
+    "prior_lessees": [
+      {
+        "instrument": "1957-57564088",
+        "lessee": "SHELL OIL COMPANY",
+        "recorded": "1957-12-10"
+      }
+    ],
+    "releases": [
+      {
+        "instrument": "1969-6934610",
+        "by": "SHELL OIL COMPANY",
+        "recorded": "1969-10-17"
+      }
+    ],
+    "top_leases": [],
+    "has_competing_top_lease": false
+  },
+  "recommendation": {
+    "recommendation": "BUY",
+    "reasons": [
+      "Clean chain, no recorded HBP \u2014 proceed with standard form lease at market bonus."
+    ],
+    "walkaway_bonus_ceiling_per_ac": 750
+  },
+  "project_id": "county_research_48001",
+  "prepared_by": "FactTrack v0.1.0",
+  "generated_at": "2026-05-14 01:48 UTC"
+}
