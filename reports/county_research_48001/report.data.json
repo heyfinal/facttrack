@@ -58,7 +58,7 @@
     ],
     "leases_total": 14,
     "leases_attributed": 13,
-    "wells_formatted": "3,346"
+    "wells_formatted": "4,649"
   },
   "county_fips": "48001",
   "county_name": "Anderson",
@@ -595,7 +595,7 @@
       "survey_name": "C W HANKS",
       "gross_acres": "11.23",
       "lease_count": 1,
-      "well_count": 12,
+      "well_count": 10,
       "finding_count": 0,
       "leases": [
         {
@@ -628,25 +628,9 @@
           "operator": "ATLANTIS OIL COMPANY  INC."
         },
         {
-          "api_no": "TX060013174301",
-          "lease_name": "SHANKS  W. H.",
-          "well_no": "1",
-          "status": "\u2014",
-          "spud_date": "1986-06-12",
-          "operator": "WILSON OPERATING SERVICE INC"
-        },
-        {
           "api_no": "TX060013157104",
           "lease_name": "C. W. HANKS",
           "well_no": "4__",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "\u2014"
-        },
-        {
-          "api_no": "TX060013226801",
-          "lease_name": "SHANKS",
-          "well_no": "1",
           "status": "\u2014",
           "spud_date": "\u2014",
           "operator": "\u2014"
@@ -863,7 +847,7 @@
       "survey_name": "J H GILLESPIE",
       "gross_acres": "96.3",
       "lease_count": 1,
-      "well_count": 27,
+      "well_count": 4,
       "finding_count": 0,
       "leases": [
         {
@@ -888,161 +872,9 @@
           "operator": "VAN METER  JOHN & STOVALL  BOB"
         },
         {
-          "api_no": "TX060010081403",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "3",
-          "status": "\u2014",
-          "spud_date": "2003-04-04",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060010081504",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "4",
-          "status": "\u2014",
-          "spud_date": "2018-04-04",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060010081706",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "6",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060010082009",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "9",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060010082211",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "11",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060010082413",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "13",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060010082514",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "14",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060010082615",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "15",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060013089117",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "17",
-          "status": "\u2014",
-          "spud_date": "1993-08-23",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060013235902",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "2",
-          "status": "\u2014",
-          "spud_date": "2005-02-12",
-          "operator": "CHEVRON U. S. A. INC."
-        },
-        {
-          "api_no": "TX060010082701",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "D1 L",
-          "status": "\u2014",
-          "spud_date": "1964-10-01",
-          "operator": "GETTY OIL CO."
-        },
-        {
-          "api_no": "TX060010081908",
-          "lease_name": "CAMPBELL  J.A.",
-          "well_no": "8",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "CHEVRON U. S. A. INC."
-        },
-        {
-          "api_no": "TX060010057001",
-          "lease_name": "CAMPBELL  MAMIE A.",
-          "well_no": "1",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "NOBLE/CANTRELL EXPLOR.CO.  INC."
-        },
-        {
-          "api_no": "TX060010057102",
-          "lease_name": "CAMPBELL  MAMIE A.",
-          "well_no": "2",
-          "status": "\u2014",
-          "spud_date": "1988-06-06",
-          "operator": "NOBLE/CANTRELL EXPLOR.CO.  INC."
-        },
-        {
-          "api_no": "TX060010057203",
-          "lease_name": "CAMPBELL  MAMIE A.",
-          "well_no": "3",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "NOBLE/CANTRELL EXPLOR.CO.  INC."
-        },
-        {
-          "api_no": "TX060018007907",
-          "lease_name": "CAMPBELL",
-          "well_no": "7",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "FALCON RESOURCES  INC."
-        },
-        {
-          "api_no": "TX060018011301",
-          "lease_name": "AVANT CAMPBELL",
-          "well_no": "1",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "ARCADIA REFINING CO."
-        },
-        {
           "api_no": "TX060018064300",
           "lease_name": "CAMP  JOE JR.",
           "well_no": "A",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "\u2014"
-        },
-        {
-          "api_no": "TX060010056801",
-          "lease_name": "CAMPBELL  W.C.",
-          "well_no": "1__",
-          "status": "\u2014",
-          "spud_date": "\u2014",
-          "operator": "\u2014"
-        },
-        {
-          "api_no": "TX060010056902",
-          "lease_name": "CAMPBELL  W.C.",
-          "well_no": "2__",
           "status": "\u2014",
           "spud_date": "\u2014",
           "operator": "\u2014"
@@ -1062,38 +894,6 @@
           "status": "\u2014",
           "spud_date": "\u2014",
           "operator": "\u2014"
-        },
-        {
-          "api_no": "TX060010068001",
-          "lease_name": "CAMPBELL  C. H.",
-          "well_no": "1D",
-          "status": "SHUT IN",
-          "spud_date": "1950-09-02",
-          "operator": "SWANSON OPERATING  INC."
-        },
-        {
-          "api_no": "TX060010068102",
-          "lease_name": "CAMPBELL  C. H.",
-          "well_no": "2",
-          "status": "PRODUCING",
-          "spud_date": "\u2014",
-          "operator": "SWANSON OPERATING  INC."
-        },
-        {
-          "api_no": "TX060010081201",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "1",
-          "status": "PRODUCING",
-          "spud_date": "\u2014",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
-        },
-        {
-          "api_no": "TX060010081807",
-          "lease_name": "CAMPBELL  J. A.",
-          "well_no": "7",
-          "status": "INJECTION",
-          "spud_date": "\u2014",
-          "operator": "MCGOWAN WORKING PARTNERS  INC."
         }
       ],
       "chain": [
@@ -2235,5 +2035,5 @@
     }
   ],
   "facttrack_version": "0.1.0",
-  "generated_at": "2026-05-13 22:04 UTC"
+  "generated_at": "2026-05-14 00:00 UTC"
 }

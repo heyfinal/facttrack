@@ -204,15 +204,19 @@ def _build_payload(ctx: ProjectContext, findings: list[dict]) -> dict[str, Any]:
         t_leases = ctx.leases_for_tract(t.id)
         t_findings = [f for f in fview if f.get("tract_id") == t.id]
         t_chain = _chain_entries_for_tract(ctx, t)
-        # Wells are county-scoped in load_project; surface every well in the
-        # county on the first tract only would be misleading. Best-effort:
-        # link wells whose lease_name contains a lessor surname from the tract.
+        # Wells are county-scoped in load_project. Best-effort link by matching
+        # the lessor surname against the well's lease_name as a WHOLE WORD —
+        # not a substring (otherwise "HANKS" matches "SHANKS", "CAMP" matches
+        # "CAMPBELL", etc. — a landman catches these in 30 seconds).
+        import re as _re
         t_well_apis: set[str] = set()
         for w in ctx.wells:
             lease_name = (w.lease_name or "").upper()
             for le in t_leases:
                 lessor_lastname = ((le.lessor_text or "").split() or [""])[0].upper()
-                if lessor_lastname and len(lessor_lastname) >= 4 and lessor_lastname in lease_name:
+                if not lessor_lastname or len(lessor_lastname) < 4:
+                    continue
+                if _re.search(rf"\b{_re.escape(lessor_lastname)}\b", lease_name):
                     t_well_apis.add(w.api_no)
                     break
         t_wells = [w for w in ctx.wells if w.api_no in t_well_apis]
@@ -383,6 +387,16 @@ def _build_payload(ctx: ProjectContext, findings: list[dict]) -> dict[str, Any]:
                 "image_path": f"_lease_thumbs/{safe_id}_p1.png",
             })
 
+    # Cover wells count spans both RRC scope counties (Anderson + Houston),
+    # not just the project's OPR scope. The Wells Inventory section is
+    # multi-county; the cover number must match.
+    with cursor() as cur:
+        cur.execute(
+            "SELECT count(*) AS n FROM well WHERE county_fips = ANY(%s)",
+            (rrc_counties,),
+        )
+        wells_total = int((cur.fetchone() or {}).get("n", 0))
+
     return {
         "project": {
             "project_id": ctx.project_id,
@@ -390,7 +404,7 @@ def _build_payload(ctx: ProjectContext, findings: list[dict]) -> dict[str, Any]:
             "tracts": [{"id": t.id, "label": _clean_tract_label(t.label)} for t in ctx.tracts],
             "leases_total": len(ctx.leases) + len(unattributed),
             "leases_attributed": len(ctx.leases),
-            "wells_formatted": f"{len(ctx.wells):,}",
+            "wells_formatted": f"{wells_total:,}",
         },
         "county_fips": county_fips,
         "county_name": county_name,
